@@ -65,12 +65,27 @@
   height: 375px;
 }
 
+.Alert {
+  width: 50%;
+  padding: 0.5rem 0.75rem
+}
+
+.Different {
+  width: 50%;
+  padding: 0.5rem 0.75rem;
+  margin-top: 1rem;
+}
+
 @media (max-width: 540px) {
   .Input {
     width: 70%;
   }
 
   .Header {
+    width: 70%;
+  }
+
+  .Alert {
     width: 70%;
   }
 }
@@ -81,6 +96,10 @@
   }
 
   .Header {
+    width: 90%;
+  }
+
+  .Alert {
     width: 90%;
   }
 
