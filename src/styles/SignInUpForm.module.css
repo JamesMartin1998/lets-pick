@@ -1,0 +1,90 @@
+.Row {
+    height: calc(100vh - 81px);
+    
+  }
+
+.Col {
+  padding: 0!important
+}
+
+.Container {
+    background: url('../assets/signup.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 6rem 0 6rem 4rem;
+}
+
+.Input {
+  background: #ffffff;
+  border: 1px solid #211A1D;
+  box-sizing: border-box;
+  border-radius: 100px;
+  color: #211A1D!important;
+  text-align: center;
+  padding: 10px;
+  width: 50%;
+}
+
+.Input:focus {
+  border: 2px solid #F3D207
+}
+
+.Header {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 3rem;
+  text-align: center;
+  color: #211A1D;
+  width:50%;
+  text-align: center;
+}
+
+.Link {
+  text-decoration: none;
+  text-align: center;
+  /* display: block;
+  margin: auto; */
+  padding: 10px;
+  color: #211A1D;
+}
+
+.Link:hover {
+  color: #211A1D!important;
+}
+
+.Link span {
+  color: red;
+}
+
+.SignInCol {
+  height: 320px;
+}
+
+.SignUpCol {
+  height: 375px;
+}
+
+@media (max-width: 540px) {
+  .Input {
+    width: 70%;
+  }
+
+  .Header {
+    width: 70%;
+  }
+}
+
+@media (max-width: 420px) {
+  .Input {
+    width: 90%;
+  }
+
+  .Header {
+    width: 90%;
+  }
+
+  .Container {
+    padding: 6rem 0 6rem 2rem;
+  }
+}

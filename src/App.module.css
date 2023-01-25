@@ -1,6 +1,6 @@
 .App {
   font-family: "Open Sans", sans-serif;
-  background-color: #211a1d;
+  background-color: #fffff1;
   min-height: 100vh;
 }
 
@@ -13,22 +13,22 @@
 }
 
 a {
-  color: #211A1D;
+  color: #fffff1;
   transition: color ease-in-out 0.3s;
 }
 
 a:hover {
   text-decoration: none;
-  color: #ff8c00;
+  color: #F3D207;
 }
 
 a:hover i {
-  color: #ff8c00;
+  color: #F3D207;
   transition: color ease-in-out 0.3s;
 }
 
 i {
-  color: #211A1D;
+  color: #fffff1;
   font-size: 1.6rem;
   padding: 7px;
   vertical-align: middle;
@@ -37,4 +37,18 @@ i {
 i:hover {
   cursor: pointer;
   transition: color ease-in-out 0.3s;
+}
+
+/* scrollbar */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+*::-webkit-scrollbar-track {
+  background: #fffff1;
+}
+*::-webkit-scrollbar-thumb {
+  background: #888;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
