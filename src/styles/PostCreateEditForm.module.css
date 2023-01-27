@@ -1,0 +1,54 @@
+/* .Container {
+  min-height: 343px;
+} */
+
+.Form {
+  background-color: lightblue;
+  width: 100% !important;
+}
+
+/* .Green {
+    background-color: green;
+    width: 50%;
+} */
+
+.Button {
+  width: 10%;
+}
+
+.Input {
+  background: #ffffff;
+  border: 1px solid #211a1d;
+  box-sizing: border-box;
+  border-radius: 100px;
+  color: #211a1d !important;
+  text-align: center;
+  padding: 10px;
+}
+
+.Content {
+  padding: 15px !important;
+  border-radius: 50px;
+}
+
+.Input:focus {
+  border: 2px solid #f3d207;
+}
+
+/*  */
+
+/* .Col {
+  padding: 0 !important;
+}
+
+.Input {
+    width: 50%;
+}
+
+.Container {
+    background: url('../assets/signup.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 6rem 0 6rem 4rem;
+}
+ */
