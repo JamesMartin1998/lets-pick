@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
@@ -6,31 +6,17 @@ import { NavLink } from "react-router-dom";
 import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
 import axios from "axios";
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
-  const [expanded, setExpanded] = useState(false);
+  const {expanded, setExpanded, ref} = useClickOutsideToggle();
 
-  const ref = useRef(null);
-
-  // if user clicks a nav link or off the toggle button, the dropdown will close
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
-        setExpanded(false)
-      }
-    }
-    document.addEventListener('mouseup', handleClickOutside)
-    return () => {
-      document.removeEventListener('mouseup', handleClickOutside)
-    }
-  }, [ref])
-
-  const handleSignOut =  async (event) => {
+  const handleSignOut = async () => {
     try {
-      axios.post('dj-rest-auth/logout/')
+      await axios.post('dj-rest-auth/logout/')
       setCurrentUser(null);
     } catch(err) {
       console.log(err)
