@@ -34,14 +34,21 @@ function PostCreateForm() {
   };
 
   const handleChangeImage = (event) => {
-    if (event.target.files.length){
-        URL.revokeObjectURL(image);
-        setPostData({
-            ...postData,
-            image: URL.createObjectURL(event.target.files[0]),
-        })
+    if (event.target.files.length) {
+      URL.revokeObjectURL(image);
+      setPostData({
+        ...postData,
+        image: URL.createObjectURL(event.target.files[0]),
+      });
     }
-  }
+  };
+
+  const handleChangeCategory = (event) => {
+    setPostData({
+      ...postData,
+      category: event.target.value,
+    });
+  };
 
   return (
     <Form className={styles.Form}>
@@ -50,14 +57,14 @@ function PostCreateForm() {
           <Container className={styles.Green}>
             <Form.Group>
               <Form.Label className="d-none">Title</Form.Label>
-              <Form.Control 
+              <Form.Control
                 type="text"
                 name="title"
                 placeholder="Title"
                 value={title}
                 onChange={handleChange}
                 className={styles.Input}
-                />
+              />
             </Form.Group>
           </Container>
         </Col>
@@ -70,9 +77,12 @@ function PostCreateForm() {
               <Form.Control
                 as="select"
                 value={category}
-                onChange={handleChange}
+                onChange={handleChangeCategory}
                 className={styles.Input}
-                >
+              >
+                <option defaultValue disabled>
+                  Select Category
+                </option>
                 <option value="sport">Sport</option>
                 <option value="people">People</option>
                 <option value="places">Places</option>
@@ -90,27 +100,37 @@ function PostCreateForm() {
         <Col className={styles.Red} md={{ span: 6, offset: 3 }}>
           <Container className={styles.Green}>
             <Form.Group className="text-center">
-                {image ? (
-                    <>
-                        <figure>
-                            <Image className={appStyles.Image} src={image} rounded />
-                        </figure>
-                        <div>
-                            <Form.Label className={`${btnStyles.Button} ${btnStyles.Yellow} btn`} htmlFor="image-upload">
-                                Change the image
-                            </Form.Label>
-                        </div>
-                    </>
-                ) : (
+              {image ? (
+                <>
+                  <figure>
+                    <Image className={appStyles.Image} src={image} rounded />
+                  </figure>
+                  <div>
                     <Form.Label
-                className="d-flex justify-content-center"
-                htmlFor="image-upload"
-              >
-                <Asset src={Upload} message="Click or tap to upload an image" />
-              </Form.Label>
-                )}
-              
-              <Form.File id="image-upload" accept="image/*" onChange={handleChangeImage} />
+                      className={`${btnStyles.Button} ${btnStyles.Yellow} btn`}
+                      htmlFor="image-upload"
+                    >
+                      Change the image
+                    </Form.Label>
+                  </div>
+                </>
+              ) : (
+                <Form.Label
+                  className="d-flex justify-content-center"
+                  htmlFor="image-upload"
+                >
+                  <Asset
+                    src={Upload}
+                    message="Click or tap to upload an image"
+                  />
+                </Form.Label>
+              )}
+
+              <Form.File
+                id="image-upload"
+                accept="image/*"
+                onChange={handleChangeImage}
+              />
             </Form.Group>
           </Container>
         </Col>
@@ -155,7 +175,8 @@ function PostCreateForm() {
   );
 }
 
-{/* <Form className={styles.Form}>
+{
+  /* <Form className={styles.Form}>
       <Row>
         <Col
             className={`${styles.Col} my-auto mr-10 py-10 p-md-2`}
@@ -269,6 +290,7 @@ function PostCreateForm() {
       </Row>
     </Form>
   );
-} */}
+} */
+}
 
 export default PostCreateForm;
