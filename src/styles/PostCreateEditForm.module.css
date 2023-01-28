@@ -3,8 +3,10 @@
 } */
 
 .Form {
-  background-color: lightblue;
-  width: 100% !important;
+  background-color: #AFCBD6;
+  width: 60% !important;
+  margin: 3rem 20% 3rem 20%;
+  border-radius: 50px;
 }
 
 /* .Green {
@@ -13,7 +15,7 @@
 } */
 
 .Button {
-  width: 10%;
+  width: 20%;
 }
 
 .Input {
@@ -24,6 +26,23 @@
   color: #211a1d !important;
   text-align: center;
   padding: 10px;
+  width:80%;
+  margin-left: 10%;
+}
+
+.Category {
+  height: 2.5rem;
+}
+
+.Label {
+  width:20%;
+  margin-left: 40%;
+  text-align: center;
+}
+
+.File {
+  width: 50%;
+  margin-left: 25%;
 }
 
 .Content {
@@ -35,20 +54,33 @@
   border: 2px solid #f3d207;
 }
 
-/*  */
 
-/* .Col {
-  padding: 0 !important;
+@media (max-width: 991.5px) {
+  .File {
+    width:80%;
+    margin-left: 10%;
+  }
 }
 
-.Input {
-    width: 50%;
+@media (max-width: 767.5px) {
+  .Form {
+    width: 100%!important;
+    margin: 3rem 0 3rem 0;
+  }
+
+  .Input {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .Button {
+    width: 30%;
+  }
 }
 
-.Container {
-    background: url('../assets/signup.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 6rem 0 6rem 4rem;
+@media (max-width: 330px) {
+  .File {
+    width: 100%;
+    margin-left: 0%;
+  }
 }
- */

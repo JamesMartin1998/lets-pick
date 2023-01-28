@@ -53,8 +53,8 @@ function PostCreateForm() {
   return (
     <Form className={styles.Form}>
       <Row>
-        <Col className={`${styles.Red} pt-3`} md={{ span: 6, offset: 3 }}>
-          <Container className={styles.Green}>
+        <Col className="pt-3">
+          <Container>
             <Form.Group>
               <Form.Label className="d-none">Title</Form.Label>
               <Form.Control
@@ -70,15 +70,15 @@ function PostCreateForm() {
         </Col>
       </Row>
       <Row>
-        <Col className={styles.Red} md={{ span: 6, offset: 3 }}>
-          <Container className={styles.Green}>
+        <Col className="pt-3">
+          <Container>
             <Form.Group controlId="category">
-              <Form.Label>Category</Form.Label>
+              <Form.Label className={styles.Label}>Category</Form.Label>
               <Form.Control
                 as="select"
                 value={category}
                 onChange={handleChangeCategory}
-                className={styles.Input}
+                className={`${styles.Input} ${styles.Category}`}
               >
                 <option defaultValue disabled>
                   Select Category
@@ -97,8 +97,8 @@ function PostCreateForm() {
         </Col>
       </Row>
       <Row>
-        <Col className={styles.Red} md={{ span: 6, offset: 3 }}>
-          <Container className={styles.Green}>
+        <Col className="pt-3">
+          <Container>
             <Form.Group className="text-center">
               {image ? (
                 <>
@@ -126,7 +126,8 @@ function PostCreateForm() {
                 </Form.Label>
               )}
 
-              <Form.File
+              <Form.File 
+                className={styles.File}
                 id="image-upload"
                 accept="image/*"
                 onChange={handleChangeImage}
@@ -136,8 +137,8 @@ function PostCreateForm() {
         </Col>
       </Row>
       <Row>
-        <Col md={{ span: 6, offset: 3 }}>
-          <Container className={styles.Green}>
+        <Col className="pt-3">
+          <Container>
             <Form.Group>
               <Form.Label className="d-none">Content</Form.Label>
               <Form.Control
