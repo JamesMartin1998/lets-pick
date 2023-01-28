@@ -1,18 +1,9 @@
-/* .Container {
-  min-height: 343px;
-} */
-
 .Form {
-  background-color: #AFCBD6;
+  background-color: #afcbd6;
   width: 60% !important;
   margin: 3rem 20% 3rem 20%;
   border-radius: 50px;
 }
-
-/* .Green {
-    background-color: green;
-    width: 50%;
-} */
 
 .Button {
   width: 20%;
@@ -26,7 +17,12 @@
   color: #211a1d !important;
   text-align: center;
   padding: 10px;
-  width:80%;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.Alert {
+  width: 80%;
   margin-left: 10%;
 }
 
@@ -35,7 +31,7 @@
 }
 
 .Label {
-  width:20%;
+  width: 20%;
   margin-left: 40%;
   text-align: center;
 }
@@ -54,21 +50,25 @@
   border: 2px solid #f3d207;
 }
 
-
 @media (max-width: 991.5px) {
   .File {
-    width:80%;
+    width: 80%;
     margin-left: 10%;
   }
 }
 
 @media (max-width: 767.5px) {
   .Form {
-    width: 100%!important;
+    width: 100% !important;
     margin: 3rem 0 3rem 0;
   }
 
   .Input {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .Alert {
     width: 90%;
     margin-left: 5%;
   }
