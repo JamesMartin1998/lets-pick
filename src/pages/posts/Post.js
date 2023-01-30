@@ -32,7 +32,7 @@ const Post = (props) => {
     <Card className={styles.Post}>
       <Card.Body>
         <Media className="align-items-center justify-content-between">
-          <Link to={`/profiles/${profiles_id}`}>
+          <Link className={styles.Author} to={`/profiles/${profiles_id}`}>
             <Avatar src={profile_image} height={55} />
             {author}
           </Link>
@@ -50,7 +50,7 @@ const Post = (props) => {
         {content && <Card.Text>{content}</Card.Text>}
         <div className={styles.PostBar}>
           <Link to={`/posts/${id}`}>
-            <i className="far fa-comments" />
+            <i className={`${styles.CommentIcon} far fa-comments`} />
           </Link>
           {comments_count}
           {is_author ? (
@@ -59,36 +59,36 @@ const Post = (props) => {
                 placement="top"
                 overlay={<Tooltip>You can't vote on your own post</Tooltip>}
               >
-                <i className={`fas fa-heart ${styles.Heart}`} />
+                <i className={`fa-solid fa-circle-check ${styles.VoteIcon}`} />
               </OverlayTrigger>
               {option1_count}
               <OverlayTrigger
                 placement="top"
                 overlay={<Tooltip>You can't vote on your own post</Tooltip>}
               >
-                <i className={`fas fa-heart ${styles.Heart}`} />
+                <i className={`fa-solid fa-circle-check ${styles.VoteIcon}`} />
               </OverlayTrigger>
               {option2_count}
             </>
           ) : vote_id ? (
             <>
               <span onClick={() => {}}>
-                <i className={`fas fa-heart ${styles.Heart}`} />
+                <i className={`fa-solid fa-circle-check ${styles.VoteIcon}`} />
               </span>
               {option1_count}
               <span onClick={() => {}}>
-                <i className={`fas fa-heart ${styles.Heart}`} />
+                <i className={`fa-solid fa-circle-check ${styles.VoteIcon}`} />
               </span>
               {option2_count}
             </>
           ) : currentUser ? (
             <>
               <span onClick={() => {}}>
-                <i className={`far fa-heart ${styles.HeartOutline}`} />
+                <i className={`fa-solid fa-circle-check ${styles.VoteIcon}`} />
               </span>
               {option1_count}
               <span onClick={() => {}}>
-                <i className={`far fa-heart ${styles.HeartOutline}`} />
+                <i className={`fa-solid fa-circle-check ${styles.VoteIcon}`} />
               </span>
               {option2_count}
             </>
@@ -98,14 +98,14 @@ const Post = (props) => {
                 placement="top"
                 overlay={<Tooltip>Log in to vote on posts</Tooltip>}
               >
-                <i className="far fa-heart" />
+                <i className="fa-solid fa-circle-check" />
               </OverlayTrigger>
               {option1_count}
               <OverlayTrigger
                 placement="top"
                 overlay={<Tooltip>Log in to vote on posts</Tooltip>}
               >
-                <i className="far fa-heart" />
+                <i className="fa-solid fa-circle-check" />
               </OverlayTrigger>
               {option2_count}
             </>
