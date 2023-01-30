@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/Post.module.css";
 import Avatar from "../../components/Avatar";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Post = (props) => {
   const {
@@ -23,10 +24,29 @@ const Post = (props) => {
     option1_count,
     option2_count,
     postPage,
+    setPosts
   } = props;
 
   const currentUser = useCurrentUser();
   const is_author = currentUser?.username === author;
+
+
+  const handleOption1Vote = async () => {
+    try {
+        const {data} = await axiosRes.post('/votes/', {post: id, option: 'option1'})
+        setPosts((prevPosts) => ({
+            ...prevPosts,
+            results: prevPosts.results.map((post) => {
+                return post.id === id
+                ? {...post, votes_count: post.votes_count+1, vote_id: data.id, option1_count: post.option1_count+1}
+                : post
+            })
+        }))
+    } catch(err) {
+        console.log(err)
+    }
+  }
+
 
   return (
     <Card className={styles.Post}>
@@ -83,7 +103,7 @@ const Post = (props) => {
             </>
           ) : currentUser ? (
             <>
-              <span onClick={() => {}}>
+              <span onClick={handleOption1Vote}>
                 <i className={`fa-solid fa-circle-check ${styles.VoteIcon}`} />
               </span>
               {option1_count}
