@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/Post.module.css";
 import Avatar from "../../components/Avatar";
-import { axiosRes } from "../../api/axiosDefaults";
+import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 
 const Post = (props) => {
   const {
@@ -24,45 +24,117 @@ const Post = (props) => {
     option1_count,
     option2_count,
     postPage,
-    setPosts
+    setPosts,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_author = currentUser?.username === author;
 
-
   const handleOption1Vote = async () => {
     try {
-        const {data} = await axiosRes.post('/votes/', {post: id, option: 'option1'})
-        setPosts((prevPosts) => ({
-            ...prevPosts,
-            results: prevPosts.results.map((post) => {
-                return post.id === id
-                ? {...post, votes_count: post.votes_count+1, vote_id: data.id, option1_count: post.option1_count+1}
-                : post
-            })
-        }))
-    } catch(err) {
-        console.log(err)
+      const { data } = await axiosRes.post("/votes/", {
+        post: id,
+        option: "option1",
+      });
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? {
+                ...post,
+                votes_count: post.votes_count + 1,
+                vote_id: data.id,
+                option1_count: post.option1_count + 1,
+              }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
     }
-  }
+  };
 
   const handleOption2Vote = async () => {
     try {
-        const {data} = await axiosRes.post('/votes/', {post: id, option: 'option2'})
-        setPosts((prevPosts) => ({
-            ...prevPosts,
-            results: prevPosts.results.map((post) => {
-                return post.id === id
-                ? {...post, votes_count: post.votes_count+1, vote_id: data.id, option2_count: post.option2_count+1}
-                : post
-            })
-        }))
-    } catch(err) {
-        console.log(err)
+      const { data } = await axiosRes.post("/votes/", {
+        post: id,
+        option: "option2",
+      });
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? {
+                ...post,
+                votes_count: post.votes_count + 1,
+                vote_id: data.id,
+                option2_count: post.option2_count + 1,
+              }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
     }
-  }
+  };
 
+  const handleRemoveOption1Vote = async () => {
+    // allows users to remove a vote if they voted for option 1
+    try {
+      // needed to to make a get request first so users can't decrement 
+      // the the option count for the opposite vote option
+      const { data } = await axiosRes.get(`/votes/${vote_id}/`);
+      console.log(data);
+      console.log(data.option);
+      if (data.option === "option1") {
+        await axiosRes.delete(`/votes/${vote_id}/`);
+        setPosts((prevPosts) => ({
+          ...prevPosts,
+          results: prevPosts.results.map((post) => {
+            return post.id === id
+              ? {
+                  ...post,
+                  votes_count: post.votes_count - 1,
+                  vote_id: null,
+                  option1_count: post.option1_count - 1,
+                }
+              : post;
+          }),
+        }));
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleRemoveOption2Vote = async () => {
+    // allows users to remove a vote if they voted for option 2
+    try {
+      // needed to to make a get request first so users can't decrement 
+      // the the option count for the opposite vote option
+      const { data } = await axiosRes.get(`/votes/${vote_id}/`);
+      console.log(data);
+      console.log(data.option);
+      if (data.option === "option2") {
+        await axiosRes.delete(`/votes/${vote_id}/`);
+        setPosts((prevPosts) => ({
+          ...prevPosts,
+          results: prevPosts.results.map((post) => {
+            return post.id === id
+              ? {
+                  ...post,
+                  votes_count: post.votes_count - 1,
+                  vote_id: null,
+                  option2_count: post.option2_count - 1,
+                }
+              : post;
+          }),
+        }));
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <Card className={styles.Post}>
@@ -108,11 +180,11 @@ const Post = (props) => {
             </>
           ) : vote_id ? (
             <>
-              <span onClick={() => {}}>
+              <span onClick={handleRemoveOption1Vote}>
                 <i className={`fa-solid fa-circle-check ${styles.VoteIcon}`} />
               </span>
               {option1_count}
-              <span onClick={() => {}}>
+              <span onClick={handleRemoveOption2Vote}>
                 <i className={`fa-solid fa-circle-check ${styles.VoteIcon}`} />
               </span>
               {option2_count}
