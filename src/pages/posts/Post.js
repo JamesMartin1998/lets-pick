@@ -47,6 +47,22 @@ const Post = (props) => {
     }
   }
 
+  const handleOption2Vote = async () => {
+    try {
+        const {data} = await axiosRes.post('/votes/', {post: id, option: 'option2'})
+        setPosts((prevPosts) => ({
+            ...prevPosts,
+            results: prevPosts.results.map((post) => {
+                return post.id === id
+                ? {...post, votes_count: post.votes_count+1, vote_id: data.id, option2_count: post.option2_count+1}
+                : post
+            })
+        }))
+    } catch(err) {
+        console.log(err)
+    }
+  }
+
 
   return (
     <Card className={styles.Post}>
@@ -107,7 +123,7 @@ const Post = (props) => {
                 <i className={`fa-solid fa-circle-check ${styles.VoteIcon}`} />
               </span>
               {option1_count}
-              <span onClick={() => {}}>
+              <span onClick={handleOption2Vote}>
                 <i className={`fa-solid fa-circle-check ${styles.VoteIcon}`} />
               </span>
               {option2_count}
