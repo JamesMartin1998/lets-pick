@@ -81,7 +81,7 @@ const Post = (props) => {
   const handleRemoveOption1Vote = async () => {
     // allows users to remove a vote if they voted for option 1
     try {
-      // needed to to make a get request first so users can't decrement 
+      // needed to to make a get request first so users can't decrement
       // the the option count for the opposite vote option
       const { data } = await axiosRes.get(`/votes/${vote_id}/`);
       console.log(data);
@@ -110,7 +110,7 @@ const Post = (props) => {
   const handleRemoveOption2Vote = async () => {
     // allows users to remove a vote if they voted for option 2
     try {
-      // needed to to make a get request first so users can't decrement 
+      // needed to to make a get request first so users can't decrement
       // the the option count for the opposite vote option
       const { data } = await axiosRes.get(`/votes/${vote_id}/`);
       console.log(data);
@@ -131,6 +131,48 @@ const Post = (props) => {
           }),
         }));
       }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleFavourite = async () => {
+    // Users can favourite a post
+    try {
+      const { data } = await axiosRes.post("/favourites/", {
+        post: id
+      });
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? {
+                ...post,
+                favourite_id: data.id
+              }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleRemoveFavourite = async () => {
+    // Users can remove a favourite from a post
+    try {
+      await axiosRes.delete(`/favourites/${favourite_id}/`);
+        setPosts((prevPosts) => ({
+          ...prevPosts,
+          results: prevPosts.results.map((post) => {
+            return post.id === id
+              ? {
+                  ...post,
+                  favourite_id: null,
+                }
+              : post;
+          }),
+        })); 
     } catch (err) {
       console.log(err);
     }
@@ -161,6 +203,8 @@ const Post = (props) => {
             <i className={`${styles.CommentIcon} far fa-comments`} />
           </Link>
           {comments_count}
+
+          {/* Vote button rendering */}
           {is_author ? (
             <>
               <OverlayTrigger
@@ -206,17 +250,51 @@ const Post = (props) => {
                 placement="top"
                 overlay={<Tooltip>Log in to vote on posts</Tooltip>}
               >
-                <i className="fa-solid fa-circle-check" />
+                <i className={`fa-solid fa-circle-check ${styles.VoteIcon}`} />
               </OverlayTrigger>
               {option1_count}
               <OverlayTrigger
                 placement="top"
                 overlay={<Tooltip>Log in to vote on posts</Tooltip>}
               >
-                <i className="fa-solid fa-circle-check" />
+                <i className={`fa-solid fa-circle-check ${styles.VoteIcon}`} />
               </OverlayTrigger>
               {option2_count}
             </>
+          )}
+
+          {/* Favourite button rendering */}
+          {is_author ? (
+            <>
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip>You can't favourite your own post</Tooltip>}
+              >
+                <i className={`fa-solid fa-star ${styles.FavouriteIcon}`} />
+              </OverlayTrigger>
+            </>
+          ) : favourite_id ? (
+              <>
+                <span onClick={handleRemoveFavourite}>
+                <i className={`fa-solid fa-star ${styles.FavouriteIcon}`} />
+              </span>
+              </>
+            
+          ) : currentUser ? (
+            <>
+              <span onClick={handleFavourite}>
+                <i className={`fa-solid fa-star ${styles.FavouriteIcon}`} />
+              </span>
+            </>
+          ) : (
+            <>
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip>Log in to favourite posts</Tooltip>}
+              >
+                <i className={`fa-solid fa-star ${styles.FavouriteIcon}`} />
+              </OverlayTrigger>
+            </> 
           )}
         </div>
       </Card.Body>

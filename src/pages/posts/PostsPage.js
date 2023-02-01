@@ -34,7 +34,7 @@ function PostsPage({message, filter=""}) {
     }
     setHasLoaded(false)
     fetchPosts()
-  }, [filter, pathname])
+  }, [filter, pathname,])
   
   return (
     <Row className="h-100">
