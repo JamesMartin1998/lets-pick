@@ -1,6 +1,7 @@
 .SearchBar {
   width: 70%;
   margin-left: 15%;
+  margin-top: 1rem;
 }
 
 
@@ -21,4 +22,18 @@
 .SearchIcon:hover {
   cursor: default;
   color: #cfced3;
+}
+
+@media (max-width: 767.5px) {
+  .SearchBar {
+    width: 100%;
+    margin-left: 0%;
+  }
+}
+
+@media (max-width: 575.5px) {
+  .SearchBar {
+    width: 90%;
+    margin-left: 5%;
+  }
 }

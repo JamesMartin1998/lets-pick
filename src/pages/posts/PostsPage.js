@@ -33,6 +33,7 @@ function PostsPage({ message, filter = "" }) {
       }
     };
     setHasLoaded(false);
+    // timer provides better UX as the posts don't update on every key stroke
     const timer = setTimeout(() => {
       fetchPosts();
     }, 1000);
