@@ -279,7 +279,7 @@ const Post = (props) => {
                 placement="top"
                 overlay={<Tooltip>You can't favourite your own post</Tooltip>}
               >
-                <i className={`fa-solid fa-star ${styles.FavouriteIcon}`} />
+                <i className={`fa-regular fa-star ${styles.FavouriteIcon}`} />
               </OverlayTrigger>
             </>
           ) : favourite_id ? (
@@ -292,7 +292,7 @@ const Post = (props) => {
           ) : currentUser ? (
             <>
               <span onClick={handleFavourite}>
-                <i className={`fa-solid fa-star ${styles.FavouriteIcon}`} />
+                <i className={`fa-regular fa-star ${styles.FavouriteIcon}`} />
               </span>
             </>
           ) : (
@@ -301,7 +301,7 @@ const Post = (props) => {
                 placement="top"
                 overlay={<Tooltip>Log in to favourite posts</Tooltip>}
               >
-                <i className={`fa-solid fa-star ${styles.FavouriteIcon}`} />
+                <i className={`fa-regular fa-star ${styles.FavouriteIcon}`} />
               </OverlayTrigger>
             </> 
           )}

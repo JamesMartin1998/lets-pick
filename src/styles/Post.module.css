@@ -17,6 +17,10 @@ h5 {
   color: #F3D207;
 }
 
+.VoteIcon:hover, .CommentIcon:hover, .FavouriteIcon:hover {
+  color: red;
+}
+
 .Author {
   color: black;
 }
