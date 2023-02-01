@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -30,6 +30,11 @@ const Post = (props) => {
   const currentUser = useCurrentUser();
   const is_author = currentUser?.username === author;
 
+  // store the font awesome classname in state so that I can have different icons depending on each options state
+  // e.g. prevents both buttons changing icon class together when a vote is registered on a post
+  const [voteOption1Icon, setVoteOption1Icon] = useState("fa-regular fa-circle-check");
+  const [voteOption2Icon, setVoteOption2Icon] = useState("fa-regular fa-circle-check");
+
   const handleOption1Vote = async () => {
     try {
       const { data } = await axiosRes.post("/votes/", {
@@ -49,6 +54,7 @@ const Post = (props) => {
             : post;
         }),
       }));
+      setVoteOption1Icon('fa-solid fa-circle-check')
     } catch (err) {
       console.log(err);
     }
@@ -73,6 +79,7 @@ const Post = (props) => {
             : post;
         }),
       }));
+      setVoteOption2Icon('fa-solid fa-circle-check')
     } catch (err) {
       console.log(err);
     }
@@ -101,6 +108,7 @@ const Post = (props) => {
               : post;
           }),
         }));
+        setVoteOption1Icon('fa-regular fa-circle-check')
       }
     } catch (err) {
       console.log(err);
@@ -130,6 +138,7 @@ const Post = (props) => {
               : post;
           }),
         }));
+        setVoteOption2Icon('fa-regular fa-circle-check')
       }
     } catch (err) {
       console.log(err);
@@ -211,36 +220,36 @@ const Post = (props) => {
                 placement="top"
                 overlay={<Tooltip>You can't vote on your own post</Tooltip>}
               >
-                <i className={`fa-solid fa-circle-check ${styles.VoteIcon}`} />
+                <i className={`fa-regular fa-circle-check ${styles.VoteIcon}`} />
               </OverlayTrigger>
               {option1_count}
               <OverlayTrigger
                 placement="top"
                 overlay={<Tooltip>You can't vote on your own post</Tooltip>}
               >
-                <i className={`fa-solid fa-circle-check ${styles.VoteIcon}`} />
+                <i className={`fa-regular fa-circle-check ${styles.VoteIcon}`} />
               </OverlayTrigger>
               {option2_count}
             </>
           ) : vote_id ? (
             <>
               <span onClick={handleRemoveOption1Vote}>
-                <i className={`fa-solid fa-circle-check ${styles.VoteIcon}`} />
+                <i className={`${voteOption1Icon} ${styles.VoteIcon}`} />
               </span>
               {option1_count}
               <span onClick={handleRemoveOption2Vote}>
-                <i className={`fa-solid fa-circle-check ${styles.VoteIcon}`} />
+                <i className={`${voteOption2Icon} ${styles.VoteIcon}`} />
               </span>
               {option2_count}
             </>
           ) : currentUser ? (
             <>
               <span onClick={handleOption1Vote}>
-                <i className={`fa-solid fa-circle-check ${styles.VoteIcon}`} />
+                <i className={`fa-regular fa-circle-check ${styles.VoteIcon}`} />
               </span>
               {option1_count}
               <span onClick={handleOption2Vote}>
-                <i className={`fa-solid fa-circle-check ${styles.VoteIcon}`} />
+                <i className={`fa-regular fa-circle-check ${styles.VoteIcon}`} />
               </span>
               {option2_count}
             </>
@@ -250,14 +259,14 @@ const Post = (props) => {
                 placement="top"
                 overlay={<Tooltip>Log in to vote on posts</Tooltip>}
               >
-                <i className={`fa-solid fa-circle-check ${styles.VoteIcon}`} />
+                <i className={`fa-regular fa-circle-check ${styles.VoteIcon}`} />
               </OverlayTrigger>
               {option1_count}
               <OverlayTrigger
                 placement="top"
                 overlay={<Tooltip>Log in to vote on posts</Tooltip>}
               >
-                <i className={`fa-solid fa-circle-check ${styles.VoteIcon}`} />
+                <i className={`fa-regular fa-circle-check ${styles.VoteIcon}`} />
               </OverlayTrigger>
               {option2_count}
             </>
