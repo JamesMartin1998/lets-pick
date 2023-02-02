@@ -83,6 +83,7 @@ function PostsPage({ message, filter = "" }) {
             onSelect={handleCategoryChange}
           >
             <Dropdown.Item eventKey="">All</Dropdown.Item>
+            <Dropdown.Divider />
             <Dropdown.Item eventKey="sport">Sport</Dropdown.Item>
             <Dropdown.Item eventKey="people">People</Dropdown.Item>
             <Dropdown.Item eventKey="places">Places</Dropdown.Item>
@@ -91,8 +92,6 @@ function PostsPage({ message, filter = "" }) {
             <Dropdown.Item eventKey="fashion">Fashion</Dropdown.Item>
             <Dropdown.Item eventKey="animals">Animals</Dropdown.Item>
             <Dropdown.Item eventKey="other">Other</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item eventKey="some link">some link</Dropdown.Item>
           </DropdownButton>
         </Col>
       </Row>

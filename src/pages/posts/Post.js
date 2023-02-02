@@ -5,6 +5,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/Post.module.css";
 import Avatar from "../../components/Avatar";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
+import { MoreDropdown } from "../../components/MoreDropdown";
 
 const Post = (props) => {
   const {
@@ -197,7 +198,7 @@ const Post = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_author && postPage && "..."}
+            {is_author && postPage && <MoreDropdown />}
           </div>
         </Media>
       </Card.Body>
