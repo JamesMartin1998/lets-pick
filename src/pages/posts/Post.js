@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/Post.module.css";
 import Avatar from "../../components/Avatar";
@@ -30,6 +30,20 @@ const Post = (props) => {
 
   const currentUser = useCurrentUser();
   const is_author = currentUser?.username === author;
+  const history = useHistory();
+
+  const handleEdit = () => {
+    history.push(`/posts/${id}/edit`)
+  }
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/posts/${id}/`)
+      history.goBack()
+    } catch(err) {
+      console.log(err)
+    }
+  }
 
   // store the font awesome classname in state so that I can have different icons depending on each options state
   // e.g. prevents both buttons changing icon class together when a vote is registered on a post
@@ -198,7 +212,7 @@ const Post = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_author && postPage && <MoreDropdown />}
+            {is_author && postPage && <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />}
           </div>
         </Media>
       </Card.Body>

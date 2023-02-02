@@ -2,8 +2,6 @@ import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/MoreDropdown.module.css";
 
-// The forwardRef is important!!
-// Dropdown needs access to the DOM node in order to position the Menu
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   <i
     className="fas fa-ellipsis-v"
@@ -15,20 +13,20 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
-export const MoreDropdown = () => {
+export const MoreDropdown = ({handleEdit, handleDelete}) => {
   return (
     <Dropdown className={`${styles.Dropdown} ml-auto drop`} drop="left">
       <Dropdown.Toggle as={ThreeDots} />
 
       <Dropdown.Menu className="text-center">
         <Dropdown.Item className={styles.DropdownItem}
-        onClick={() => {}}
+        onClick={handleEdit}
         aria-label="edit"
         >
             <i className="fas fa-edit" />
         </Dropdown.Item>
         <Dropdown.Item className={styles.DropdownItem} 
-        onClick={() => {}}
+        onClick={handleDelete}
         aria-label="delete"
         >
             <i className="fas fa-trash-alt" />
