@@ -4,6 +4,8 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import Dropdown from "react-bootstrap/Dropdown";
 
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
@@ -22,12 +24,23 @@ function PostsPage({ message, filter = "" }) {
   const { pathname } = useLocation();
   const [query, setQuery] = useState("");
 
+  const [category, setCategory] = useState("");
+
+  // allows users to only see posts of a selected category
+  const handleCategoryChange = (event) => {
+    console.log("working");
+    console.log(event);
+    setCategory(`category=${event}`);
+  };
+
   useEffect(() => {
     // different posts will be fetched on the home page, your votes page and favoruites page
     // due to the filter prop
     const fetchPosts = async () => {
       try {
-        const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
+        const { data } = await axiosReq.get(
+          `/posts/?${filter}&${category}&search=${query}`
+        );
         setPosts(data);
         setHasLoaded(true);
       } catch (err) {
@@ -42,49 +55,74 @@ function PostsPage({ message, filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, pathname, query]);
+  }, [filter, pathname, query, category]);
 
   return (
-    <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2" lg={12}>
-        <i className={`fas fa-search ${styles.SearchIcon}`} />
-        <Form
-          className={`${styles.SearchBar}`}
-          onSubmit={(event) => event.preventDefault()}
-        >
-          <Form.Control
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            type="text"
-            className="mr-sm-2"
-            placeholder="Search Posts"
-          />
-        </Form>
-
-        {hasLoaded ? (
-          <>
-            {posts.results.length ? (
-              <InfiniteScroll
-                children={posts.results.map((post) => (
-                  <Post key={post.id} {...post} setPosts={setPosts} />
-                ))
-              }
-              dataLength={posts.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!posts.next}
-              next={() => fetchMoreData(posts, setPosts)}
-              />
-            ) : (
-              <Container>
-                <Asset src={NoResults} message={message} />
-              </Container>
-            )}
-          </>
-        ) : (
-          <Asset spinner />
-        )}
-      </Col>
-    </Row>
+    <Container>
+      <Row>
+        <Col className="py-2 p-0 p-lg-2">
+          <i className={`fas fa-search ${styles.SearchIcon}`} />
+          <Form
+            className={`${styles.SearchBar}`}
+            onSubmit={(event) => event.preventDefault()}
+          >
+            <Form.Control
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              type="text"
+              className="mr-sm-2"
+              placeholder="Search Posts"
+            />
+          </Form>
+        </Col>
+        <Col>
+        {/* Code for dropdown based on code from https://www.pluralsight.com/guides/how-to-capture-the-value-of-dropdown-lists-with-react-bootstrap */}
+          <DropdownButton
+            alignRight
+            title="Dropdown right"
+            id="dropdown-menu-align-right"
+            onSelect={handleCategoryChange}
+          >
+            <Dropdown.Item eventKey="">All</Dropdown.Item>
+            <Dropdown.Item eventKey="sport">Sport</Dropdown.Item>
+            <Dropdown.Item eventKey="people">People</Dropdown.Item>
+            <Dropdown.Item eventKey="places">Places</Dropdown.Item>
+            <Dropdown.Item eventKey="food">Food</Dropdown.Item>
+            <Dropdown.Item eventKey="entertainment">Entertainment</Dropdown.Item>
+            <Dropdown.Item eventKey="fashion">Fashion</Dropdown.Item>
+            <Dropdown.Item eventKey="animals">Animals</Dropdown.Item>
+            <Dropdown.Item eventKey="other">Other</Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item eventKey="some link">some link</Dropdown.Item>
+          </DropdownButton>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          {hasLoaded ? (
+            <>
+              {posts.results.length ? (
+                <InfiniteScroll
+                  children={posts.results.map((post) => (
+                    <Post key={post.id} {...post} setPosts={setPosts} />
+                  ))}
+                  dataLength={posts.results.length}
+                  loader={<Asset spinner />}
+                  hasMore={!!posts.next}
+                  next={() => fetchMoreData(posts, setPosts)}
+                />
+              ) : (
+                <Container>
+                  <Asset src={NoResults} message={message} />
+                </Container>
+              )}
+            </>
+          ) : (
+            <Asset spinner />
+          )}
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
