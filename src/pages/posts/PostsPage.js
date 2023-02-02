@@ -59,8 +59,8 @@ function PostsPage({ message, filter = "" }) {
 
   return (
     <Container>
-      <Row>
-        <Col className="py-2 p-0 p-lg-2">
+      <Row className={styles.Row}>
+        <Col>
           <i className={`fas fa-search ${styles.SearchIcon}`} />
           <Form
             className={`${styles.SearchBar}`}
@@ -75,12 +75,11 @@ function PostsPage({ message, filter = "" }) {
             />
           </Form>
         </Col>
-        <Col>
+        <Col className={styles.DropdownCol}>
         {/* Code for dropdown based on code from https://www.pluralsight.com/guides/how-to-capture-the-value-of-dropdown-lists-with-react-bootstrap */}
           <DropdownButton
-            alignRight
-            title="Dropdown right"
-            id="dropdown-menu-align-right"
+            title="Category"
+            className={styles.Dropdown}
             onSelect={handleCategoryChange}
           >
             <Dropdown.Item eventKey="">All</Dropdown.Item>
