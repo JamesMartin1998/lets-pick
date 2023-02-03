@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import CommentCreateForm from "../comments/CommentCreateForm";
 import Comment from "../comments/Comment";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import styles from "../../styles/PostPage.module.css"
+import styles from "../../styles/PostPage.module.css";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
@@ -26,12 +26,12 @@ function PostPage() {
     const handleMount = async () => {
       try {
         // destructure data and rename to post and comments
-        const [{ data: post }, {data: comments}] = await Promise.all([
+        const [{ data: post }, { data: comments }] = await Promise.all([
           axiosReq.get(`/posts/${id}`),
-          axiosReq.get(`/comments/?post=${id}`)
+          axiosReq.get(`/comments/?post=${id}`),
         ]);
         setPost({ results: [post] });
-        setComments(comments)
+        setComments(comments);
       } catch (err) {
         console.log(err);
       }
@@ -57,8 +57,13 @@ function PostPage() {
             "Comments"
           ) : null}
           {comments.results.length ? (
-            comments.results.map(comment => (
-              <Comment key={comment.id} {...comment} />
+            comments.results.map((comment) => (
+              <Comment
+                key={comment.id}
+                {...comment}
+                setComments={setComments}
+                setPost={setPost}
+              />
             ))
           ) : currentUser ? (
             <span>No comments yet... Leave a comment!</span>
