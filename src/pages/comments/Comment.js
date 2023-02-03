@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import CommentEditForm from "./CommentEditForm";
 import { Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -20,6 +21,7 @@ const Comment = (props) => {
   } = props;
   const currentUser = useCurrentUser();
   const is_author = currentUser?.username === author;
+  const [showEditForm, setShowEditForm] = useState(false);
 
 
   const handleDelete = async () => {
@@ -45,7 +47,7 @@ const Comment = (props) => {
 
 
   return (
-    <div>
+    <>
       <hr />
       <Media>
         <Link to={`/profiles/${profile_id}`}>
@@ -54,14 +56,28 @@ const Comment = (props) => {
         <Media.Body className="align-self-center ml-2">
           <span className={styles.Author}>{author}</span>
           <span className={styles.Date}>{updated_at}</span>
-          <p>{content}</p>
+          {showEditForm ? (
+            <CommentEditForm
+            id={id}
+            profile_id={profile_id}
+            content={content}
+            profileImage={profile_image}
+            setComments={setComments}
+            setShowEditForm={setShowEditForm}
+          />
+          ) : (
+            <p>{content}</p>
+          )}
         </Media.Body>
-        {is_author && (
-          <MoreDropdown handleEdit={() => {}} handleDelete={handleDelete} />
+        {is_author && !showEditForm && (
+          <MoreDropdown
+            handleEdit={() => setShowEditForm(true)}
+            handleDelete={handleDelete}
+          />
         )}
       </Media>
-    </div>
+    </>
   );
-};
+}
 
 export default Comment;
