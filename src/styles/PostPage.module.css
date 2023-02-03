@@ -1,0 +1,18 @@
+.Container {
+    width: 70%;
+    margin-left: 15%;
+}
+
+@media (max-width: 767.5px) {
+    .Container {
+      width: 100%;
+      margin-left: 0%;
+    }
+  }
+  
+  @media (max-width: 575.5px) {
+    .Container {
+      width: 90%;
+      margin-left: 5%;
+    }
+  }
