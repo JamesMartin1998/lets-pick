@@ -14,6 +14,10 @@ import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Image } from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Post from "../posts/Post"
+import NoResults from "../../assets/no-results.png";
+import { fetchMoreData } from "../../utils/utils";
 
 const ProfilePage = () => {
 
@@ -27,10 +31,23 @@ const ProfilePage = () => {
     const handleMount = async () => {
       try {
         console.log("working");
-        const {data} = await axiosReq(`/profiles/${id}/`)
-        console.log(data)
 
-        setProfileData(data)
+        const [{ data: pageProfile }, { data: profilePosts }] =
+          await Promise.all([
+            axiosReq.get(`/profiles/${id}/`),
+            axiosReq.get(`/posts/?author__profile=${id}`),
+          ]);
+
+
+
+        // const {data} = await axiosReq(`/profiles/${id}/`)
+        // console.log(data)
+
+        setProfileData(pageProfile)
+        setProfilePosts(profilePosts)
+        console.log(profilePosts.results)
+        console.log(profilePosts)
+
         setHasLoaded(true)
 
       } catch (err) {
@@ -74,6 +91,22 @@ const ProfilePage = () => {
       <hr />
       <p className="text-center">Profile owner's posts</p>
       <hr />
+      {profilePosts.results.length ? (
+        <InfiniteScroll
+        children={profilePosts.results.map((post) => (
+          <Post key={post.id} {...post} setPosts={setProfilePosts} />
+        ))}
+        dataLength={profilePosts.results.length}
+        loader={<Asset spinner />}
+        hasMore={!!profilePosts.next}
+        next={() => fetchMoreData(profilePosts, setProfilePosts)}
+      />
+      ) : (
+        <Asset
+          src={NoResults}
+          message={`No results found, ${profileData.owner} hasn't posted yet.`}
+        />
+      )}
     </>
   );
 
