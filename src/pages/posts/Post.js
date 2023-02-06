@@ -11,7 +11,7 @@ const Post = (props) => {
   const {
     id,
     author,
-    profiles_id,
+    profile_id,
     profile_image,
     comments_count,
     votes_count,
@@ -206,7 +206,7 @@ const Post = (props) => {
     <Card className={styles.Post}>
       <Card.Body>
         <Media className="align-items-center justify-content-between">
-          <Link className={styles.Author} to={`/profiles/${profiles_id}`}>
+          <Link className={styles.Author} to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} height={55} />
             {author}
           </Link>
