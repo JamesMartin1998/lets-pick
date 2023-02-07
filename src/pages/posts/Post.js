@@ -26,6 +26,8 @@ const Post = (props) => {
     option2_count,
     postPage,
     setPosts,
+    setVote1,
+    setVote2,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -33,22 +35,26 @@ const Post = (props) => {
   const history = useHistory();
 
   const handleEdit = () => {
-    history.push(`/posts/${id}/edit`)
-  }
+    history.push(`/posts/${id}/edit`);
+  };
 
   const handleDelete = async () => {
     try {
-      await axiosRes.delete(`/posts/${id}/`)
-      history.goBack()
-    } catch(err) {
-      console.log(err)
+      await axiosRes.delete(`/posts/${id}/`);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
     }
-  }
+  };
 
   // store the font awesome classname in state so that I can have different icons depending on each options state
   // e.g. prevents both buttons changing icon class together when a vote is registered on a post
-  const [voteOption1Icon, setVoteOption1Icon] = useState("fa-regular fa-circle-check");
-  const [voteOption2Icon, setVoteOption2Icon] = useState("fa-regular fa-circle-check");
+  const [voteOption1Icon, setVoteOption1Icon] = useState(
+    "fa-regular fa-circle-check"
+  );
+  const [voteOption2Icon, setVoteOption2Icon] = useState(
+    "fa-regular fa-circle-check"
+  );
 
   const handleOption1Vote = async () => {
     try {
@@ -69,7 +75,9 @@ const Post = (props) => {
             : post;
         }),
       }));
-      setVoteOption1Icon('fa-solid fa-circle-check')
+      setVoteOption1Icon("fa-solid fa-circle-check");
+      // Allows the Votes Received to be updated on the Profile Page
+      setVote1(1);
     } catch (err) {
       console.log(err);
     }
@@ -94,7 +102,9 @@ const Post = (props) => {
             : post;
         }),
       }));
-      setVoteOption2Icon('fa-solid fa-circle-check')
+      setVoteOption2Icon("fa-solid fa-circle-check");
+      // Allows the Votes Received to be updated on the Profile Page
+      setVote2(1);
     } catch (err) {
       console.log(err);
     }
@@ -123,7 +133,9 @@ const Post = (props) => {
               : post;
           }),
         }));
-        setVoteOption1Icon('fa-regular fa-circle-check')
+        setVoteOption1Icon("fa-regular fa-circle-check");
+        // Allows the Votes Received to be updated on the Profile Page
+        setVote1(0);
       }
     } catch (err) {
       console.log(err);
@@ -153,7 +165,9 @@ const Post = (props) => {
               : post;
           }),
         }));
-        setVoteOption2Icon('fa-regular fa-circle-check')
+        setVoteOption2Icon("fa-regular fa-circle-check");
+        // Allows the Votes Received to be updated on the Profile Page
+        setVote2(0);
       }
     } catch (err) {
       console.log(err);
@@ -164,7 +178,7 @@ const Post = (props) => {
     // Users can favourite a post
     try {
       const { data } = await axiosRes.post("/favourites/", {
-        post: id
+        post: id,
       });
       setPosts((prevPosts) => ({
         ...prevPosts,
@@ -172,7 +186,7 @@ const Post = (props) => {
           return post.id === id
             ? {
                 ...post,
-                favourite_id: data.id
+                favourite_id: data.id,
               }
             : post;
         }),
@@ -186,17 +200,17 @@ const Post = (props) => {
     // Users can remove a favourite from a post
     try {
       await axiosRes.delete(`/favourites/${favourite_id}/`);
-        setPosts((prevPosts) => ({
-          ...prevPosts,
-          results: prevPosts.results.map((post) => {
-            return post.id === id
-              ? {
-                  ...post,
-                  favourite_id: null,
-                }
-              : post;
-          }),
-        })); 
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? {
+                ...post,
+                favourite_id: null,
+              }
+            : post;
+        }),
+      }));
     } catch (err) {
       console.log(err);
     }
@@ -212,7 +226,12 @@ const Post = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_author && postPage && <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />}
+            {is_author && postPage && (
+              <MoreDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
+            )}
           </div>
         </Media>
       </Card.Body>
@@ -235,14 +254,18 @@ const Post = (props) => {
                 placement="top"
                 overlay={<Tooltip>You can't vote on your own post</Tooltip>}
               >
-                <i className={`fa-regular fa-circle-check ${styles.VoteIcon}`} />
+                <i
+                  className={`fa-regular fa-circle-check ${styles.VoteIcon}`}
+                />
               </OverlayTrigger>
               {option1_count}
               <OverlayTrigger
                 placement="top"
                 overlay={<Tooltip>You can't vote on your own post</Tooltip>}
               >
-                <i className={`fa-regular fa-circle-check ${styles.VoteIcon}`} />
+                <i
+                  className={`fa-regular fa-circle-check ${styles.VoteIcon}`}
+                />
               </OverlayTrigger>
               {option2_count}
             </>
@@ -260,11 +283,15 @@ const Post = (props) => {
           ) : currentUser ? (
             <>
               <span onClick={handleOption1Vote}>
-                <i className={`fa-regular fa-circle-check ${styles.VoteIcon}`} />
+                <i
+                  className={`fa-regular fa-circle-check ${styles.VoteIcon}`}
+                />
               </span>
               {option1_count}
               <span onClick={handleOption2Vote}>
-                <i className={`fa-regular fa-circle-check ${styles.VoteIcon}`} />
+                <i
+                  className={`fa-regular fa-circle-check ${styles.VoteIcon}`}
+                />
               </span>
               {option2_count}
             </>
@@ -274,14 +301,18 @@ const Post = (props) => {
                 placement="top"
                 overlay={<Tooltip>Log in to vote on posts</Tooltip>}
               >
-                <i className={`fa-regular fa-circle-check ${styles.VoteIcon}`} />
+                <i
+                  className={`fa-regular fa-circle-check ${styles.VoteIcon}`}
+                />
               </OverlayTrigger>
               {option1_count}
               <OverlayTrigger
                 placement="top"
                 overlay={<Tooltip>Log in to vote on posts</Tooltip>}
               >
-                <i className={`fa-regular fa-circle-check ${styles.VoteIcon}`} />
+                <i
+                  className={`fa-regular fa-circle-check ${styles.VoteIcon}`}
+                />
               </OverlayTrigger>
               {option2_count}
             </>
@@ -298,12 +329,11 @@ const Post = (props) => {
               </OverlayTrigger>
             </>
           ) : favourite_id ? (
-              <>
-                <span onClick={handleRemoveFavourite}>
+            <>
+              <span onClick={handleRemoveFavourite}>
                 <i className={`fa-solid fa-star ${styles.FavouriteIcon}`} />
               </span>
-              </>
-            
+            </>
           ) : currentUser ? (
             <>
               <span onClick={handleFavourite}>
@@ -318,7 +348,7 @@ const Post = (props) => {
               >
                 <i className={`fa-regular fa-star ${styles.FavouriteIcon}`} />
               </OverlayTrigger>
-            </> 
+            </>
           )}
         </div>
       </Card.Body>

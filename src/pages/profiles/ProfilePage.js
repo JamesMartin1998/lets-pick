@@ -15,17 +15,19 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Image } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Post from "../posts/Post"
+import Post from "../posts/Post";
 import NoResults from "../../assets/no-results.png";
 import { fetchMoreData } from "../../utils/utils";
 
 const ProfilePage = () => {
+  const [hasLoaded, setHasLoaded] = useState(false);
+  const currentUser = useCurrentUser();
+  const { id } = useParams();
+  const [profileData, setProfileData] = useState({});
+  const [profilePosts, setProfilePosts] = useState({ results: [] });
 
-    const [hasLoaded, setHasLoaded] = useState(false);
-    const currentUser = useCurrentUser();
-    const {id} = useParams();
-    const [profileData, setProfileData] = useState({})
-    const [profilePosts, setProfilePosts] = useState({results: []})
+  const [vote1, setVote1] = useState(0);
+  const [vote2, setVote2] = useState(0);
 
   useEffect(() => {
     const handleMount = async () => {
@@ -38,46 +40,46 @@ const ProfilePage = () => {
             axiosReq.get(`/posts/?author__profile=${id}`),
           ]);
 
-
-
         // const {data} = await axiosReq(`/profiles/${id}/`)
         // console.log(data)
 
-        setProfileData(pageProfile)
-        setProfilePosts(profilePosts)
-        console.log(profilePosts.results)
-        console.log(profilePosts)
+        setProfileData(pageProfile);
+        setProfilePosts(profilePosts);
+        console.log(profilePosts.results);
+        console.log(profilePosts);
 
-        setHasLoaded(true)
-
+        setHasLoaded(true);
       } catch (err) {
         console.log(err);
       }
     };
-    handleMount()
+    handleMount();
   }, [id, setProfileData]);
-
 
   const mainProfile = (
     <>
       <Row noGutters className=" text-center">
         <Col xs={12} className="text-lg-left">
-          <Image className={styles.ProfileImage} roundedCircle src={profileData.image} />
+          <Image
+            className={styles.ProfileImage}
+            roundedCircle
+            src={profileData.image}
+          />
         </Col>
-        <Col xs={12} >
+        <Col xs={12}>
           <h3 className="m-2">{profileData.owner}</h3>
           <Row className="justify-content-center no-gutters">
-            <Col xs={3} >
-                <div>{profileData.posts_count}</div>
-                <div>Posts</div>
+            <Col xs={3}>
+              <div>{profileData.posts_count}</div>
+              <div>Posts</div>
             </Col>
-            <Col xs={3} >
-                <div>{profileData.votes_made}</div>
-                <div>Votes Made</div>
+            <Col xs={3}>
+              <div>{profileData.votes_made}</div>
+              <div>Votes Made</div>
             </Col>
-            <Col xs={3} >
-                <div>{profileData.votes_received}</div>
-                <div>Votes Received</div>
+            <Col xs={3}>
+              <div>{profileData.votes_received + vote1 + vote2}</div>
+              <div>Votes Received</div>
             </Col>
           </Row>
         </Col>
@@ -93,14 +95,21 @@ const ProfilePage = () => {
       <hr />
       {profilePosts.results.length ? (
         <InfiniteScroll
-        children={profilePosts.results.map((post) => (
-          <Post key={post.id} {...post} setPosts={setProfilePosts} />
-        ))}
-        dataLength={profilePosts.results.length}
-        loader={<Asset spinner />}
-        hasMore={!!profilePosts.next}
-        next={() => fetchMoreData(profilePosts, setProfilePosts)}
-      />
+          children={profilePosts.results.map((post) => (
+            <Post
+              key={post.id}
+              {...post}
+              setPosts={setProfilePosts}
+              setVote1={setVote1}
+              setVote2={setVote2}
+              vote1={vote1}
+            />
+          ))}
+          dataLength={profilePosts.results.length}
+          loader={<Asset spinner />}
+          hasMore={!!profilePosts.next}
+          next={() => fetchMoreData(profilePosts, setProfilePosts)}
+        />
       ) : (
         <Asset
           src={NoResults}
@@ -126,6 +135,6 @@ const ProfilePage = () => {
       </Col>
     </Row>
   );
-}
+};
 
 export default ProfilePage;
