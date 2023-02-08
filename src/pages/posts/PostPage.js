@@ -25,6 +25,9 @@ function PostPage() {
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
 
+  const [vote1, setVote1] = useState(0);
+  const [vote2, setVote2] = useState(0);
+
   //   get post data from API
   useEffect(() => {
     const handleMount = async () => {
@@ -47,7 +50,7 @@ function PostPage() {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={12}>
-        <Post {...post.results[0]} setPosts={setPost} postPage />
+        <Post {...post.results[0]} setPosts={setPost} setVote1={setVote1} setVote2={setVote2} postPage />
         <Container className={styles.Container}>
           {currentUser ? (
             <CommentCreateForm
