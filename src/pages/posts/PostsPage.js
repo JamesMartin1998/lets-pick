@@ -26,6 +26,9 @@ function PostsPage({ message, filter = "" }) {
 
   const [category, setCategory] = useState("");
 
+  const [vote1, setVote1] = useState(0);
+  const [vote2, setVote2] = useState(0);
+
   // allows users to only see posts of a selected category
   const handleCategoryChange = (event) => {
     console.log("working");
@@ -102,7 +105,7 @@ function PostsPage({ message, filter = "" }) {
               {posts.results.length ? (
                 <InfiniteScroll
                   children={posts.results.map((post) => (
-                    <Post key={post.id} {...post} setPosts={setPosts} />
+                    <Post key={post.id} {...post} setPosts={setPosts} setVote1={setVote1} setVote2={setVote2} />
                   ))}
                   dataLength={posts.results.length}
                   loader={<Asset spinner />}
