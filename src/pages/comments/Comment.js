@@ -29,7 +29,7 @@ const Comment = (props) => {
     // removes the comment from the comments for that post
     try {
         await axiosRes.delete(`/comments/${id}/`)
-        setPost(prevPost => ({
+        setPost((prevPost) => ({
             results: [{
                 ...prevPost.results[0],
                 comments_count: prevPost.results[0].comments_count - 1

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -6,6 +6,7 @@ import styles from "../../styles/Post.module.css";
 import Avatar from "../../components/Avatar";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
+import PercentBar from "../../components/PercentBar";
 
 const Post = (props) => {
   const {
@@ -33,6 +34,24 @@ const Post = (props) => {
   const currentUser = useCurrentUser();
   const is_author = currentUser?.username === author;
   const history = useHistory();
+
+  // useEffect(() => {
+  //   const handleMount = async () => {
+  //     const {data} = await axiosReq.get(`/posts/`)
+  //     for (post of data) {
+  //       if (post.votes_count != 0) {
+          
+  //       }
+  //     }
+  //   }
+  //   handleMount()
+  // }, [])
+
+
+
+
+
+
 
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
@@ -241,6 +260,7 @@ const Post = (props) => {
       <Card.Body>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {content && <Card.Text>{content}</Card.Text>}
+        {/* <PercentBar votes_count={votes_count} option1_count={option1_count} option2_count={option2_count} /> */}
         <div className={styles.PostBar}>
           <Link to={`/posts/${id}`}>
             <i className={`${styles.CommentIcon} far fa-comments`} />

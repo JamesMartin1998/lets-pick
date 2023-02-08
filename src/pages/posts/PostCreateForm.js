@@ -120,7 +120,7 @@ function PostCreateForm() {
                 onChange={handleChangeCategory}
                 className={`${styles.Input} ${styles.Category}`}
               >
-                <option defaultValue disabled>
+                <option defaultValue>
                   Select Category
                 </option>
                 <option value="sport">Sport</option>
