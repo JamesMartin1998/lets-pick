@@ -63,7 +63,7 @@ const ProfilePage = () => {
     <>
       {profileData?.owner === currentUser?.username ? (<ProfileEditDropdown id={profileData.id} />) : (<span className="d-none"></span>)}
       <Row noGutters className=" text-center">
-        <Col xs={12} className="text-lg-left">
+        <Col>
           <Image
             className={styles.ProfileImage}
             roundedCircle

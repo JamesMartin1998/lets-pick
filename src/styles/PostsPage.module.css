@@ -46,9 +46,18 @@
   color: #211A1D;
 }
 
+.Dropdown > button:focus {
+  background-color: #F3D207!important;
+  color: #211A1D!important;
+  border-color: #211A1D!important;
+  box-shadow: none!important;
+}
+
 .Dropdown > button:active {
   background-color: #F3D207!important;
   color: #211A1D!important;
+  border-color: #211A1D!important;
+  box-shadow: none!important;
 }
 
 
