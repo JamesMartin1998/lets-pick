@@ -275,7 +275,7 @@ const Post = (props) => {
                 overlay={<Tooltip>You can't vote on your own post</Tooltip>}
               >
                 <i
-                  className={`fa-regular fa-circle-check ${styles.VoteIcon}`}
+                  className={`fa-regular fa-circle-check ${styles.VoteIcon} ${styles.Option1}`}
                 />
               </OverlayTrigger>
               {option1_count}
@@ -284,7 +284,7 @@ const Post = (props) => {
                 overlay={<Tooltip>You can't vote on your own post</Tooltip>}
               >
                 <i
-                  className={`fa-regular fa-circle-check ${styles.VoteIcon}`}
+                  className={`fa-regular fa-circle-check ${styles.VoteIcon} ${styles.Option2}`}
                 />
               </OverlayTrigger>
               {option2_count}
@@ -292,11 +292,11 @@ const Post = (props) => {
           ) : vote_id ? (
             <>
               <span onClick={handleRemoveOption1Vote}>
-                <i className={`${voteOption1Icon} ${styles.VoteIcon}`} />
+                <i className={`${voteOption1Icon} ${styles.VoteIcon} ${styles.Option1}`} />
               </span>
               {option1_count}
               <span onClick={handleRemoveOption2Vote}>
-                <i className={`${voteOption2Icon} ${styles.VoteIcon}`} />
+                <i className={`${voteOption2Icon} ${styles.VoteIcon} ${styles.Option2}`} />
               </span>
               {option2_count}
             </>
@@ -304,13 +304,13 @@ const Post = (props) => {
             <>
               <span onClick={handleOption1Vote}>
                 <i
-                  className={`fa-regular fa-circle-check ${styles.VoteIcon}`}
+                  className={`fa-regular fa-circle-check ${styles.VoteIcon} ${styles.Option1}`}
                 />
               </span>
               {option1_count}
               <span onClick={handleOption2Vote}>
                 <i
-                  className={`fa-regular fa-circle-check ${styles.VoteIcon}`}
+                  className={`fa-regular fa-circle-check ${styles.VoteIcon} ${styles.Option2}`}
                 />
               </span>
               {option2_count}
@@ -322,7 +322,7 @@ const Post = (props) => {
                 overlay={<Tooltip>Log in to vote on posts</Tooltip>}
               >
                 <i
-                  className={`fa-regular fa-circle-check ${styles.VoteIcon}`}
+                  className={`fa-regular fa-circle-check ${styles.VoteIcon} ${styles.Option1}`}
                 />
               </OverlayTrigger>
               {option1_count}
@@ -331,7 +331,7 @@ const Post = (props) => {
                 overlay={<Tooltip>Log in to vote on posts</Tooltip>}
               >
                 <i
-                  className={`fa-regular fa-circle-check ${styles.VoteIcon}`}
+                  className={`fa-regular fa-circle-check ${styles.VoteIcon} ${styles.Option2}`}
                 />
               </OverlayTrigger>
               {option2_count}

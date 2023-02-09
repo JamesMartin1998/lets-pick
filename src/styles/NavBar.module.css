@@ -1,5 +1,5 @@
 .NavBar {
-  background-color: #211A1D;
+  background-color: #211a1d;
 }
 
 .NavLink {
@@ -7,5 +7,22 @@
 }
 
 .Active i {
-  color: #F3D207;
+  color: #f3d207;
+}
+
+@media (max-width: 991.5px) {
+  .hide {
+    display: none;
+  }
+
+  .NavLink {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (max-width: 767.5px) {
+  .hide {
+    display: block;
+  }
 }

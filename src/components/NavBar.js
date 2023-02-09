@@ -59,14 +59,14 @@ const NavBar = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
-        <i class="fa-solid fa-check-to-slot"></i>Your Votes
+        <i className={`fa-solid fa-check-to-slot ${styles.hide}`}></i>Your Votes
       </NavLink>
       <NavLink
         to="/favourites"
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
-        <i class="fa-solid fa-star"></i>Favourites
+        <i className={`fa-solid fa-star ${styles.hide}`}></i>Favourites
       </NavLink>
       <NavLink
         to={`/profiles/${currentUser?.profile_id}`}
@@ -79,7 +79,7 @@ const NavBar = () => {
         className={styles.NavLink}
         onClick={handleSignOut}
       >
-        <i class="fa-solid fa-door-closed"></i>Sign Out
+        <i className={`fa-solid fa-door-closed ${styles.hide}`}></i>Sign Out
       </NavLink>
     </>
   );
@@ -102,7 +102,7 @@ const NavBar = () => {
               className={styles.NavLink}
               activeClassName={styles.Active}
             >
-              <i className="fas fa-home"></i>Home
+              <i className={`fas fa-home ${styles.hide}`}></i>Home
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>

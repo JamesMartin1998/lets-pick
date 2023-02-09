@@ -18,7 +18,15 @@ h5 {
 }
 
 .VoteIcon:hover, .CommentIcon:hover, .FavouriteIcon:hover {
-  color: red;
+  color: black!important;
+}
+
+.Option1 {
+  color: blue!important;
+}
+
+.Option2 {
+  color: red!important;
 }
 
 .Author {
