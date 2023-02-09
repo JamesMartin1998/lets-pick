@@ -61,7 +61,7 @@ function PostsPage({ message, filter = "" }) {
   }, [filter, pathname, query, category]);
 
   return (
-    <Container>
+    <Container className={styles.Container}>
       <Row className={styles.Row}>
         <Col>
           <i className={`fas fa-search ${styles.SearchIcon}`} />
@@ -100,6 +100,7 @@ function PostsPage({ message, filter = "" }) {
       </Row>
       <Row>
         <Col>
+        {/* checks to see if the API request has finished. Will load spinner until completed */}
           {hasLoaded ? (
             <>
               {posts.results.length ? (

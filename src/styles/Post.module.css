@@ -34,7 +34,7 @@ h5 {
 }
 
 
-@media (max-width: 767.5px) {
+@media (max-width: 991.5px) {
   .Post {
     width: 100%;
     margin-left: 0%;
@@ -45,5 +45,12 @@ h5 {
   .Post {
     width: 90%;
     margin-left: 5%;
+  }
+}
+
+@media (max-width: 450px) {
+  .Post {
+    width: 100%;
+    margin-left: 0;
   }
 }

@@ -7,14 +7,12 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
-import appStyles from "../../App.module.css";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Asset from "../../components/Asset"
+import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
-
 
 function PostPage() {
   const { id } = useParams();
@@ -28,7 +26,7 @@ function PostPage() {
   const [vote1, setVote1] = useState(0);
   const [vote2, setVote2] = useState(0);
 
-  //   get post data from API
+  // get post and comments data from API
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -48,9 +46,15 @@ function PostPage() {
   }, [id]);
 
   return (
-    <Row className="h-100">
+    <Row className={`h-100 ${styles.Row}`}>
       <Col className="py-2 p-0 p-lg-2" lg={12}>
-        <Post {...post.results[0]} setPosts={setPost} setVote1={setVote1} setVote2={setVote2} postPage />
+        <Post
+          {...post.results[0]}
+          setPosts={setPost}
+          setVote1={setVote1}
+          setVote2={setVote2}
+          postPage
+        />
         <Container className={styles.Container}>
           {currentUser ? (
             <CommentCreateForm
@@ -65,19 +69,19 @@ function PostPage() {
           ) : null}
           {comments.results.length ? (
             <InfiniteScroll
-            children={comments.results.map((comment) => (
-              <Comment
-                key={comment.id}
-                {...comment}
-                setPost={setPost}
-                setComments={setComments}
-              />
-            ))}
-            dataLength={comments.results.length}
-            loader={<Asset spinner />}
-            hasMore={!!comments.next}
-            next={() => fetchMoreData(comments, setComments)}
-          />
+              children={comments.results.map((comment) => (
+                <Comment
+                  key={comment.id}
+                  {...comment}
+                  setPost={setPost}
+                  setComments={setComments}
+                />
+              ))}
+              dataLength={comments.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!comments.next}
+              next={() => fetchMoreData(comments, setComments)}
+            />
           ) : currentUser ? (
             <span>No comments yet... Leave a comment!</span>
           ) : (

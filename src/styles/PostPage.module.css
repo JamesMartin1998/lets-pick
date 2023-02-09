@@ -16,3 +16,10 @@
       margin-left: 5%;
     }
   }
+
+  @media (max-width: 450px) {
+    .Row {
+      width: 100%;
+      margin-left: 0;
+    }
+  }

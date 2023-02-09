@@ -34,6 +34,7 @@ function PostEditForm() {
   const { id } = useParams();
 
   useEffect(() => {
+    // gets the existing post data so it can be displayed in the form intially
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}/`);

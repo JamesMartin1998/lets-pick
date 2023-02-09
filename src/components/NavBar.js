@@ -14,6 +14,7 @@ const NavBar = () => {
 
   const {expanded, setExpanded, ref} = useClickOutsideToggle();
 
+  // signs out a user
   const handleSignOut = async () => {
     try {
       await axios.post('dj-rest-auth/logout/')
@@ -33,6 +34,7 @@ const NavBar = () => {
     </NavLink>
   );
 
+  // specific icons to only be seen by logged out users
   const loggedOutIcons = (
     <>
       <NavLink
@@ -52,6 +54,7 @@ const NavBar = () => {
     </>
   );
 
+  // specific icons to only be seen by logged in users
   const loggedInIcons = (
     <>
       <NavLink
@@ -93,7 +96,7 @@ const NavBar = () => {
           </Navbar.Brand>
         </NavLink>
         {currentUser && addPostIcon}
-        <Navbar.Toggle ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle className={styles.Hamburger} ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <NavLink

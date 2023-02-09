@@ -15,13 +15,11 @@ const Post = (props) => {
     profile_id,
     profile_image,
     comments_count,
-    votes_count,
     vote_id,
     title,
     content,
     image,
     updated_at,
-    category,
     favourite_id,
     option1_count,
     option2_count,
@@ -35,28 +33,12 @@ const Post = (props) => {
   const is_author = currentUser?.username === author;
   const history = useHistory();
 
-  // useEffect(() => {
-  //   const handleMount = async () => {
-  //     const {data} = await axiosReq.get(`/posts/`)
-  //     for (post of data) {
-  //       if (post.votes_count != 0) {
-          
-  //       }
-  //     }
-  //   }
-  //   handleMount()
-  // }, [])
-
-
-
-
-
-
-
+  // redirects user to page to PostEditForm
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
   };
 
+  // deletes the post and redirects to home page
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
@@ -75,6 +57,7 @@ const Post = (props) => {
     "fa-regular fa-circle-check"
   );
 
+  // send post request to API to create vote instance as well as update the state for the votes count and specify vote type
   const handleOption1Vote = async () => {
     try {
       const { data } = await axiosRes.post("/votes/", {
@@ -102,6 +85,7 @@ const Post = (props) => {
     }
   };
 
+  // send post request to API to create vote instance as well as update the state for the votes count and specify vote type
   const handleOption2Vote = async () => {
     try {
       const { data } = await axiosRes.post("/votes/", {
@@ -129,11 +113,11 @@ const Post = (props) => {
     }
   };
 
+  // allows users to remove a vote if they voted for option 1
   const handleRemoveOption1Vote = async () => {
-    // allows users to remove a vote if they voted for option 1
+    // needed to try to make a get request first so users can't decrement
+    // the the option count for the opposite vote option
     try {
-      // needed to to make a get request first so users can't decrement
-      // the the option count for the opposite vote option
       const { data } = await axiosRes.get(`/votes/${vote_id}/`);
       console.log(data);
       console.log(data.option);
@@ -161,11 +145,11 @@ const Post = (props) => {
     }
   };
 
+  // allows users to remove a vote if they voted for option 2
   const handleRemoveOption2Vote = async () => {
-    // allows users to remove a vote if they voted for option 2
+    // needed to to make a get request first so users can't decrement
+    // the the option count for the opposite vote option
     try {
-      // needed to to make a get request first so users can't decrement
-      // the the option count for the opposite vote option
       const { data } = await axiosRes.get(`/votes/${vote_id}/`);
       console.log(data);
       console.log(data.option);
@@ -193,8 +177,8 @@ const Post = (props) => {
     }
   };
 
+  // Sends post request to API to create favourite instance as well as update state
   const handleFavourite = async () => {
-    // Users can favourite a post
     try {
       const { data } = await axiosRes.post("/favourites/", {
         post: id,
@@ -215,8 +199,8 @@ const Post = (props) => {
     }
   };
 
+  // Sends delete request to API to delete the favourite instance as well as update the state
   const handleRemoveFavourite = async () => {
-    // Users can remove a favourite from a post
     try {
       await axiosRes.delete(`/favourites/${favourite_id}/`);
       setPosts((prevPosts) => ({
@@ -260,7 +244,6 @@ const Post = (props) => {
       <Card.Body>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {content && <Card.Text>{content}</Card.Text>}
-        {/* <PercentBar votes_count={votes_count} option1_count={option1_count} option2_count={option2_count} /> */}
         <div className={styles.PostBar}>
           <Link to={`/posts/${id}`}>
             <i className={`${styles.CommentIcon} far fa-comments`} />

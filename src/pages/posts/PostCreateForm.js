@@ -19,8 +19,7 @@ import { Alert } from "react-bootstrap";
 import { useRedirect } from "../../hooks/useRedirect";
 
 function PostCreateForm() {
-
-  useRedirect('loggedOut')
+  useRedirect("loggedOut");
 
   const [errors, setErrors] = useState({});
 
@@ -120,9 +119,7 @@ function PostCreateForm() {
                 onChange={handleChangeCategory}
                 className={`${styles.Input} ${styles.Category}`}
               >
-                <option defaultValue>
-                  Select Category
-                </option>
+                <option defaultValue>Select Category</option>
                 <option value="sport">Sport</option>
                 <option value="people">People</option>
                 <option value="places">Places</option>
