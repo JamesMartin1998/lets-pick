@@ -8,6 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
+import styles from "../../styles/ProfileEditForm.module.css"
 
 import { axiosReq } from "../../api/axiosDefaults";
 import {
@@ -18,6 +19,7 @@ import {
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
+// Allows user to edit their profile by changing their image and description
 const ProfileEditForm = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
@@ -34,6 +36,7 @@ const ProfileEditForm = () => {
 
   const [errors, setErrors] = useState({});
 
+  // makes get request to API to fetch the profile data
   useEffect(() => {
     const handleMount = async () => {
       if (currentUser?.profile_id?.toString() === id) {
@@ -53,6 +56,7 @@ const ProfileEditForm = () => {
     handleMount();
   }, [currentUser, history, id]);
 
+  // detects input changes and displays them to the user
   const handleChange = (event) => {
     setProfileData({
       ...profileData,
@@ -60,6 +64,7 @@ const ProfileEditForm = () => {
     });
   };
 
+  // sends put request to the API to edit the profile information with the new input data
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -86,7 +91,7 @@ const ProfileEditForm = () => {
   const textFields = (
     <>
       <Form.Group>
-        <Form.Label>Bio</Form.Label>
+        <Form.Label>Description</Form.Label>
         <Form.Control
           as="textarea"
           value={description}
@@ -102,21 +107,21 @@ const ProfileEditForm = () => {
         </Alert>
       ))}
       <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+        className={`${btnStyles.Button} ${btnStyles.Bright} ${styles.Button}`}
         onClick={() => history.goBack()}
       >
         cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+      <Button className={`${btnStyles.Button} ${btnStyles.Bright} ${styles.Button}`} type="submit">
         save
       </Button>
     </>
   );
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form className={styles.Form} onSubmit={handleSubmit}>
       <Row>
-        <Col className="py-2 p-0 p-md-2 text-center" md={7} lg={6}>
+        <Col className="py-2 p-0 p-md-2 text-center">
           <Container className={appStyles.Content}>
             <Form.Group>
               {image && (
@@ -131,13 +136,14 @@ const ProfileEditForm = () => {
               ))}
               <div>
                 <Form.Label
-                  className={`${btnStyles.Button} ${btnStyles.Blue} btn my-auto`}
+                  className={`${btnStyles.Button} ${styles.Button} btn my-auto`}
                   htmlFor="image-upload"
                 >
                   Change the image
                 </Form.Label>
               </div>
               <Form.File
+                className={styles.File}
                 id="image-upload"
                 ref={imageFile}
                 accept="image/*"
@@ -154,7 +160,9 @@ const ProfileEditForm = () => {
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
-        <Col md={5} lg={6} className="d-none d-md-block p-0 p-md-2 text-center">
+      </Row>
+      <Row>
+        <Col className="d-none d-md-block p-0 p-md-2 text-center">
           <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
       </Row>
