@@ -8,14 +8,17 @@ import styles from "../../styles/CommentCreateEditForm.module.css";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
+// Allows users to make a comment on a post
 function CommentCreateForm(props) {
   const { post, setPost, setComments, profileImage, profile_id } = props;
   const [content, setContent] = useState("");
 
+  // detects input changes and displays to the user
   const handleChange = (event) => {
     setContent(event.target.value);
   };
 
+  // sends post request to API, updates the comments and posts states to include the new comment
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

@@ -5,15 +5,18 @@ import { axiosRes } from "../../api/axiosDefaults";
 
 import styles from "../../styles/CommentCreateEditForm.module.css";
 
+// Allows user to edit their own comments on a post
 function CommentEditForm(props) {
   const { id, content, setShowEditForm, setComments } = props;
 
   const [formContent, setFormContent] = useState(content);
 
+  // Detects input changes and displays them to the user
   const handleChange = (event) => {
     setFormContent(event.target.value);
   };
 
+  // sends a put request to the API to edit the comment with the new data, sets the comments state
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

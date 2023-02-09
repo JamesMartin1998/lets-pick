@@ -6,7 +6,6 @@ import styles from "../../styles/Post.module.css";
 import Avatar from "../../components/Avatar";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
-import PercentBar from "../../components/PercentBar";
 
 const Post = (props) => {
   const {

@@ -23,28 +23,27 @@ const Comment = (props) => {
   const is_author = currentUser?.username === author;
   const [showEditForm, setShowEditForm] = useState(false);
 
-
+  // deletes the comment and reduces the comments count by 1 on the post
+  // removes the comment from the comments for that post
   const handleDelete = async () => {
-    // deletes the comment and reduces the comments count by 1 on the post
-    // removes the comment from the comments for that post
     try {
-        await axiosRes.delete(`/comments/${id}/`)
-        setPost((prevPost) => ({
-            results: [{
-                ...prevPost.results[0],
-                comments_count: prevPost.results[0].comments_count - 1
-            }]
-        
-        }))
-        setComments((prevComments) => ({
-            ...prevComments,
-            results: prevComments.results.filter((comment) => comment.id !== id)
-        }))
-    } catch(err) {
-
+      await axiosRes.delete(`/comments/${id}/`);
+      setPost((prevPost) => ({
+        results: [
+          {
+            ...prevPost.results[0],
+            comments_count: prevPost.results[0].comments_count - 1,
+          },
+        ],
+      }));
+      setComments((prevComments) => ({
+        ...prevComments,
+        results: prevComments.results.filter((comment) => comment.id !== id),
+      }));
+    } catch (err) {
+      console.log(err);
     }
-  }
-
+  };
 
   return (
     <>
@@ -58,13 +57,13 @@ const Comment = (props) => {
           <span className={styles.Date}>{updated_at}</span>
           {showEditForm ? (
             <CommentEditForm
-            id={id}
-            profile_id={profile_id}
-            content={content}
-            profileImage={profile_image}
-            setComments={setComments}
-            setShowEditForm={setShowEditForm}
-          />
+              id={id}
+              profile_id={profile_id}
+              content={content}
+              profileImage={profile_image}
+              setComments={setComments}
+              setShowEditForm={setShowEditForm}
+            />
           ) : (
             <p>{content}</p>
           )}
@@ -78,6 +77,6 @@ const Comment = (props) => {
       </Media>
     </>
   );
-}
+};
 
 export default Comment;

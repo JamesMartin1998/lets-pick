@@ -10,11 +10,9 @@ import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
 
 function SignInForm() {
-
-  useRedirect('loggedIn')
+  useRedirect("loggedIn");
 
   const setCurrentUser = useSetCurrentUser();
-
 
   const [signInData, setSignInData] = useState({
     username: "",
@@ -27,7 +25,7 @@ function SignInForm() {
 
   const history = useHistory();
 
-  // Universal function to detect changes in forms
+  // Detects input changes in the form and displays to the user
   const handleChange = (event) => {
     setSignInData({
       ...signInData,
@@ -35,6 +33,7 @@ function SignInForm() {
     });
   };
 
+  // sends post request to API and logs in the user and redirects them to their previous page
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -117,6 +116,6 @@ function SignInForm() {
       </Col>
     </Row>
   );
-};
+}
 
 export default SignInForm;
