@@ -20,6 +20,7 @@ import NoResults from "../../assets/no-results.png";
 import { fetchMoreData } from "../../utils/utils";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
 
+// Allows users to view posts by a specific user, statistics and edit their profile details
 const ProfilePage = () => {
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
@@ -30,25 +31,17 @@ const ProfilePage = () => {
   const [vote1, setVote1] = useState(0);
   const [vote2, setVote2] = useState(0);
 
+  // sends get requests to API to fetch data about the profile and all of the posts by that specific profile
   useEffect(() => {
     const handleMount = async () => {
       try {
-        console.log("working");
-
         const [{ data: pageProfile }, { data: profilePosts }] =
           await Promise.all([
             axiosReq.get(`/profiles/${id}/`),
             axiosReq.get(`/posts/?author__profile=${id}`),
           ]);
-
-        // const {data} = await axiosReq(`/profiles/${id}/`)
-        // console.log(data)
-
         setProfileData(pageProfile);
         setProfilePosts(profilePosts);
-        console.log(profilePosts.results);
-        console.log(profilePosts);
-
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -57,11 +50,16 @@ const ProfilePage = () => {
     handleMount();
   }, [id, setProfileData]);
 
-  console.log(profileData)
-  
+  console.log(profileData);
+
+  // Shows details about a profile and renders a dropdown to edit the profile if the current user owns the profile
   const mainProfile = (
     <>
-      {profileData?.owner === currentUser?.username ? (<ProfileEditDropdown id={profileData.id} />) : (<span className="d-none"></span>)}
+      {profileData?.owner === currentUser?.username ? (
+        <ProfileEditDropdown id={profileData.id} />
+      ) : (
+        <span className="d-none"></span>
+      )}
       <Row noGutters className=" text-center">
         <Col>
           <Image
@@ -92,10 +90,9 @@ const ProfilePage = () => {
     </>
   );
 
+  // renders all of the posts belonging to the profile, or a no results image
   const mainProfilePosts = (
     <>
-      <hr />
-      <p className="text-center">Profile owner's posts</p>
       <hr />
       {profilePosts.results.length ? (
         <InfiniteScroll

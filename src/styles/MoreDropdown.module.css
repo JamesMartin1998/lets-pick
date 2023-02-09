@@ -11,16 +11,28 @@
   max-width: 50%;
   padding: 0px;
   background-color: #211a1d;
+  color: #ffffff !important;
 }
 
-.DropdownItem:hover {
+.DropdownItemProfile {
+  display: inline-block;
+  padding-right: 0.5rem;
   background-color: #211a1d;
-}
-
-.DropdownItem i {
   color: #ffffff;
 }
 
+.DropdownItem:hover,
+.DropdownItemProfile:hover {
+  background-color: #211a1d;
+  color: #f3d207;
+}
+
+.DropdownItem i,
+.DropdownItemProfile i {
+  color: #ffffff;
+}
+
+.DropdownItem i:hover,
 .DropdownItem i:hover {
   color: #f3d207;
 }
@@ -29,5 +41,4 @@
   position: absolute;
   right: 0;
   z-index: 99;
-  background-color: #211a1d;
 }
