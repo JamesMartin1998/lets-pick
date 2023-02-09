@@ -1,33 +1,33 @@
 .Dropdown i {
-    color: #211A1D;
+  color: #211a1d;
 }
 
 .Dropdown > div {
-    background-color: #211A1D;
+  background-color: #211a1d;
 }
 
 .DropdownItem {
   display: inline-block;
   max-width: 50%;
   padding: 0px;
-  background-color: #211A1D;
+  background-color: #211a1d;
 }
 
 .DropdownItem:hover {
-    background-color: #211A1D;
+  background-color: #211a1d;
 }
 
 .DropdownItem i {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 .DropdownItem i:hover {
-    color: #F3D207;
+  color: #f3d207;
 }
 
 .Absolute {
   position: absolute;
   right: 0;
   z-index: 99;
-  background-color: #211A1D;
+  background-color: #211a1d;
 }

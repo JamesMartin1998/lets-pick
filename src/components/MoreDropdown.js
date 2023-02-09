@@ -3,6 +3,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/MoreDropdown.module.css";
 import { useHistory } from "react-router";
 
+// sets three dots icon
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   <i
     className="fas fa-ellipsis-v"
@@ -14,6 +15,7 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
+// used to provide the user with additional links to edit or delete a post or comment
 export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   return (
     <Dropdown className={`${styles.Dropdown} ml-auto drop`} drop="left">
@@ -42,6 +44,7 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   );
 };
 
+// used to provide additional links to edit a profile, username or password
 export function ProfileEditDropdown({ id }) {
   const history = useHistory();
   return (
