@@ -12,8 +12,9 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 import btnStyles from "../../styles/Button.module.css";
-import appStyles from "../../App.module.css";
+import styles from "../../styles/UsernamePasswordEditForm.module.css"
 
+// allows users to make a new password
 const UserPasswordForm = () => {
   const history = useHistory();
   const { id } = useParams();
@@ -27,6 +28,7 @@ const UserPasswordForm = () => {
 
   const [errors, setErrors] = useState({});
 
+  // detects input changes and displays them to the user
   const handleChange = (event) => {
     setUserData({
       ...userData,
@@ -41,6 +43,7 @@ const UserPasswordForm = () => {
     }
   }, [currentUser, history, id]);
 
+  // sends post request to API to make a new password
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -53,18 +56,19 @@ const UserPasswordForm = () => {
   };
 
   return (
-    <Row>
-      <Col className="py-2 mx-auto text-center" md={6}>
-        <Container className={appStyles.Content}>
+    <Row className={styles.Row}>
+      <Col className={`${styles.Col}`}>
+        <Container className={`${styles.Container}`}>
           <Form onSubmit={handleSubmit}>
             <Form.Group>
-              <Form.Label>New password</Form.Label>
+              <Form.Label className={styles.Label}>New password</Form.Label>
               <Form.Control
                 placeholder="new password"
                 type="password"
                 value={new_password1}
                 onChange={handleChange}
                 name="new_password1"
+                className={styles.Input}
               />
             </Form.Group>
             {errors?.new_password1?.map((message, idx) => (
@@ -73,13 +77,14 @@ const UserPasswordForm = () => {
               </Alert>
             ))}
             <Form.Group>
-              <Form.Label>Confirm password</Form.Label>
+              <Form.Label className={styles.Label}>Confirm password</Form.Label>
               <Form.Control
                 placeholder="confirm new password"
                 type="password"
                 value={new_password2}
                 onChange={handleChange}
                 name="new_password2"
+                className={styles.Input}
               />
             </Form.Group>
             {errors?.new_password2?.map((message, idx) => (
@@ -88,14 +93,14 @@ const UserPasswordForm = () => {
               </Alert>
             ))}
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              className={`${btnStyles.Button} ${btnStyles.Bright} ${styles.Button}`}
               onClick={() => history.goBack()}
             >
               cancel
             </Button>
             <Button
               type="submit"
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              className={`${btnStyles.Button} ${btnStyles.Bright} ${styles.Button}`}
             >
               save
             </Button>

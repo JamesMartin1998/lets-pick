@@ -15,8 +15,9 @@ import {
 } from "../../contexts/CurrentUserContext";
 
 import btnStyles from "../../styles/Button.module.css";
-import appStyles from "../../App.module.css";
+import styles from "../../styles/UsernamePasswordEditForm.module.css";
 
+// Allows users to change their username
 const UsernameForm = () => {
   const [username, setUsername] = useState("");
   const [errors, setErrors] = useState({});
@@ -27,6 +28,7 @@ const UsernameForm = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
+  // sets the original username
   useEffect(() => {
     if (currentUser?.profile_id?.toString() === id) {
       setUsername(currentUser.username);
@@ -35,6 +37,7 @@ const UsernameForm = () => {
     }
   }, [currentUser, history, id]);
 
+  // sends put request to API to to update the username
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -53,17 +56,18 @@ const UsernameForm = () => {
   };
 
   return (
-    <Row>
-      <Col className="py-2 mx-auto text-center" md={6}>
-        <Container className={appStyles.Content}>
+    <Row className={styles.Row}>
+      <Col className={`${styles.Col}`}>
+        <Container className={`${styles.Container}`}>
           <Form onSubmit={handleSubmit} className="my-2">
             <Form.Group>
-              <Form.Label>Change username</Form.Label>
+              <Form.Label className={styles.Label}>Change username</Form.Label>
               <Form.Control
                 placeholder="username"
                 type="text"
                 value={username}
                 onChange={(event) => setUsername(event.target.value)}
+                className={styles.Input}
               />
             </Form.Group>
             {errors?.username?.map((message, idx) => (
@@ -72,13 +76,13 @@ const UsernameForm = () => {
               </Alert>
             ))}
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              className={`${btnStyles.Button} ${btnStyles.Bright} ${styles.Button}`}
               onClick={() => history.goBack()}
             >
               cancel
             </Button>
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              className={`${btnStyles.Button} ${btnStyles.Bright} ${styles.Button}`}
               type="submit"
             >
               save
