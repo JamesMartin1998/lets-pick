@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/Post.module.css";
 import Avatar from "../../components/Avatar";
-import { axiosReq, axiosRes } from "../../api/axiosDefaults";
+import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 
 const Post = (props) => {
@@ -31,6 +31,14 @@ const Post = (props) => {
   const currentUser = useCurrentUser();
   const is_author = currentUser?.username === author;
   const history = useHistory();
+
+
+  // useEffect(() => {
+  //   const handleMount = (vote_id) => {
+  //     console.log(vote_id)
+  //   }
+  //   handleMount()
+  // }, [])
 
   // redirects user to page to PostEditForm
   const handleEdit = () => {

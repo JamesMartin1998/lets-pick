@@ -8,7 +8,6 @@ import Asset from "../../components/Asset";
 
 import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
 
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
