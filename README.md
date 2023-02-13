@@ -157,10 +157,46 @@ An agile development strategy was implemented in this project as user stories we
 (Large device navbar - logged in)
 
 ![Image showing closed navbar on mobile device](/src/assets/mobile-nav-closed.png)
-(Mobile device navbar - closed)
+<br />(Mobile device navbar - closed)
 
 ![Image showing open navbar on mobile device](/src/assets/mobile-nav-open.png)
-(Mobile device navbar - open)
+<br />(Mobile device navbar - open)
+
+### Home Page
+
+- Displays the most recent posts to the user in a continuous feed.
+- Controls section at the top of the page includes a search bar, category filter and post button. These are above the posts so that the user is instantly aware that they can manipulate the page content.
+- Category dropdown and Post button are a dark grey colour and yellow when hovered on and clicked; to provide contrast with the backgorund and stay consistent with the colour theme of the website.
+- Search bar allows users to search for posts on the website by title and author name. A 1 second interval is set after typing to fetch the post results so that the user is overwhelmed by constantly changing results after each keystroke. The search bar improves the user experience on the website by allowing users to find specific posts that interest them.
+- Category dropdown allows users to filter the posts in the feed by their category. This is improves the user experience by allowing users to customise the returned posts to a single category of their interest.
+- Post button allows users to be redirected to the 'Create Post' page, where they can add their own post to the website.
+- Each post is defined on a light blue background with margin between the post above or below. This allows each post to be distinguished easily.
+- Each post clearly shows information such as the author, date created, title and description and image. Clicking on the post image will redirect users to the 'Post' page, where they can find more details. Clicking on the profile image will redirect users to the author's 'Profile' page.
+- Buttons are present at the bottom of the post to allow the user to comment, vote for either option and favourite the post.
+- By clicking the comment button, users are redirected to the 'Post' page, where a comment form is below the post.
+- By clicking the a vote button, the count for the option will increment by 1 and the icon colour will become solid to show the user that their vote has been registered.
+- By clicking the favourite button, users can add the post to their favourites feed. The favourite icon colour will become solid to inform the user that their vote has been registered.
+- Validation is used on the buttons to ensure that users cannot perform actions outside of their permissions. These are notified to the user through overlay messages when hovering on each button. Examples include trying to comment, vote or favourite will logged out, as well as trying to vote or favourite on your own post.
+
+![Image showing the home page on large screen](/src/assets/home-page.png)
+(Home Page)
+
+### Your Votes Page
+
+- Functions identically to the home page but only displays a feed of posts that the logged in user has voted on.
+- If the user is yet to vote on a post, the user receives a message explaining that they need to vote on a post first.
+![Image showing the your votes page on large screen](/src/assets/your-votes-page.png)
+(Your Votes Page)
+
+### Favourites Page
+
+- Functions identically to the home page but only displays a feed of posts that the logged in user has favourited.
+- If the user is yet to favourite a post, the user receives a message explaining that they need to favourite a post first.
+
+![Image showing the favourites page on large screen](/src/assets/favourites-page.png)
+(Favourites Page)
+
+
 
 
 
