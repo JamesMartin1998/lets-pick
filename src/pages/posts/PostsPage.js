@@ -8,7 +8,7 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 
 import styles from "../../styles/PostsPage.module.css";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
 
@@ -16,6 +16,8 @@ import NoResults from "../../assets/no-results.png";
 import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { Button } from "react-bootstrap";
 
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
@@ -27,6 +29,9 @@ function PostsPage({ message, filter = "" }) {
 
   const [vote1, setVote1] = useState(0);
   const [vote2, setVote2] = useState(0);
+
+  const currentUser = useCurrentUser();
+  const addPostIcon = <Button className={styles.AddPost} href="/posts/create"><i className="far fa-plus-square" />Post</Button>
 
   // allows users to only see posts of a selected category
   const handleCategoryChange = (event) => {
@@ -95,6 +100,7 @@ function PostsPage({ message, filter = "" }) {
             <Dropdown.Item eventKey="animals">Animals</Dropdown.Item>
             <Dropdown.Item eventKey="other">Other</Dropdown.Item>
           </DropdownButton>
+          {currentUser && addPostIcon}
         </Col>
       </Row>
       <Row>

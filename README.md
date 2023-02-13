@@ -133,6 +133,10 @@ An agile development strategy was implemented in this project as user stories we
 4. As a **profile owner**, **I can edit my profile** so that **I can change details such as my profile image and bio**.
 5. As a **user**, I can **edit my username and password** so that **I can keep my account secure**.
 
+## Features
+
+
+
 
 
 

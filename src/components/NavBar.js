@@ -24,16 +24,6 @@ const NavBar = () => {
     }
   }
 
-  const addPostIcon = (
-    <NavLink
-      to="/posts/create"
-      className={styles.NavLink}
-      activeClassName={styles.Active}
-    >
-      <i className={`far fa-plus-square ${styles.AddPost}`}></i>Add Post
-    </NavLink>
-  );
-
   // specific icons to only be seen by logged out users
   const loggedOutIcons = (
     <>
@@ -95,7 +85,6 @@ const NavBar = () => {
             <img src={logo} alt="logo" height="45" />
           </Navbar.Brand>
         </NavLink>
-        {currentUser && addPostIcon}
         <Navbar.Toggle className={styles.Hamburger} ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">

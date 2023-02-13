@@ -39,27 +39,42 @@
   margin-top: 1rem;
   margin-bottom: 1rem;
   border: #211A1D;
+  padding: 0.45rem 0.75rem;
 }
 
-.Dropdown > button:hover {
+.Dropdown > button:hover, .AddPost:hover {
   background-color: #F3D207;
   color: #211A1D;
 }
 
-.Dropdown > button:focus {
+.Dropdown > button:focus, .AddPost:focus {
   background-color: #F3D207!important;
   color: #211A1D!important;
   border-color: #211A1D!important;
   box-shadow: none!important;
 }
 
-.Dropdown > button:active {
+.Dropdown > button:active, .AddPost:active {
   background-color: #F3D207!important;
   color: #211A1D!important;
   border-color: #211A1D!important;
   box-shadow: none!important;
 }
 
+.AddPost {
+  background-color: #211A1D;
+  border: #211A1D;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  
+}
+
+.AddPost i {
+  padding: 0 7px;
+  color: white!important
+
+}
 
 @media (max-width: 991.5px) {
   .Row {
@@ -72,6 +87,14 @@
   .Container {
     width: 100%;
     margin-left: 0%;
+  }
+
+  .AddPost i {
+    display: none;
+  }
+
+  .Dropdown > button {
+    padding: 0.375rem 0.75rem;
   }
 }
 
@@ -86,7 +109,25 @@
     justify-content: center;
   }
   
-  .Dropdown > button {
+  .Dropdown > button, .AddPost {
     margin-top: 0;
+  }
+
+  .AddPost i {
+    display: inline-block;
+  }
+
+  .Dropdown > button {
+    padding: 0.45rem 0.75rem;
+  }
+}
+
+@media (max-width: 364.5px) {
+  .AddPost i {
+    display: none;
+  }
+
+  .Dropdown > button {
+    padding: 0.375rem 0.75rem;
   }
 }
