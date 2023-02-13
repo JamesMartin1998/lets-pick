@@ -14,7 +14,7 @@ During the planning of this project, I considered which features and functionali
 
 ![Image showing home page wireframe](/src/assets/home-page-wireframe.png)
 
-For the home page, I aimed to create a simple layout, that wasn't overwhelming for the user to use initially. I did this by having a brand logo and clear nav links at the top of the page, some basic filter controls and a post feed below. The main feed content is centralised, with the search bar and category filter controls above so the user can easily see and access them. By having the feed on the home page, it immediately makes the identity of the website clear to the user. The 'Your Votes' and 'Favourites' pages follow the same layout and design but only include posts that have been voted on or favourited by the logged in user.
+For the home page, I aimed to create a simple layout, that wasn't overwhelming for the user to use initially. I did this by having a brand logo and clear nav links at the top of the page, some basic filter controls and a post feed below. The main feed content is centralised, with the search bar and category filter controls above so the user can easily see and access them. I later decided that it would be better to include the 'Post' button alongside the category filter, rather than in the nav bar. By having the feed on the home page, it immediately makes the identity of the website clear to the user. The 'Your Votes' and 'Favourites' pages follow the same layout and design but only include posts that have been voted on or favourited by the logged in user.
 
 ![Image showing home page for logged in users wireframe](/src/assets/home-page-wireframe-logged-in.png)
 
@@ -134,6 +134,35 @@ An agile development strategy was implemented in this project as user stories we
 5. As a **user**, I can **edit my username and password** so that **I can keep my account secure**.
 
 ## Features
+
+### Navigation 
+
+- Displays the brand logo and name of the website to the user.
+- A clear 'Open Sans' font is used to make the links visible to the user.
+- A dark grey background color and white font color provides sufficient contrast so the links are clearly visible.
+- A yellow hover effect also provides sufficient contrast and improves the user experience by showing that the links are clickable. 
+- On screens sizes with sufficient space, 'Font Awesome' icons are used for extra clarity of the links. If space is limited, these links are hidden but the text remains.
+- The active page's nav link appears yellow to indicate to the user which page they are currently viewing.
+- Allows the user to navigate between pages on the website.
+- On smaller screens, a hamburger icon appears and opens a dropdown menu when clicked, displaying all of the navbar links. This provides a better user experience as the navbar doesn't have to take up unnecessary space and it maximises the space for other content.
+- On smaller screens, the navbar automatically closes after clicking a nav link or clicking off of the nav bar to provide a better users experience.
+- Conditional rendering is used to display different nav links to users that are logged in and logged out. This limits users to being able to only use site functionality relevant to their log in status.
+- Users are able to see their log in state in the navbar.
+- Created using Bootstrap for a simple, responsive design.
+
+![Image showing navbar on large device for logged out user](/src/assets/large-nav-logged-out.png)
+(Large device navbar - logged out)
+
+![Image showing navbar on large device for logged in user](/src/assets/large-nav-logged-in.png)
+(Large device navbar - logged in)
+
+![Image showing closed navbar on mobile device](/src/assets/mobile-nav-closed.png)
+(Mobile device navbar - closed)
+
+![Image showing open navbar on mobile device](/src/assets/mobile-nav-open.png)
+(Mobile device navbar - open)
+
+
 
 
 
