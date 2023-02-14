@@ -322,8 +322,42 @@ An agile development strategy was implemented in this project as user stories we
 - By clicking the 'Sign In' button, the form is submitted and the user is redirected to the 'Home' page.
 
 ![Image showing the sign in page](/src/assets/sign-in.png)
-(sign In Page)
+(Sign In Page)
 
+## React Components
+
+React components are blocks of code that are reusable throughout an application. Rather than categorising each page as a whole, each page can be broken down into parts, known as components. They are advantageous as they reduce the need for writing the same code multiple times for different pages. Large pages can often be quite complex, so working on a particular part (component) of a page independently can reduce complexity and the opportunity for making errors. Additionally, an error caused in a particular component will be isolated to itself so won't impact the whole site's functionality. Finally, components were used to easily provide a consistent and familiar theme and user experience across the website
+
+### Asset
+
+- Used to display a loading spinner that appears when users are waiting for content to load on the website, as well as a display a message for when no post results are found.
+- The loading spinner improves the user experience as users are aware the content is loading and avoid becoming momentarily confused due to white space being present until content loads.
+- The message improves the user experience as users are aware that the no results exist and don't waste time waiting for results that won't appear.
+
+### Avatar
+
+- Used to display user profile images, such as on posts, comments, profiles and the navbar.
+- User experience improved as it allows consistent and familiar styling to be used throughout the application. It also allows users to be creative and feel unique with their profile.
+
+### MoreDropdown
+
+- Used to create a 3 dots icon that when clicked, would provide button links.
+- MoreDropdown used on posts and comments, to allow the author to edit or delete their content.
+- ProfileDropdown variation allows the profile owner to edit their profile or change their username and password.
+- Improves the user experience as users become familiar with the 3 dot icon and assoicate it with allowing them to access more functionality on the site.
+- Also improves the user experience by allowing supplementary content to be hidden from the main content. Thus, not keeping the laout simple and not overwhelming for the user.
+
+### NavBar
+
+- Used on every page to allow users to access different pages on the website.
+- Forms a consistent part of the layout on every page to contribute to the website's identity.
+- Improves the user experience as users are able to reach any page from any page and creating a sense of familiarity.
+
+### PageNotFound
+
+- Used to notify the user that the current URL path returns no content.
+- Improves the user experience by providing feedback after an error, rather than leaving them to become confused.
+- Navbar is displayed so that users can easily go to another page.
 
 
 

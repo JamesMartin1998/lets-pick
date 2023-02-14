@@ -1,3 +1,4 @@
+// Code based from Code Institute's Moments project
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/logo.png";
