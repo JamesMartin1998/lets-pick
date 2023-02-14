@@ -166,10 +166,10 @@ An agile development strategy was implemented in this project as user stories we
 
 - Displays the most recent posts to the user in a continuous feed.
 - Controls section at the top of the page includes a search bar, category filter and post button. These are above the posts so that the user is instantly aware that they can manipulate the page content.
-- Category dropdown and Post button are a dark grey colour and yellow when hovered on and clicked; to provide contrast with the backgorund and stay consistent with the colour theme of the website.
+- Category dropdown and Post button are a dark grey colour and yellow when hovered on and clicked; to provide contrast with the background and stay consistent with the colour theme of the website.
 - Search bar allows users to search for posts on the website by title and author name. A 1 second interval is set after typing to fetch the post results so that the user is overwhelmed by constantly changing results after each keystroke. The search bar improves the user experience on the website by allowing users to find specific posts that interest them.
 - Category dropdown allows users to filter the posts in the feed by their category. This is improves the user experience by allowing users to customise the returned posts to a single category of their interest.
-- Post button allows users to be redirected to the 'Create Post' page, where they can add their own post to the website.
+- Post button allows users to be redirected to the 'Create Post' page, where they can add their own post to the website. The button only appears if the current user is logged in.
 - Each post is defined on a light blue background with margin between the post above or below. This allows each post to be distinguished easily.
 - Each post clearly shows information such as the author, date created, title and description and image. Clicking on the post image will redirect users to the 'Post' page, where they can find more details. Clicking on the profile image will redirect users to the author's 'Profile' page.
 - Buttons are present at the bottom of the post to allow the user to comment, vote for either option and favourite the post.
@@ -196,8 +196,133 @@ An agile development strategy was implemented in this project as user stories we
 ![Image showing the favourites page on large screen](/src/assets/favourites-page.png)
 (Favourites Page)
 
+### Post Page
 
+- Shows a specific, single post, with more details such as by showing the 'Add Comment' form, comments and more options dropdown. 
+- Allows users to interact and share their opinions in greater detail.
+- Accessed by clicking on a post's image.
+- The 'Add Comment' form is only visible for logged in users, however all users can view the comments on a post.
+- Comments are ordered in a list, with the most recent comments appearing at the top.
+- Comments show the content, date/time updated, author's name and author's profile image.
+- Infinite scrolling is present for posts that have more than 10 comments.
+- If ther current user is the author of the post, a more options dropdown button will appear as three dots. When clicked, the user can select the pencil button to be redirected to the 'Edit Post' page, or the bin to delete the post.
+- If ther current user is the author of the comment, a more options dropdown button will appear as three dots. When clicked, the user can select the pencil button to load the 'Edit Comment' form, or the bin to delete the comment.
 
+![Image showing the more dropdown on the post page](/src/assets/post-more-dropdown.png)
+(Post Page - More Dropdown Button Open)
+
+![Image showing the add comment form and comments on the post page](/src/assets/post-comments.png)
+(Posts Page - Add Comments form, comments list, comments more dropdown button open)
+
+![Image showing the edit comment form on the post page](/src/assets/edit-comment.png)
+(Posts page - Edit Comment form)
+
+### Add Post
+
+- Allows logged in users to create their owns posts on the website for other users to vote on.
+- Accessed via the 'Post' button on the 'Posts' page.
+- A light blue background and yellow buttons are used to stay consistent with the site's theme.
+- Users must input a title, category, image and description before submitting a post. Validation is used to check that fields are not left blank and users receive an alert message to explain the error if they try to submit the form with a blank field.
+- Placeholder text is used to inform the user of the information required for each field.
+- The category input is a dropdown, where users can select one option that represents their post.
+- The image input will be displayed as a small preview to the user so can check their image before submitting the form.
+- Users can create a post using the submit button, or be returned to the home page by clicking on the cancel button.
+- Once the form is submitted, the user will be redirected to the 'Home' page, where they can see their new post in the feed.
+
+![Image showing the add post form](/src/assets/add-post-form.png)
+(Add Post Page)
+
+### Edit Post
+
+- Allows logged in users to change the content of an existing post.
+- Accessed by clicking on the 'MoreDropdown' link on the 'Post' page. Can only be accessed if the current user is the author of the post to ensure that users cannot edit the content of other users' posts.
+- Loads an almost identical form to the 'Add Post' page to keep consistent with the site's theme.
+- The form loads pre-filled with the existing post data, making it easy for the user to edit the information accordingly.
+- The same input validation as in the 'Add Post' form is present, preventing the user from submitting a form with an empty field and returning an alert message to inform the user of the error.
+- Clicking the 'Cancel' button will return the user to 'Post' page and the original post data will remain.
+- Clicking the 'Save' button will result in updated fields to be saved to the post's data. The user will be returned to 'Post' page.
+
+![Image showing the edit post form](/src/assets/edit-post.png)
+(Edit Post Page)
+
+### Profile
+
+- Allows users to see details about a specific user.
+- Accessed by clicking on the profile image of a user on a post.
+- Large, centralised profile image and name title clearly inform the user whose profile they are currently viewing.
+- A dropdown is represented by three dots and sits adjacently to the profile image if the current user is the owner of the profile. Clicking this will open the dropdown and provide the user with links to the 'Edit Profile', 'Change Username' and 'Change Password' pages. Clicking these links will redirect the user to the respective pages.
+- Statistics section shows the number of posts, votes made and votes received by a user. This lets users see how active another user is on the website, as well as motivate users to participate in the community regularly.
+- A profile description is below the statistics section and allows users to creatively add content to their profile page.
+- A feed of all of the posts that belong to the profile is below the description. This allows other users to explore the content of a specific user; perhaps as they have enjoyed voting on their content before.
+- Most recent posts appear at the top of post feed and follow the same layout as in the 'Home' page, to provide a consistent theme and layout.
+- Posts can be interacted with in the same way as other pages, such as the 'Home' page. Allowing posts to be commented on, voted on and favourited.
+- Infinite scrolling is used when a profile has more than 10 posts, so that the information can easily be accessed by the users by scrolling continuously.
+
+![Image showing the profile page](/src/assets/profile-page.png)
+(Profile Page - Dropdown Open)
+
+### Edit Profile
+
+- Allows users to change the profile image and description of their profile.
+- Accessed by clicking the 'Edit Profile' link in the dropdown on the 'Profile' page. Can only be accessed if the user is the owner of the profile to ensure that users cannot edit the content of other users' profiles.
+- The form is centralised, has a light blue background and yellow buttons to stay consistent with the website's theme.
+- The form will render pre-filled to show the current profile data. This allows users to easily manipulate and change their profile content.
+- Initially, users will have a default profile image set.
+- The profile image will render a preview so that users can check the image before updating their profile.
+- The description field is optional, allowing users to submit the form without a description.
+- By clicking the 'Cancel' button, the user is returned to the 'Profile' page and the content of their profile is not updated.
+- By clicking the 'Save' button, the form is submitted, user is redirected to the 'Profile' page and they can view their updated content.
+
+![Image showing the edit profile page](/src/assets/edit-profile.png)
+(Edit Profile Page)
+
+### Change Username
+
+- Allows users to change their username.
+- Accessed by clicking the 'Change Username' link in the dropdown on the 'Profile' page. Can only be accessed if the user is the owner of profile to ensure that users cannot edit the username of other users' profiles.
+- The form is centralised, has a light blue background and yellow buttons to stay consistent with the website's theme. On larger devices, an image that represents voting is visible for a more appealing design. On smaller devices, this is intentionally absent due to space.
+- The form will render pre-filled to show the current username. This allows users to easily manipulate and change their username.
+- By clicking the 'Cancel' button, the user is returned to the 'Profile' page and the username of their profile is not updated.
+- By clicking the 'Save' button, the form is submitted, user is redirected to the 'Profile' page and their updated username can be seen at the top of their profile.
+
+![Image showing the change username page](/src/assets/username-page.png)
+(Change Username Page)
+
+### Change Password
+
+- Allows users to change their password.
+- Accessed by clicking the 'Change Password' link in the dropdown on the 'Profile' page. Can only be accessed if the user is the owner of profile to ensure that users cannot edit the password of other users' profiles.
+- The form is centralised, has a light blue background and yellow buttons to stay consistent with the website's theme. On larger devices, an image that represents voting is visible for a more appealing design. On smaller devices, this is intentionally absent due to space.
+- Users should input the same password into the 'New Password' and 'Confirm Password' fields. Validation is present to detect errors such as when the passwords don't match. Alerts explain the errors if the users try to submit an invalid form.
+- By clicking the 'Cancel' button, the user is returned to the 'Profile' page and the password of their profile is not updated.
+- By clicking the 'Save' button, the form is submitted and the user is redirected to the 'Profile' page.
+
+![Image showing the change password page](/src/assets/password-page.png)
+(Change Password Page)
+
+### Sign Up
+
+- Allows users to sign up for an account on the website.
+- The 'Sign Up' title makes it obvious to the user that they are on the sign up page and avoids confusion with the 'Sign In' page.
+- The form is centralised, has a light blue background and yellow buttons to stay consistent with the website's theme. On larger devices, an image that represents voting is visible for a more appealing design. On smaller devices, this is intentionally absent due to space.
+- Users should input a username and the same password into the 'New Password' and 'Confirm Password' fields. Validation is present to detect errors, such as when the passwords don't match or when a field is blank. Alerts explain the errors if the users try to submit an invalid form.
+- A link is available for users to be redirected to the 'Sign In' page if they already have an account.
+- By clicking the 'Sign Up' button, the form is submitted and the user is redirected to the 'Home' page.
+
+![Image showing the sign up page](/src/assets/sign-up.png)
+(Sign Up Page)
+
+### Sign In
+
+- Allows users to sign into their account on the website.
+- The 'Sign In' title makes it obvious to the user that they are on the sign in page and avoids confusion with the 'Sign Up' page.
+- The form is centralised, has a light blue background and yellow buttons to stay consistent with the website's theme. On larger devices, an image that represents voting is visible for a more appealing design. On smaller devices, this is intentionally absent due to space.
+- Users should input a username and password. Validation is present to detect errors, such as when the username or password is incorrect and when a field is blank. Alerts explain the errors if the users try to submit an invalid form.
+- A link is available for users to be redirected to the 'Sign Up' page if they don't already have an account.
+- By clicking the 'Sign In' button, the form is submitted and the user is redirected to the 'Home' page.
+
+![Image showing the sign in page](/src/assets/sign-in.png)
+(sign In Page)
 
 
 

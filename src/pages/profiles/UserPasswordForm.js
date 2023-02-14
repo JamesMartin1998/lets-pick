@@ -61,7 +61,7 @@ const UserPasswordForm = () => {
         <Container className={`${styles.Container}`}>
           <Form onSubmit={handleSubmit}>
             <Form.Group>
-              <Form.Label className={styles.Label}>New password</Form.Label>
+              <Form.Label className={`${styles.Label} d-none`}>New password</Form.Label>
               <Form.Control
                 placeholder="new password"
                 type="password"
@@ -77,7 +77,7 @@ const UserPasswordForm = () => {
               </Alert>
             ))}
             <Form.Group>
-              <Form.Label className={styles.Label}>Confirm password</Form.Label>
+              <Form.Label className={`${styles.Label} d-none`}>Confirm password</Form.Label>
               <Form.Control
                 placeholder="confirm new password"
                 type="password"

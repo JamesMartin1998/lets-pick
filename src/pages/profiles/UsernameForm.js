@@ -61,7 +61,7 @@ const UsernameForm = () => {
         <Container className={`${styles.Container}`}>
           <Form onSubmit={handleSubmit} className="my-2">
             <Form.Group>
-              <Form.Label className={styles.Label}>Change username</Form.Label>
+              <Form.Label className={`${styles.Label} d-none`}>Change username</Form.Label>
               <Form.Control
                 placeholder="username"
                 type="text"

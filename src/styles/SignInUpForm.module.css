@@ -12,6 +12,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     padding: 6rem 0 6rem 4rem;
+    border-radius: 50px;
 }
 
 .Input {
