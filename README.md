@@ -359,6 +359,14 @@ React components are blocks of code that are reusable throughout an application.
 - Improves the user experience by providing feedback after an error, rather than leaving them to become confused.
 - Navbar is displayed so that users can easily go to another page.
 
+## Future Features
+
+- Vote Percentage Bar 
+    - Currently users can see which option is more popular on each post by comparing the number for each option. In the future a bar could be added to each post and two colours could be used to show the percentage of each vote option. The bar could move using a transition effect when a user adds a vote on a post. This would provide a more attractive graphic to users.
+- Followers
+    - At the beginning of this project I thought that having followers is unnecessary for this website. I still believe that the site funcitons sufficiently without the need of followers. However I can see how following profiles could make the site superior as users could also have a page to see the posts from users that they follow. This would provide an extra level to the custom experience on the site.
+- Multiple Post Images
+    - Currently users can post an individual image showing two options that can be voted for. In the future it may be easier for users to have the option to upload 2 individual images, rather than combining 2 images into 1.
 
 
 

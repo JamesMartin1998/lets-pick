@@ -1,3 +1,4 @@
+// Code based from Code Institute's Moments project
 import axios from "axios";
 
 axios.defaults.baseURL = 'https://lets-pick.herokuapp.com/'
