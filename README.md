@@ -463,16 +463,15 @@ React components are blocks of code that are reusable throughout an application.
 | 067 | When a user deletes a comment on a post, the count for comments is decreased by 1. | Deleting a comment on a post causes the number beside the button (count) to decrease by one. | Pass |
 | 068 | When a user successfully deletes a comment, the comment instance is deleted in the API. The post instance has its comments_count updated in the API. | The comment instance is deleted and the post instance is updated correctly in the API. | Pass | 
 
+### Favourites
 
-|  |  |  |  | 
-|  |  |  |  | 
-
-
-
-
-
-
-
-
-
-
+| Test Case | Test Description | Test Outcome | Test Result |
+| ----------- | ----------- | ----------- | ----------- |
+| 069 | Logged in users can favourite posts. | Logged in users can click the star icon to favourite a post. | Pass | 
+| 070 | Logged out users cannot favourite posts and are informed by an overlay message. | Logged out users cannot favourite posts and can notice an overlay message to explain the error when hovering over the favourite button. | Pass |
+| 071 | Users cannot favourite their own posts and are informed by an overlay. | Users cannot favourite their own posts and can notice an overlay message to explain the error when hovering over the favourite button. | Pass |
+| 072 | When a user successfully favourites a post, the favourite button colour becomes solid. | A solid button colour is shown when the post is set as a favourite. | Pass |
+| 073 | When a user successfully favourites a post, a favourite instance is created in the API. | Instance is created in the API. | Pass |
+| 074 | Users can delete the favourite by clicking the favourite button again. | Clicking the favourite button again removes the favourite. | Pass |
+| 075 | When a user successfully favourites a post, the favourite button colour becomes no longer solid. | Solid button colour disappears when the post is set to no longer be a favourite. | Pass |
+| 075 | When a user successfully removes a favourite on a post, a favourite instance is deleted in the API. | Instance is deleted in the API. | Pass |
