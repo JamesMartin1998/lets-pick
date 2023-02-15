@@ -435,20 +435,35 @@ React components are blocks of code that are reusable throughout an application.
 
 | Test Case | Test Description | Test Outcome | Test Result |
 | ----------- | ----------- | ----------- | ----------- |
-|  | Logged in users can vote on posts made by other users by clicking on either vote option button on a post. | Logged in users can vote on posts made by other users. | Pass | 
-|  | Logged out users are unable to vote on posts and are informed by an overlay message. | Logged out users are unable to vote on posts and can notice an overlay message when hovering over a vote option button. | Pass | 
-|  | Logged in users cannot vote on their own post and are informed by an overlay message. | Logged in users are unable to vote on their own posts and can notice an overlay message when hovering over a vote option button. | Pass | 
-|  | When a user votes on a post, the count for the specific vote option is increased by 1. | Voting for an option causes the number beside the button (count) to increase by one. | Pass | 
-|  | Users are unable to vote for both options and are informed by an overlay message. | Users cannot vote for both options. An overlay message is seen when hovering over the vote option and the count doesn't increase when clicked. | Pass | 
-|  | When a user successfully votes, the vote instance is created in the API. The post instance has its votes_count and specific option count field updated in the API. | A vote instance is created and the post instance is updated correctly in the API. | Pass | 
-|  | When a user successfully votes, the specific vote option button colour becomes solid. | The vote option button becomes solid after voting. | Pass | 
-|  | Users are able to delete their votes by clicking on the vote option button again. | Vote is deleted. The option count next to the button decreases by 1. | Pass | 
-|  | When a user successfully deletes a vote, the vote instance is deleted in the API. The post instance has its votes_count and specific option count field updated in the API. | A vote instance is created and the post instance is updated correctly in the API. | Pass | 
-|  | A user can vote for the other option (effectively edit their vote choice) on a post if they have deleted their previous vote on the post. | Users are able to change their vote choice if they have deleted their previous vote on the post. | Pass | 
+| 047 | Logged in users can vote on posts made by other users by clicking on either vote option button on a post. | Logged in users can vote on posts made by other users. | Pass | 
+| 048 | Logged out users are unable to vote on posts and are informed by an overlay message. | Logged out users are unable to vote on posts and can notice an overlay message when hovering over a vote option button. | Pass | 
+| 049 | Logged in users cannot vote on their own post and are informed by an overlay message. | Logged in users are unable to vote on their own posts and can notice an overlay message when hovering over a vote option button. | Pass | 
+| 050 | When a user votes on a post, the count for the specific vote option is increased by 1. | Voting for an option causes the number beside the button (count) to increase by one. | Pass | 
+| 051 | Users are unable to vote for both options and are informed by an overlay message. | Users cannot vote for both options. An overlay message is seen when hovering over the vote option and the count doesn't increase when clicked. | Pass | 
+| 052 | When a user successfully votes, the vote instance is created in the API. The post instance has its votes_count and specific option count field updated in the API. | A vote instance is created and the post instance is updated correctly in the API. | Pass | 
+| 053 | When a user successfully votes, the specific vote option button colour becomes solid. | The vote option button becomes solid after voting. | Pass | 
+| 054 | Users are able to delete their votes by clicking on the vote option button again. | Vote is deleted. The option count next to the button decreases by 1. | Pass | 
+| 055 | When a user successfully deletes a vote, the vote instance is deleted in the API. The post instance has its votes_count and specific option count field updated in the API. | A vote instance is created and the post instance is updated correctly in the API. | Pass | 
+| 056 | A user can vote for the other option (effectively edit their vote choice) on a post if they have deleted their previous vote on the post. | Users are able to change their vote choice if they have deleted their previous vote on the post. | Pass | 
+
+### Comments
+
+| Test Case | Test Description | Test Outcome | Test Result |
+| ----------- | ----------- | ----------- | ----------- |
+| 057 | Logged in users can comment on posts. | Comment form is rendered on the 'Post' page for logged in users and they can successfully create comments. Comment can be seen under the comment form.| Pass | 
+| 058 | Logged out users cannot comment on posts. | No comment form is rendered on the 'Post' page so they cannot make a comment. | Pass | 
+| 059 | Users cannot add a comment of empty content. | Submitting an empty comment form doesn't result in a comment being made. | Pass |
+| 060 | When a user comments on a post, the count for comments is increased by 1. | Commenting on a post causes the number beside the button (count) to increase by one. | Pass | 
+| 061 | When a user successfully creates a comment, a comment instance is created in the API. The post instance has its comments_count updated in the API. | A comment instance is created and the post instance is updated correctly in the API. | Pass | 
+| 062 | Authors of a comment, can edit their comment. | Comment authors can see a 'MoreDropdown' icon and click the edit button to render a 'Edit Comment' form. Updating the content and saving the form results in the comment being updated. | Pass |
+| 063 | Users cannot edit a comment they are not the author of. | No 'MoreDropdown' icon is rendered on the comment so they cannot edit its content. | Pass |
+| 064 | When a user successfully edits a comment, the comment instance is updated in the API. | A comment instance is created in the API. | Pass | 
+| 065 | Authors of a comment, can delete their comment. | Comment authors can see a 'MoreDropdown' icon and click the delete button to delete the comment. | Pass |
+| 066 | Users cannot delete a comment they are not the author of. | No 'MoreDropdown' icon is rendered on the comment so they cannot delete the comment. | Pass |
+| 067 | When a user deletes a comment on a post, the count for comments is decreased by 1. | Deleting a comment on a post causes the number beside the button (count) to decrease by one. | Pass |
+| 068 | When a user successfully deletes a comment, the comment instance is deleted in the API. The post instance has its comments_count updated in the API. | The comment instance is deleted and the post instance is updated correctly in the API. | Pass | 
 
 
-|  |  |  |  | 
-|  |  |  |  | 
 |  |  |  |  | 
 |  |  |  |  | 
 
