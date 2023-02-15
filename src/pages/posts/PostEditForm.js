@@ -128,7 +128,7 @@ function PostEditForm() {
         <Col className="pt-3">
           <Container>
             <Form.Group controlId="category">
-              <Form.Label className={styles.Label}>Category</Form.Label>
+              <Form.Label className={`${styles.Label} d-none`}>Category</Form.Label>
               <Form.Control
                 as="select"
                 value={category}

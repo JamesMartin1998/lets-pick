@@ -401,10 +401,37 @@ React components are blocks of code that are reusable throughout an application.
 
 ### Posts
 
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
+| Test Case | Test Description | Test Outcome | Test Result |
+| ----------- | ----------- | ----------- | ----------- |
+| 020 | The 'Home' page renders a feed of posts if they exist. Most recent posts are seen first. | A feed of posts can be seen if post instances are created. Most recent posts are seen at the top of the feed. | Pass |
+| 021 |The 'Your Votes' page renders a feed of posts that the current user has already voted on. | A feed of posts is shown; only including posts that the user has voted on. | Pass |
+| 022 |The 'Favourites' page renders a feed of posts that the current user has already favourited. | A feed of posts is shown; only including posts that the user has favourited. | Pass |
+| 023 | A loading spinner is shown on the 'Home', 'Your Votes', 'Favourites' pages whilst the post data is being retrieved. | A loading spinner appears initially and is then replaced by a feed of posts. | Pass |
+| 024 | When no posts exist on the 'Home', 'Your Votes', 'Favourites' pages. A message is displayed to inform the user that there are no results. | No results image and message seen on each page when no posts exist. | Pass |
+| 025 | When more than 10 posts exist, infinite scrolling is used to render more posts as the user scrolls down the page. | User can render more than 10 posts by scrolling down the page. | Pass |
+| 026 | The search bar can be used to filter the posts feed by a post's title or author's name. | The search bar returns a feed of posts the where the input matches either the post's title or author's name. | Pass |
+| 027 | The category dropdown can be used to filter the posts feed to a single category. | When a category is selected, the posts feed ony includes posts of that category. | Pass |
+| 028 | The 'Post' button (allowing users to add a post) only renders for logged in users. | Only logged in users can see the 'Post' button. | Pass |
+| 029 | Each post in the feed displays the all the correct information about the post. | Each post includes a title, author name, profile image, date, description, image, comment button, vote option1 button, vote option2 button and favourite button. | Pass |
+| 030 | 'Post' page (showing detail about a particular post) can be accessed by clicking on a particular post's image. | Cliciking on a post's image loads a page containing only the specific post. | Pass |
+| 031 | The 'Post' page shows comments for a post if they exist, or a message if they don't. | Comments can be seen in a feed below the post when they exist. If there are no comments, the user is informed. | Pass |
+| 032 | If a post has more than 10 comments, these can be loaded by scrolling down the page. | Infinite scrolling is present, as scrolling down the page loads more comments if they exist. | Pass |
+| 033 | If the user is logged in, the 'Post' page shows the 'Add Comment' form. | 'Add Comment' visible under the post, only if the user is logged in. | Pass |
+| 034 | If the user is the author of a post, the 'MoreDropdown' (links to edit and delete the post) is rendered. | The 'MoreDropdown is only rendered on the 'Post' page if the user is the author of the particular post. | Pass |
+| 035 | Only the author of a post, can access its 'Edit Post' page. |  The post author can access the 'Edit Post' form, whereas other users are redirected to the 'Home' page. | Pass |
+| 036 | Only logged in users can access the 'Create Post' page. | Logged in users can access the 'Create Post' page, whereas logged out users are redirected to the 'Home' page. | Pass |
+
+
+| 037 | Logged in users can use the 'Create Post' form to add a new post to the website. | Submitting valid data in the 'Create Post' form will create a post which can be seen in the posts feed. | Pass |
+| 038 | Users cannot create a post if data is invalid in the 'Post Create' form. | 'Create Post' form handles invalid data when a user tries to submit the form (e.g. empty fields) and informs the user of the error as an alert message under the invalid field. | Pass |
+| 039 | Clicking the 'Cancel' button in the 'Create Post' form results in no post being created and the user being returned to the 'Home' page. | No post is created and the user is redirected to the 'Home' page. | Pass |
+| 040 | When the user successfully creates a post, the post instance is created in the API and has the correct data. | Post instance is created and the data is correct. | Pass |
+| 041 | 'Edit Post' form renders pre-filled with existing post data. | Each input has the existing post data when the form is loaded. | Pass |
+| 042 | Users cannot edit a post if data is invalid in the 'Post Edit' form. | 'Edit Post' form handles invalid data when a user tries to submit the form (e.g. empty fields) and informs the user of the error as an alert message under the invalid field. | Pass |
+| 043 | Clicking the 'Cancel' button in the 'Edit Post' form results in no post changes being saved and the user being returned to the 'Home' page. | No post data is changed and the user is redirected to the 'Home' page. | Pass |
+| 044 | When the user successfully edits a post, the post instance is updated in the API and has the correct data. | Post instance is updated and the data is correct. | Pass |
+| 045 | Clicking the delete button in the 'MoreDropdown' on the 'Post' page results in post being deleted and the user is redirected to the 'Home' page. | The post is deleted and is no longer seen in the post feed. The user is redirected to the 'Home' page. | Pass |
+| 046 | When the user successfully deletes a post, the post instance is deleted in the API. | Post instance is deleted. | Pass |
 
 
 
