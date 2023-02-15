@@ -82,7 +82,7 @@ An agile development strategy was implemented in this project as user stories we
 
 1. As a **user** I can **view a navbar on each page** so that **I can use the links to change my current page**.
 2. As a **user** I can **navigate between pages quickly** so that **I am not delayed by unnecessary page refreshes**.
-3. As a **user**, I can **see the log in and sign up links when logged out, compared to the log out link when logged in**, so that **I can the appropriate actions accordingly**.
+3. As a **user**, I can **see the log in and sign up links when logged out, compared to the log out link when logged in**, so that **I can access the appropriate actions accordingly**.
 
 ### Epic 2: Authentication
 
@@ -367,6 +367,45 @@ React components are blocks of code that are reusable throughout an application.
     - At the beginning of this project I thought that having followers is unnecessary for this website. I still believe that the site funcitons sufficiently without the need of followers. However I can see how following profiles could make the site superior as users could also have a page to see the posts from users that they follow. This would provide an extra level to the custom experience on the site.
 - Multiple Post Images
     - Currently users can post an individual image showing two options that can be voted for. In the future it may be easier for users to have the option to upload 2 individual images, rather than combining 2 images into 1.
+
+## Manual Testing
+
+### Navigation
+
+| Test Case | Test Description | Test Outcome | Test Result |
+| ----------- | ----------- | ----------- | ----------- |
+| 001 | Navbar can be seen on every page of the website. | Navbar is present at the top of every page. | Pass |
+| 002 | Navbar links are accurate and load the correct pages. | Navlinks accurately redirect users to the correct page. No broken links. | Pass |
+| 003| Clicking a navbar link should redirect users quickly, without unnecessary page reloads. | Navigation between pages is quick. No unnecessary page reloads, only changing components are re-rendered. | Pass |
+| 004 | Users can see their login status in the navbar. | Users are able to see their login status by seeing either the profile image and sign out navlinks when logged in, and the sign up and sign in navlinks when logged out. | Pass |
+| 005 | User has access to different links in the navbar depending on log in status. | Conditional rendering successfully makes the 'Your Votes', 'Favourites', 'Profile', and 'Sign Out' links visible for logged in users, whereas only logged out users have the 'Sign Up' and 'Sign In' links visible. | Pass |
+
+### Authentication
+
+| Test Case | Test Description | Test Outcome | Test Result |
+| ----------- | ----------- | ----------- | ----------- |
+| 006 | 'Sign Up' form prevents users from registering for an account when invalid input data is provided. | Validation prevents users registering for an account, for example when the username already exists, passwords don't match and when fields are left blank. | Pass |
+| 007 | Users receive alerts to explain validation errors in the 'Sign Up' form. | Users receive error alert messages underneath the field the error occurs in. | Pass |
+| 008 | Users are able to sign up for an account. | When users input valid data into the 'Sign Up' form they can successfully register for an account. | Pass |
+| 009 | The 'sign in' link redirects users to the 'Sign In' page. | Clicking the 'sign in' link successfully redirects users to the 'Sign In' page. | Pass |
+| 010 | 'Sign In' form prevents users from signing into their account when invalid input data is provided. | Validation prevents users signing into their account, for example when the username or password are incorrect and when fields are left blank. | Pass |
+| 011 | Users receive alerts to explain validation errors in the 'Sign In' form. | Users receive error alert messages underneath the field the error occurs in. | Pass |
+| 012 | Users are able to sign in to their already created account. | When users input valid data into the 'Sign In' form they can successfully log into their account. | Pass |
+| 013 | The 'sign up' link redirects users to the 'Sign Up' page. | Clicking the 'sign up' link successfully redirects users to the 'Sign Up' page. | Pass |
+| 014 | Users can see their logged in status. | Users can check the navbar to see their log in status | Pass |
+| 015 | When users are accessing pages exclusive to logged in users (e.g. 'Your Votes' page), they are redirected to the 'Home' page after signing out. | Users are successfully redirected to the 'Home' page after signing out. | Pass |
+| 016 | Logged out users are unable to access pages exclusive to logged in users (e.g. 'Add Post' page) and are either reidrected to the 'Home' page or see a page not found message. | Logged out users are unable to use logged in user functionality are redirected to the 'Home' page or see a page not found message.  | Pass |
+| 017 | Logged in users are unable to access the pages exclusive to logged out users (e.g. 'Sign Up' and 'Sign In' pages) | When a logged in users tries to access a URL to a page exclusive to logged out users, they are redirected to the 'Home' page. | Pass |
+| 018 | Users can log out of their account using the 'Sign Out' link in the navbar. | Users can log out and are redirected to the 'Home' page. | Pass |
+| 019 | When users successfully register for an account, the profile instance is created in the API and has the correct data. | User instance is created and the data is correct. | Pass |
+
+### Posts
+
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+
 
 
 
