@@ -420,8 +420,6 @@ React components are blocks of code that are reusable throughout an application.
 | 034 | If the user is the author of a post, the 'MoreDropdown' (links to edit and delete the post) is rendered. | The 'MoreDropdown is only rendered on the 'Post' page if the user is the author of the particular post. | Pass |
 | 035 | Only the author of a post, can access its 'Edit Post' page. |  The post author can access the 'Edit Post' form, whereas other users are redirected to the 'Home' page. | Pass |
 | 036 | Only logged in users can access the 'Create Post' page. | Logged in users can access the 'Create Post' page, whereas logged out users are redirected to the 'Home' page. | Pass |
-
-
 | 037 | Logged in users can use the 'Create Post' form to add a new post to the website. | Submitting valid data in the 'Create Post' form will create a post which can be seen in the posts feed. | Pass |
 | 038 | Users cannot create a post if data is invalid in the 'Post Create' form. | 'Create Post' form handles invalid data when a user tries to submit the form (e.g. empty fields) and informs the user of the error as an alert message under the invalid field. | Pass |
 | 039 | Clicking the 'Cancel' button in the 'Create Post' form results in no post being created and the user being returned to the 'Home' page. | No post is created and the user is redirected to the 'Home' page. | Pass |
@@ -432,6 +430,27 @@ React components are blocks of code that are reusable throughout an application.
 | 044 | When the user successfully edits a post, the post instance is updated in the API and has the correct data. | Post instance is updated and the data is correct. | Pass |
 | 045 | Clicking the delete button in the 'MoreDropdown' on the 'Post' page results in post being deleted and the user is redirected to the 'Home' page. | The post is deleted and is no longer seen in the post feed. The user is redirected to the 'Home' page. | Pass |
 | 046 | When the user successfully deletes a post, the post instance is deleted in the API. | Post instance is deleted. | Pass |
+
+### Votes
+
+| Test Case | Test Description | Test Outcome | Test Result |
+| ----------- | ----------- | ----------- | ----------- |
+|  | Logged in users can vote on posts made by other users by clicking on either vote option button on a post. | Logged in users can vote on posts made by other users. | Pass | 
+|  | Logged out users are unable to vote on posts and are informed by an overlay message. | Logged out users are unable to vote on posts and can notice an overlay message when hovering over a vote option button. | Pass | 
+|  | Logged in users cannot vote on their own post and are informed by an overlay message. | Logged in users are unable to vote on their own posts and can notice an overlay message when hovering over a vote option button. | Pass | 
+|  | When a user votes on a post, the count for the specific vote option is increased by 1. | Voting for an option causes the number beside the button (count) to increase by one. | Pass | 
+|  | Users are unable to vote for both options and are informed by an overlay message. | Users cannot vote for both options. An overlay message is seen when hovering over the vote option and the count doesn't increase when clicked. | Pass | 
+|  | When a user successfully votes, the vote instance is created in the API. The post instance has its votes_count and specific option count field updated in the API. | A vote instance is created and the post instance is updated correctly in the API. | Pass | 
+|  | When a user successfully votes, the specific vote option button colour becomes solid. | The vote option button becomes solid after voting. | Pass | 
+|  | Users are able to delete their votes by clicking on the vote option button again. | Vote is deleted. The option count next to the button decreases by 1. | Pass | 
+|  | When a user successfully deletes a vote, the vote instance is deleted in the API. The post instance has its votes_count and specific option count field updated in the API. | A vote instance is created and the post instance is updated correctly in the API. | Pass | 
+|  | A user can vote for the other option (effectively edit their vote choice) on a post if they have deleted their previous vote on the post. | Users are able to change their vote choice if they have deleted their previous vote on the post. | Pass | 
+
+
+|  |  |  |  | 
+|  |  |  |  | 
+|  |  |  |  | 
+|  |  |  |  | 
 
 
 
