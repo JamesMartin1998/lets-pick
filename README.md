@@ -475,3 +475,32 @@ React components are blocks of code that are reusable throughout an application.
 | 074 | Users can delete the favourite by clicking the favourite button again. | Clicking the favourite button again removes the favourite. | Pass |
 | 075 | When a user successfully favourites a post, the favourite button colour becomes no longer solid. | Solid button colour disappears when the post is set to no longer be a favourite. | Pass |
 | 075 | When a user successfully removes a favourite on a post, a favourite instance is deleted in the API. | Instance is deleted in the API. | Pass |
+
+### Profiles 
+
+| Test Case | Test Description | Test Outcome | Test Result |
+| ----------- | ----------- | ----------- | ----------- |
+| 076 | Users can view profiles by clicking on the profile image image or name link on a post. | Clicking on either link redirects the user to the to the profile page. | Pass |
+| 077 | Logged in users can also access their own profile via the 'Profile' navlink. | Navlink is present and redirects the user correctly. | Pass |
+| 078 | Profile page renders an information section (e.g. profile image, title, description), statistics (posts, votes made, votes received) section and posts feed. | Profile page renders information, statistics and feed sections. | Pass |
+| 079 | The statistics section shows the correct information. | Statistics accurately show the number of posts, votes made and votes received by a user. | Pass |
+| 080 | When a user visits another user's profile and votes on one of their posts, the votes received count increases by correctly. | Voting on a post in the feed on the profile page causes the votes received to increase by 1. | Pass |
+| 081 | When a user visits another user's profile and removes a vote on one of their posts they had previous voted on, the votes received count decreases correctly. | Removing a vote on a post in the feed on the profile page causes the votes received to decrease by 1. | Pass |
+| 082 | If a user votes or removes a vote on a post and then returns to their profile, the votes made count updates correctly. | Voting on post increases the vote count, and removing a vote decreases the vote made count. | Pass |
+| 083 | If a user creates a post or deletes a post and then returns to their profile, the post count updates correctly. | Creating a post increases the post count, and deleting a post decreases the post count. | Pass |
+| 084 | When a profile's posts, votes made or votes received count is updated, the fields are also updated in the API. | API updates to show correct profile data. | Pass |
+| 085 | The 'ProfileDropdown' icon (providing links to 'Edit Profile', 'Change Username' and 'Change Password') is only present for users visiting their own profile. | 'ProfileDropdown' icon visible on a user's own profile but not when visiting a different user's profile. | Pass |
+| 086 | 'Edit Profile' form loads pre-filled with existing profile data. | The current profile data can be seen when loading the 'Edit Profile' form. | Pass |
+| 087 | Users can update their profile image and description by submitting valid data in the 'EditProfile' form. | Users are able to update their profile by submitting valid data. | Pass |
+| 088 | Users cannot submit the 'EditProfile' form with invalid data and are alerted with a message. | Invalid data cannot be submitted in the form and a message is present under the invalid data. | Pass |
+| 089 | Clicking 'Cancel' in the 'EditProfile' form results in no data updates on the profile. | Clicking 'Cancel' does not update the profile and the user is redirected back to their profile. | Pass |
+| 090 | When the profile is successfully updated, the 'Profile' instance is updated correctly in the API. | Instance is updated correctly in the API. | Pass |
+| 091 | 'Change Username' form loads pre-filled with existing profile username. | The current username data can be seen when loading the 'Change Username' form. | Pass |
+| 092 | Users can update their username by submitting valid data in the 'ChangeUsername' form. | Users are able to update their username by submitting valid data. | Pass |
+| 093 | Users cannot submit the 'Change Username' form with invalid data and are alerted with a message. | Invalid data cannot be submitted in the form and a message is present under the invalid data. | Pass |
+| 094 | Clicking 'Cancel' in the 'Change Username' form results in no data updates on the profile. | Clicking 'Cancel' does not update the username and the user is redirected back to their profile. | Pass |
+| 095 | When the username is successfully updated, the 'Profile' instance is updated correctly in the API. | Instance is updated correctly in the API. | Pass |
+| 096 | Users can update their password by submitting valid data in the 'Change Password' form. | Users are able to update their password by submitting valid data. | Pass |
+| 097 | Users cannot submit the 'Change Password' form with invalid data and are alerted with a message. | Invalid data cannot be submitted in the form and a message is present under the invalid data. | Pass |
+| 098 | Clicking 'Cancel' in the 'Change Password' form results in no data updates on the profile. | Clicking 'Cancel' does not update the password and the user is redirected back to their profile. | Pass |
+| 099 | When the password is successfully updated, the 'Profile' instance is updated correctly in the API. | Instance is updated correctly in the API. | Pass |
