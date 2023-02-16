@@ -1,3 +1,4 @@
+// Code based from Code Institute's Moments project
 import React, { useEffect, useState } from "react";
 import CommentCreateForm from "../comments/CommentCreateForm";
 import Comment from "../comments/Comment";

@@ -1,3 +1,4 @@
+// Code based from Code Institute's Moments project
 import React, { useState } from "react";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";

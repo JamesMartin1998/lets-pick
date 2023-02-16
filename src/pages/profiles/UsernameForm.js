@@ -1,3 +1,4 @@
+// Code based from Code Institute's Moments project
 import React, { useEffect, useState } from "react";
 
 import Alert from "react-bootstrap/Alert";

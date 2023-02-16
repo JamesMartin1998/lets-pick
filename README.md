@@ -523,11 +523,11 @@ React components are blocks of code that are reusable throughout an application.
 - Google Fonts - Used to provide a custom font on the website.
 - Font Awesome - Used to add custom icons on the website.
 - Gitpod - Used as an IDE to build the project.
-- GitHub - Used to store the project in a repository.
+- GitHub - Used to store the project in a repository. Used as an agile tool.
 - Prettier - Used to format code.
 - Balsamiq - Used to create wireframes.
 - Draw.io - Used to create database model diagrams.
-- Heroku - Used to host the project.
+- Heroku - Used to deploy and host the project.
 
 
 ## Deployment 
@@ -576,3 +576,7 @@ This project was deployed to Heroku by:
 
 In axiosDefaults.js, the "axios.defaults.baseURL" variable needs to be set to the string 'https://lets-pick.herokuapp.com/' (deployed API URL). This sets the front end website to make requests to the specifc API built in this project. Additionally, the backend API project on Heroku needs a config var of "Client_ORIGIN" and the value of "https://lets-pick-app.herokuapp.com" (deployed site URL). This allows the front end website to make requests to the API.
 
+## Credits
+
+- Code Institute's Moments project was used to lay the foundations of this project and was adapted on to create a unique project. (https://github.com/Code-Institute-Solutions/moments/tree/bb6657e265fb18360b841e10d9d633dad06f4e5c)
+- Thanks to my mentor, Spencer, for his support throughout this project.
