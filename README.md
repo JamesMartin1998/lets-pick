@@ -505,6 +505,31 @@ React components are blocks of code that are reusable throughout an application.
 | 098 | Clicking 'Cancel' in the 'Change Password' form results in no data updates on the profile. | Clicking 'Cancel' does not update the password and the user is redirected back to their profile. | Pass |
 | 099 | When the password is successfully updated, the 'Profile' instance is updated correctly in the API. | Instance is updated correctly in the API. | Pass |
 
+## Technologies Used
+
+### Main Languages Used
+
+- HTML
+- CS
+- JavaScript
+
+### Dependencies and Programs Used
+
+- ReactJS - Used to build the components making up the front end website.
+- React Bootstrap - Used to create layouts and styles on the front end website.
+- Axios - Used to make HTTP requests from the front end website to the API.
+- JWT-Decode - Used to extract information from JWTs.
+- React-Infinte-Scroll - Used to automatically load more data from API when a user scrolls down a page.
+- Google Fonts - Used to provide a custom font on the website.
+- Font Awesome - Used to add custom icons on the website.
+- Gitpod - Used as an IDE to build the project.
+- GitHub - Used to store the project in a repository.
+- Prettier - Used to format code.
+- Balsamiq - Used to create wireframes.
+- Draw.io - Used to create database model diagrams.
+- Heroku - Used to host the project.
+
+
 ## Deployment 
 
 ### Run Locally
@@ -537,15 +562,15 @@ Note that the API will also have to configured to allow access to local hosts.
 During the development of the project, version control was used by committing and pushing the code to GitHub. The GitHub repository can be found here: https://github.com/JamesMartin1998/lets-pick
 
 This project was deployed to Heroku by:
-    - Committing and pushing the code to GitHub.
-    - Logging in to your Heroku account at Heroku.com.
-    - On the Heroku website, clicking 'New' and then 'Create New App'.
-    - Setting the name and region and pressing 'Create App'.
-    - Clicking the 'Deploy' tab.
-    - Clicking 'Connect to GitHub', search for repository, click 'Connect'.
-    - Enabling Manual Deploy. Check for successful message.
-    - Enabling Automatic Deploys.
-    - The live site can be found here: https://lets-pick-app.herokuapp.com/
+- Committing and pushing the code to GitHub.
+- Logging in to your Heroku account at Heroku.com.
+- On the Heroku website, clicking 'New' and then 'Create New App'.
+- Setting the name and region and pressing 'Create App'.
+- Clicking the 'Deploy' tab.
+- Clicking 'Connect to GitHub', search for repository, click 'Connect'.
+- Enabling Manual Deploy. Check for successful message.
+- Enabling Automatic Deploys.
+- The live site can be found here: https://lets-pick-app.herokuapp.com/
 
 ### Connecting to the API
 
