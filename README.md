@@ -504,3 +504,50 @@ React components are blocks of code that are reusable throughout an application.
 | 097 | Users cannot submit the 'Change Password' form with invalid data and are alerted with a message. | Invalid data cannot be submitted in the form and a message is present under the invalid data. | Pass |
 | 098 | Clicking 'Cancel' in the 'Change Password' form results in no data updates on the profile. | Clicking 'Cancel' does not update the password and the user is redirected back to their profile. | Pass |
 | 099 | When the password is successfully updated, the 'Profile' instance is updated correctly in the API. | Instance is updated correctly in the API. | Pass |
+
+## Deployment 
+
+### Run Locally
+
+Note that the API will also have to configured to allow access to local hosts.
+
+- Manually Downloading the Repository:
+    - Opening the project repository at: https://github.com/JamesMartin1998/lets-pick
+    - Opening the dropdown on the 'code' button.
+    - Downloading the zip file.
+    - Extracting the files from the zip file into a new folder on your computer.
+    - Opening the folder in an IDE of your choice.
+    - Updating the the "start" script value to "react-scripts --openssl-legacy-provider start".
+    - running "npm install" in the terminal.
+    - running "npm start" in the terminal.
+
+- Cloning the Repository:
+    - Opening the project repository at: https://github.com/JamesMartin1998/lets-pick
+    - Opening the dropdown on the 'code' button.
+    - Copying the link under the HTTPS heading (https://github.com/JamesMartin1998/lets-pick.git).
+    - Opening an IDE of your choice (must have Git support or relevant git extension).
+    - Open the terminal and create a directory to store the repository.
+    - Type "git clone https://github.com/JamesMartin1998/lets-pick.git" and press enter in the terminal.
+    - Updating the the "start" script value to "react-scripts --openssl-legacy-provider start".
+    - running "npm install" in the terminal.
+    - running "npm start" in the terminal.
+ 
+### Deploying to Heroku
+
+During the development of the project, version control was used by committing and pushing the code to GitHub. The GitHub repository can be found here: https://github.com/JamesMartin1998/lets-pick
+
+This project was deployed to Heroku by:
+    - Committing and pushing the code to GitHub.
+    - Logging in to your Heroku account at Heroku.com.
+    - On the Heroku website, clicking 'New' and then 'Create New App'.
+    - Setting the name and region and pressing 'Create App'.
+    - Clicking the 'Deploy' tab.
+    - Clicking 'Connect to GitHub', search for repository, click 'Connect'.
+    - Enabling Manual Deploy. Check for successful message.
+    - Enabling Automatic Deploys.
+    - The live site can be found here: https://lets-pick-app.herokuapp.com/
+
+### Connecting to the API
+
+In axiosDefaults.js, the "axios.defaults.baseURL" variable needs to be set to the string 'https://lets-pick.herokuapp.com/' (deployed API URL). This sets the front end website to make requests to the specifc API built in this project. Additionally, the backend API project on Heroku needs a config var of "Client_ORIGIN" and the value of "https://lets-pick-app.herokuapp.com" (deployed site URL). This allows the front end website to make requests to the API.
+
