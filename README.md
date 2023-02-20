@@ -85,6 +85,9 @@ The 'Edit Password' page aims to provide a simple, yet attractive form for users
 
 An agile development strategy was implemented in this project as user stories were created as 'Issues' on GitHub. Each user story prioritised b being assigned a level of necessity to be included in the project - 'Should-Have', 'Could-Have' or 'Must-Have' and seen can be seen as labels attached to the user stories. These user stories were then put onto a kanban board using 'GitHub Projects'. Here, user stories could be moved between 'To do', 'In progress (current sprint)' and 'Done' columns. 
 
+- Issues can be found [here](https://github.com/JamesMartin1998/lets-pick/issues).
+- Kanban board can be found [here](https://github.com/users/JamesMartin1998/projects/4)
+
 ### Epic 1: Navigation
 
 1. As a **user** I can **view a navbar on each page** so that **I can use the links to change my current page**.
@@ -533,7 +536,7 @@ React components are blocks of code that are reusable throughout an application.
 - GitHub - Used to store the project in a repository. Used as an agile tool.
 - Prettier - Used to format code.
 - Balsamiq - Used to create wireframes.
-- Draw.io - Used to create database model diagrams.
+- Diagrams.net - Used to create database model diagrams.
 - Heroku - Used to deploy and host the project.
 
 
@@ -581,7 +584,7 @@ This project was deployed to Heroku by:
 
 ### Connecting to the API
 
-In axiosDefaults.js, the "axios.defaults.baseURL" variable needs to be set to the string 'https://lets-pick.herokuapp.com/' (deployed API URL). This sets the front end website to make requests to the specifc API built in this project. Additionally, the backend API project on Heroku needs a config var of "Client_ORIGIN" and the value of "https://lets-pick-app.herokuapp.com" (deployed site URL). This allows the front end website to make requests to the API.
+In axiosDefaults.js, the "axios.defaults.baseURL" variable needs to be set to the string 'https://lets-pick.herokuapp.com/' (deployed API URL). This sets the front end website to make requests to the specifc API built in this project. Additionally, the backend API project on Heroku needs a config var of "CLIENT_ORIGIN" and the value of "https://lets-pick-app.herokuapp.com" (deployed site URL). This allows the front end website to make requests to the API.
 
 ## Credits
 

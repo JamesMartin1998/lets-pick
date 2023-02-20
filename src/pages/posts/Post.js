@@ -1,11 +1,11 @@
 // Code based from Code Institute's Moments project
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/Post.module.css";
 import Avatar from "../../components/Avatar";
-import { axiosRes } from "../../api/axiosDefaults";
+import { axiosRes, axiosReq } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 
 const Post = (props) => {
@@ -33,13 +33,33 @@ const Post = (props) => {
   const is_author = currentUser?.username === author;
   const history = useHistory();
 
+  // console.log(vote_id)
+  // const [option, setOption] = useState(null)
 
   // useEffect(() => {
-  //   const handleMount = (vote_id) => {
-  //     console.log(vote_id)
+  //   const handleMount = async () => {
+  //     try {
+  //       const votes = await axiosReq.get(`/votes/`)
+  //       console.log(votes.data.results)
+  //       const votes_list = votes.data.results
+  //       for (let vote of votes_list) {
+  //         if (vote.owner === currentUser.username) {
+  //           let votedOn = vote
+  //           console.log(votedOn)
+  //           let votedOnOption = votedOn.option
+  //           console.log(votedOnOption)
+  //           // return votedOnOption
+  //           setOption(votedOnOption)
+  //         }
+  //       }
+  //     } catch(err) {
+  //       console.log(err)
+  //     }
   //   }
   //   handleMount()
+  //   console.log(option)
   // }, [])
+  
 
   // redirects user to page to PostEditForm
   const handleEdit = () => {
