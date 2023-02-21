@@ -13,6 +13,18 @@ h5 {
   margin: 0 0;
 }
 
+.Key {
+  width: 100%;
+  height: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.Key > div {
+  width: 50%;
+  font-weight: bold;
+}
+
 .VoteIcon, .CommentIcon, .FavouriteIcon {
   color: #F3D207;
 }
