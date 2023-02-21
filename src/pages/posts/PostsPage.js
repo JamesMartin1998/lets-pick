@@ -34,6 +34,8 @@ function PostsPage({ message, filter = "" }) {
   const currentUser = useCurrentUser();
   const addPostIcon = <Button className={styles.AddPost} href="/posts/create"><i className="far fa-plus-square" />Post</Button>
 
+  
+
   // allows users to only see posts of a selected category
   const handleCategoryChange = (event) => {
     setCategory(`category=${event}`);
@@ -61,7 +63,7 @@ function PostsPage({ message, filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, pathname, query, category]);
+  }, [filter, pathname, query, category, currentUser]);
 
   return (
     <Container className={styles.Container}>
