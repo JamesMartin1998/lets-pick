@@ -50,7 +50,6 @@ const ProfilePage = () => {
     handleMount();
   }, [id, setProfileData]);
 
-  console.log(profileData);
 
   // Shows details about a profile and renders a dropdown to edit the profile if the current user owns the profile
   const mainProfile = (

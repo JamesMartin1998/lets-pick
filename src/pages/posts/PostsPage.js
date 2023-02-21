@@ -36,8 +36,6 @@ function PostsPage({ message, filter = "" }) {
 
   // allows users to only see posts of a selected category
   const handleCategoryChange = (event) => {
-    console.log("working");
-    console.log(event);
     setCategory(`category=${event}`);
   };
 

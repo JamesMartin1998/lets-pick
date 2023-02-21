@@ -33,34 +33,6 @@ const Post = (props) => {
   const is_author = currentUser?.username === author;
   const history = useHistory();
 
-  // console.log(vote_id)
-  // const [option, setOption] = useState(null)
-
-  // useEffect(() => {
-  //   const handleMount = async () => {
-  //     try {
-  //       const votes = await axiosReq.get(`/votes/`)
-  //       console.log(votes.data.results)
-  //       const votes_list = votes.data.results
-  //       for (let vote of votes_list) {
-  //         if (vote.owner === currentUser.username) {
-  //           let votedOn = vote
-  //           console.log(votedOn)
-  //           let votedOnOption = votedOn.option
-  //           console.log(votedOnOption)
-  //           // return votedOnOption
-  //           setOption(votedOnOption)
-  //         }
-  //       }
-  //     } catch(err) {
-  //       console.log(err)
-  //     }
-  //   }
-  //   handleMount()
-  //   console.log(option)
-  // }, [])
-  
-
   // redirects user to page to PostEditForm
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
@@ -147,8 +119,6 @@ const Post = (props) => {
     // the the option count for the opposite vote option
     try {
       const { data } = await axiosRes.get(`/votes/${vote_id}/`);
-      console.log(data);
-      console.log(data.option);
       if (data.option === "option1") {
         await axiosRes.delete(`/votes/${vote_id}/`);
         setPosts((prevPosts) => ({
@@ -179,8 +149,6 @@ const Post = (props) => {
     // the the option count for the opposite vote option
     try {
       const { data } = await axiosRes.get(`/votes/${vote_id}/`);
-      console.log(data);
-      console.log(data.option);
       if (data.option === "option2") {
         await axiosRes.delete(`/votes/${vote_id}/`);
         setPosts((prevPosts) => ({
