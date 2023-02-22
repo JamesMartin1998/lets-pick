@@ -378,6 +378,11 @@ React components are blocks of code that are reusable throughout an application.
 
 ## Manual Testing
 
+- The website has been tested and works on different browsers: Chrome, Samsung Internet, Microsoft Edge.
+- All text can be seen clearly and isn't disrupted by another element.
+- All links and buttons can be clicked and provide their expected results.
+- All pages are responsive on all standard screen sizes and functions correctly.
+
 ### Navigation
 
 | Test Case | Test Description                                                                        | Test Outcome                                                                                                                                                                                                        | Test Result |
@@ -513,6 +518,18 @@ React components are blocks of code that are reusable throughout an application.
 | 098       | Clicking 'Cancel' in the 'Change Password' form results in no data updates on the profile.                                                                    | Clicking 'Cancel' does not update the password and the user is redirected back to their profile.         | Pass        |
 | 099       | When the password is successfully updated, the 'Profile' instance is updated correctly in the API.                                                            | Instance is updated correctly in the API.                                                                | Pass        |
 
+### JSX Validation
+- Prettier was installed to format the code consistently.
+- ESLint was installed to validate the code. No significant errors were detected that affect performance.
+
+### CSS Validation
+- CSS files were validated using the Jigsaw W3C CSS Validator and returned no errors. (https://jigsaw.w3.org/css-validator/)
+
+### Lighthouse 
+
+![Image of lighthouse test results for home page](/src/assets/lighthouse.png)
+(Lighthouse test results on home page)
+
 ## Technologies Used
 
 ### Main Languages Used
@@ -533,9 +550,11 @@ React components are blocks of code that are reusable throughout an application.
 - Gitpod - Used as an IDE to build the project.
 - GitHub - Used to store the project in a repository. Used as an agile tool.
 - Prettier - Used to format code.
+- ESLint - Used to validate JSX code.
 - Balsamiq - Used to create wireframes.
 - Diagrams.net - Used to create database model diagrams.
 - Heroku - Used to deploy and host the project.
+- W3C CSS Validation Service - Used to validate CSS code.
 
 ## Deployment
 
@@ -588,4 +607,22 @@ In axiosDefaults.js, the "axios.defaults.baseURL" variable needs to be set to th
 ## Credits
 
 - Code Institute's Moments project was used to lay the foundations of this project and was adapted on to create a unique project. (https://github.com/Code-Institute-Solutions/moments/tree/bb6657e265fb18360b841e10d9d633dad06f4e5c)
+- Article by Marco Antonio Bet on DevGenius used to install ESLint and Prettier. (https://blog.devgenius.io/eslint-prettier-typescript-and-react-in-2022-e5021ebca2b1)
+- Sign Up / Sign In Background image - https://images.pexels.com/photos/8850709/pexels-photo-8850709.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
+- Football Image - https://i2-prod.manchestereveningnews.co.uk/sport/football/article24985459.ece/ALTERNATES/s615/0_GettyImages-1413133364.jpg
+- Basketball Image - https://images.unsplash.com/photo-1576438162986-c685b1cfed7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&w=1000&q=80
+- No Results Image - https://codeinstitute.s3.amazonaws.com/AdvancedReact/no-results.png
+- Lionel Messi Image - https://upload.wikimedia.org/wikipedia/commons/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg
+- Cristiano Ronaldo Image - https://imageio.forbes.com/specials-images/imageserve/627bd291633f3fbbcda36428/0x0.jpg?format=jpg&crop=2057,2059,x918,y85,safe&height=416&width=416&fit=bounds
+- Pizza Image - https://images.pexels.com/photos/4109111/pexels-photo-4109111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
+- Pasta Image - https://images.pexels.com/photos/1373915/pexels-photo-1373915.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
+- London Image - https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
+- Paris Image - https://images.pexels.com/photos/532826/pexels-photo-532826.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
+- Harry Potter Image - https://www.trustedreviews.com/wp-content/uploads/sites/54/2018/11/harrypotter.jpg
+- Yoda Image - https://upload.wikimedia.org/wikipedia/en/thumb/6/6f/Yoda_Attack_of_the_Clones.png/170px-Yoda_Attack_of_the_Clones.png
+- Gucci Image - https://blunt.one/images/gucci-gg.jpg
+- Louis Vuitton Image - https://blunt.one/images/louis_vuitton_LV.jpg
+- Profile Image - https://codeinstitute.s3.amazonaws.com/ReactEssentials/DRF/Images/default_profile.jpg
+- Upload Image - https://codeinstitute.s3.amazonaws.com/AdvancedReact/upload.png
+- Logo Image - https://www.vecteezy.com/vector-art/7743118-click-here-button-with-hand-pointer-clicking-vector-icon
 - Thanks to my mentor, Spencer, for his support throughout this project.

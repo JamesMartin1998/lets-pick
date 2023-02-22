@@ -1,11 +1,11 @@
 // Code based from Code Institute's Moments project
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import styles from '../../styles/Post.module.css';
 import Avatar from '../../components/Avatar';
-import { axiosRes, axiosReq } from '../../api/axiosDefaults';
+import { axiosRes } from '../../api/axiosDefaults';
 import { MoreDropdown } from '../../components/MoreDropdown';
 
 const Post = (props) => {

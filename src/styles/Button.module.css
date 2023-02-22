@@ -1,3 +1,4 @@
+/* Code based from Code Institute's Moments project */
 .Button {
   font-size: 0.8rem;
   align-self: center;
@@ -6,7 +7,6 @@
   padding: 4px 10px;
   margin-left: 2px;
   margin-right: 2px;
-  /* min-width: 75px; */
   width: 50%;
   background-color: #f3d207;
   color: #211a1d !important;

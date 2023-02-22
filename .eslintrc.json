@@ -22,12 +22,17 @@
     ],
     "rules": {
         "react/react-in-jsx-scope": "off",
-        "camelcase": "error",
+        "camelcase": "off",
         "spaced-comment": "error",
         "quotes": [
             "error",
             "single"
         ],
-        "no-duplicate-imports": "error"
+        "no-duplicate-imports": "error",
+        "no-unused-vars": "warn",
+        "react/prop-types": 0,
+        "react/no-unescaped-entities": 0,
+        "react/no-children-prop": 0,
+        "react/display-name": 0
     }
 }

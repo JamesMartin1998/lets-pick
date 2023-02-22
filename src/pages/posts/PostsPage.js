@@ -72,7 +72,6 @@ function PostsPage({ message, filter = '' }) {
     <Container className={styles.Container}>
       <Row className={styles.Row}>
         <Col>
-          <i className={`fas fa-search ${styles.SearchIcon}`} />
           <Form
             className={`${styles.SearchBar}`}
             onSubmit={(event) => event.preventDefault()}
