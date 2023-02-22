@@ -48,6 +48,15 @@ const Post = (props) => {
     }
   };
 
+  // store the font awesome classname in state so that I can have different icons depending on each options state
+  // e.g. prevents both buttons changing icon class together when a vote is registered on a post
+  const [voteOption1Icon, setVoteOption1Icon] = useState(
+    "fa-regular fa-circle-check"
+  );
+  const [voteOption2Icon, setVoteOption2Icon] = useState(
+    "fa-regular fa-circle-check"
+  );
+
   // send post request to API to create vote instance as well as update the state for the votes count and specify vote type
   const handleOption1Vote = async () => {
     try {
@@ -68,6 +77,7 @@ const Post = (props) => {
             : post;
         }),
       }));
+      setVoteOption1Icon("fa-solid fa-circle-check");
       // Allows the Votes Received to be updated on the Profile Page
       setVote1(1);
     } catch (err) {
@@ -95,6 +105,7 @@ const Post = (props) => {
             : post;
         }),
       }));
+      setVoteOption2Icon("fa-solid fa-circle-check");
       // Allows the Votes Received to be updated on the Profile Page
       setVote2(1);
     } catch (err) {
@@ -123,6 +134,7 @@ const Post = (props) => {
               : post;
           }),
         }));
+        setVoteOption1Icon("fa-regular fa-circle-check");
         // Allows the Votes Received to be updated on the Profile Page
         setVote1(0);
       }
@@ -152,6 +164,7 @@ const Post = (props) => {
               : post;
           }),
         }));
+        setVoteOption2Icon("fa-regular fa-circle-check");
         // Allows the Votes Received to be updated on the Profile Page
         setVote2(0);
       }
@@ -224,10 +237,6 @@ const Post = (props) => {
       <Link to={`/posts/${id}`}>
         <Card.Img src={image} alt={title} />
       </Link>
-      <div className={styles.Key}>
-        <div>Option 1</div>
-        <div>Option 2</div>
-      </div>
       <Card.Body>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {content && <Card.Text>{content}</Card.Text>}
@@ -262,43 +271,27 @@ const Post = (props) => {
           ) : vote_id ? (
             <>
               <span onClick={handleRemoveOption1Vote}>
-                <i
-                  className={`fa-regular fa-circle-check ${styles.VoteIcon} ${styles.Option1}`}
-                />
+                <i className={`${voteOption1Icon} ${styles.VoteIcon} ${styles.Option1}`} />
               </span>
               {option1_count}
               <span onClick={handleRemoveOption2Vote}>
-                <i
-                  className={`fa-regular fa-circle-check ${styles.VoteIcon} ${styles.Option2}`}
-                />
+                <i className={`${voteOption2Icon} ${styles.VoteIcon} ${styles.Option2}`} />
               </span>
               {option2_count}
             </>
           ) : currentUser ? (
             <>
-              <OverlayTrigger
-                placement="top"
-                overlay={<Tooltip>Vote for option 1</Tooltip>}
-              >
-                <span onClick={handleOption1Vote}>
-                  <i
-                    className={`fa-regular fa-circle-check ${styles.VoteIcon} ${styles.Option1}`}
-                  />
-                </span>
-              </OverlayTrigger>
-
+              <span onClick={handleOption1Vote}>
+                <i
+                  className={`fa-regular fa-circle-check ${styles.VoteIcon} ${styles.Option1}`}
+                />
+              </span>
               {option1_count}
-              <OverlayTrigger
-                placement="top"
-                overlay={<Tooltip>Vote for option 2</Tooltip>}
-              >
-                <span onClick={handleOption2Vote}>
-                  <i
-                    className={`fa-regular fa-circle-check ${styles.VoteIcon} ${styles.Option2}`}
-                  />
-                </span>
-              </OverlayTrigger>
-
+              <span onClick={handleOption2Vote}>
+                <i
+                  className={`fa-regular fa-circle-check ${styles.VoteIcon} ${styles.Option2}`}
+                />
+              </span>
               {option2_count}
             </>
           ) : (
