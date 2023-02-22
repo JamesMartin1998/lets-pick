@@ -1,22 +1,21 @@
 // Code based from Code Institute's Moments project
-import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
-import styles from "../../styles/SignInUpForm.module.css";
-import btnStyles from "../../styles/Button.module.css";
+import styles from '../../styles/SignInUpForm.module.css';
+import btnStyles from '../../styles/Button.module.css';
 
-import { Form, Button, Col, Row, Container, Alert } from "react-bootstrap";
-import axios from "axios";
-import { useRedirect } from "../../hooks/useRedirect";
+import { Form, Button, Col, Row, Container, Alert } from 'react-bootstrap';
+import axios from 'axios';
+import { useRedirect } from '../../hooks/useRedirect';
 
 const SignUpForm = () => {
-
-  useRedirect('loggedIn')
+  useRedirect('loggedIn');
 
   const [signUpData, setSignUpData] = useState({
-    username: "",
-    password1: "",
-    password2: "",
+    username: '',
+    password1: '',
+    password2: '',
   });
 
   const { username, password1, password2 } = signUpData;
@@ -36,8 +35,8 @@ const SignUpForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("/dj-rest-auth/registration/", signUpData);
-      history.push("/signin");
+      await axios.post('/dj-rest-auth/registration/', signUpData);
+      history.push('/signin');
     } catch (err) {
       setErrors(err.response?.data);
     }

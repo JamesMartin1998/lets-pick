@@ -1,34 +1,34 @@
 // Code based from Code Institute's Moments project
-import React, { useRef, useState } from "react";
+import React, { useRef, useState } from 'react';
 
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Image from "react-bootstrap/Image";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Image from 'react-bootstrap/Image';
 
-import Upload from "../../assets/upload.png";
+import Upload from '../../assets/upload.png';
 
-import styles from "../../styles/PostCreateEditForm.module.css";
-import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
-import Asset from "../../components/Asset";
-import { useHistory } from "react-router-dom";
-import { axiosReq } from "../../api/axiosDefaults";
-import { Alert } from "react-bootstrap";
-import { useRedirect } from "../../hooks/useRedirect";
+import styles from '../../styles/PostCreateEditForm.module.css';
+import appStyles from '../../App.module.css';
+import btnStyles from '../../styles/Button.module.css';
+import Asset from '../../components/Asset';
+import { useHistory } from 'react-router-dom';
+import { axiosReq } from '../../api/axiosDefaults';
+import { Alert } from 'react-bootstrap';
+import { useRedirect } from '../../hooks/useRedirect';
 
 function PostCreateForm() {
-  useRedirect("loggedOut");
+  useRedirect('loggedOut');
 
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
-    title: "",
-    category: "",
-    image: "",
-    content: "",
+    title: '',
+    category: '',
+    image: '',
+    content: '',
   });
 
   const { title, category, image, content } = postData;
@@ -69,13 +69,13 @@ function PostCreateForm() {
     event.preventDefault();
     const formData = new FormData();
 
-    formData.append("title", title);
-    formData.append("category", category);
-    formData.append("image", imageInput.current.files[0]);
-    formData.append("content", content);
+    formData.append('title', title);
+    formData.append('category', category);
+    formData.append('image', imageInput.current.files[0]);
+    formData.append('content', content);
 
     try {
-      const { data } = await axiosReq.post("/posts/", formData);
+      const { data } = await axiosReq.post('/posts/', formData);
       history.push(`/posts/${data.id}`);
     } catch (err) {
       console.log(err);
@@ -113,7 +113,9 @@ function PostCreateForm() {
         <Col className="pt-3">
           <Container>
             <Form.Group controlId="category">
-              <Form.Label className={`${styles.Label} d-none`}>Category</Form.Label>
+              <Form.Label className={`${styles.Label} d-none`}>
+                Category
+              </Form.Label>
               <Form.Control
                 as="select"
                 value={category}

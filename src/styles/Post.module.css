@@ -4,7 +4,7 @@
   border-radius: 2px;
   margin-bottom: 16px;
   text-align: center;
-  width:70%;
+  width: 70%;
   margin-left: 15%;
 }
 
@@ -25,26 +25,29 @@ h5 {
   font-weight: bold;
 }
 
-.VoteIcon, .CommentIcon, .FavouriteIcon {
-  color: #F3D207;
+.VoteIcon,
+.CommentIcon,
+.FavouriteIcon {
+  color: #f3d207;
 }
 
-.VoteIcon:hover, .CommentIcon:hover, .FavouriteIcon:hover {
-  color: black!important;
+.VoteIcon:hover,
+.CommentIcon:hover,
+.FavouriteIcon:hover {
+  color: black !important;
 }
 
 .Option1 {
-  color: blue!important;
+  color: blue !important;
 }
 
 .Option2 {
-  color: red!important;
+  color: red !important;
 }
 
 .Author {
   color: black;
 }
-
 
 @media (max-width: 991.5px) {
   .Post {

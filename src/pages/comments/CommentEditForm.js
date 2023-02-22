@@ -1,10 +1,10 @@
 // Code based from Code Institute's Moments project
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import Form from "react-bootstrap/Form";
-import { axiosRes } from "../../api/axiosDefaults";
+import Form from 'react-bootstrap/Form';
+import { axiosRes } from '../../api/axiosDefaults';
 
-import styles from "../../styles/CommentCreateEditForm.module.css";
+import styles from '../../styles/CommentCreateEditForm.module.css';
 
 // Allows user to edit their own comments on a post
 function CommentEditForm(props) {
@@ -31,7 +31,7 @@ function CommentEditForm(props) {
             ? {
                 ...comment,
                 content: formContent.trim(),
-                updated_at: "now",
+                updated_at: 'now',
               }
             : comment;
         }),

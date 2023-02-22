@@ -1,18 +1,18 @@
 // Code based from Code Institute's Moments project
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 
-import styles from "../../styles/CommentCreateEditForm.module.css";
-import Avatar from "../../components/Avatar";
-import { axiosRes } from "../../api/axiosDefaults";
+import styles from '../../styles/CommentCreateEditForm.module.css';
+import Avatar from '../../components/Avatar';
+import { axiosRes } from '../../api/axiosDefaults';
 
 // Allows users to make a comment on a post
 function CommentCreateForm(props) {
   const { post, setPost, setComments, profileImage, profile_id } = props;
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState('');
 
   // detects input changes and displays to the user
   const handleChange = (event) => {
@@ -23,7 +23,7 @@ function CommentCreateForm(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { data } = await axiosRes.post("/comments/", {
+      const { data } = await axiosRes.post('/comments/', {
         content,
         post,
       });
@@ -39,7 +39,7 @@ function CommentCreateForm(props) {
           },
         ],
       }));
-      setContent("");
+      setContent('');
     } catch (err) {
       console.log(err);
     }

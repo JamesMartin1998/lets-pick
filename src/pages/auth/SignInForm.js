@@ -1,24 +1,24 @@
 // Code based from Code Institute's Moments project
-import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
-import styles from "../../styles/SignInUpForm.module.css";
-import btnStyles from "../../styles/Button.module.css";
+import styles from '../../styles/SignInUpForm.module.css';
+import btnStyles from '../../styles/Button.module.css';
 
-import { Form, Button, Col, Row, Container, Alert } from "react-bootstrap";
-import axios from "axios";
-import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
-import { useRedirect } from "../../hooks/useRedirect";
-import { setTokenTimestamp } from "../../utils/utils";
+import { Form, Button, Col, Row, Container, Alert } from 'react-bootstrap';
+import axios from 'axios';
+import { useSetCurrentUser } from '../../contexts/CurrentUserContext';
+import { useRedirect } from '../../hooks/useRedirect';
+import { setTokenTimestamp } from '../../utils/utils';
 
 function SignInForm() {
-  useRedirect("loggedIn");
+  useRedirect('loggedIn');
 
   const setCurrentUser = useSetCurrentUser();
 
   const [signInData, setSignInData] = useState({
-    username: "",
-    password: "",
+    username: '',
+    password: '',
   });
 
   const { username, password } = signInData;
@@ -39,9 +39,9 @@ function SignInForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { data } = await axios.post("/dj-rest-auth/login/", signInData);
+      const { data } = await axios.post('/dj-rest-auth/login/', signInData);
       setCurrentUser(data.user);
-      setTokenTimestamp(data)
+      setTokenTimestamp(data);
       history.goBack();
     } catch (err) {
       setErrors(err.response?.data);

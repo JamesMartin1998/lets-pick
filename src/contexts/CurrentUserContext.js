@@ -1,9 +1,9 @@
 // Code used from Code Institute's Moments project
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
-import axios from "axios";
-import { axiosReq, axiosRes } from "../api/axiosDefaults";
-import { useHistory } from "react-router";
-import { removeTokenTimestamp, shouldRefreshToken } from "../utils/utils";
+import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import axios from 'axios';
+import { axiosReq, axiosRes } from '../api/axiosDefaults';
+import { useHistory } from 'react-router';
+import { removeTokenTimestamp, shouldRefreshToken } from '../utils/utils';
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -19,7 +19,7 @@ export const CurrentUserProvider = ({ children }) => {
   // gets logged in user data
   const handleMount = async () => {
     try {
-      const { data } = await axiosRes.get("dj-rest-auth/user/");
+      const { data } = await axiosRes.get('dj-rest-auth/user/');
       setCurrentUser(data);
     } catch (err) {
       console.log(err);
@@ -37,17 +37,17 @@ export const CurrentUserProvider = ({ children }) => {
     // set axiosReq to always refresh access token before making a request
     axiosReq.interceptors.request.use(
       async (config) => {
-        if (shouldRefreshToken()){
+        if (shouldRefreshToken()) {
           try {
-            await axios.post("/dj-rest-auth/token/refresh/");
+            await axios.post('/dj-rest-auth/token/refresh/');
           } catch (err) {
             setCurrentUser((prevCurrentUser) => {
               if (prevCurrentUser) {
-                history.push("/signin");
+                history.push('/signin');
               }
               return null;
             });
-            removeTokenTimestamp()
+            removeTokenTimestamp();
             return config;
           }
         }
@@ -64,15 +64,15 @@ export const CurrentUserProvider = ({ children }) => {
       async (err) => {
         if (err.response?.status === 401) {
           try {
-            await axios.post("/dj-rest-auth/token/refresh/");
+            await axios.post('/dj-rest-auth/token/refresh/');
           } catch (err) {
             setCurrentUser((prevCurrentUser) => {
               if (prevCurrentUser) {
-                history.push("/signin");
+                history.push('/signin');
               }
               return null;
             });
-            removeTokenTimestamp()
+            removeTokenTimestamp();
           }
           return axios(err.config);
         }

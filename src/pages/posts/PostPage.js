@@ -1,19 +1,19 @@
 // Code based from Code Institute's Moments project
-import React, { useEffect, useState } from "react";
-import CommentCreateForm from "../comments/CommentCreateForm";
-import Comment from "../comments/Comment";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import styles from "../../styles/PostPage.module.css";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
+import React, { useEffect, useState } from 'react';
+import CommentCreateForm from '../comments/CommentCreateForm';
+import Comment from '../comments/Comment';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import styles from '../../styles/PostPage.module.css';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
 
-import { useParams } from "react-router";
-import { axiosReq } from "../../api/axiosDefaults";
-import Post from "./Post";
-import InfiniteScroll from "react-infinite-scroll-component";
-import Asset from "../../components/Asset";
-import { fetchMoreData } from "../../utils/utils";
+import { useParams } from 'react-router';
+import { axiosReq } from '../../api/axiosDefaults';
+import Post from './Post';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import Asset from '../../components/Asset';
+import { fetchMoreData } from '../../utils/utils';
 
 function PostPage() {
   const { id } = useParams();
@@ -66,7 +66,7 @@ function PostPage() {
               setComments={setComments}
             />
           ) : comments.results.length ? (
-            "Comments"
+            'Comments'
           ) : null}
           {comments.results.length ? (
             <InfiniteScroll

@@ -1,31 +1,34 @@
 // Code based from Code Institute's Moments project
-import React from "react";
-import { Navbar, Container, Nav } from "react-bootstrap";
-import logo from "../assets/logo.png";
-import styles from "../styles/NavBar.module.css";
-import { NavLink } from "react-router-dom";
-import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
-import Avatar from "./Avatar";
-import axios from "axios";
-import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
-import { removeTokenTimestamp } from "../utils/utils";
+import React from 'react';
+import { Navbar, Container, Nav } from 'react-bootstrap';
+import logo from '../assets/logo.png';
+import styles from '../styles/NavBar.module.css';
+import { NavLink } from 'react-router-dom';
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from '../contexts/CurrentUserContext';
+import Avatar from './Avatar';
+import axios from 'axios';
+import useClickOutsideToggle from '../hooks/useClickOutsideToggle';
+import { removeTokenTimestamp } from '../utils/utils';
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
-  const {expanded, setExpanded, ref} = useClickOutsideToggle();
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
   // signs out a user
   const handleSignOut = async () => {
     try {
-      await axios.post('dj-rest-auth/logout/')
+      await axios.post('dj-rest-auth/logout/');
       setCurrentUser(null);
-      removeTokenTimestamp()
-    } catch(err) {
-      console.log(err)
+      removeTokenTimestamp();
+    } catch (err) {
+      console.log(err);
     }
-  }
+  };
 
   // specific icons to only be seen by logged out users
   const loggedOutIcons = (
@@ -68,27 +71,33 @@ const NavBar = () => {
         to={`/profiles/${currentUser?.profile_id}`}
         className={styles.NavLink}
       >
-        <Avatar src={currentUser?.profile_image} text="Profile" height={40}/>
+        <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
       </NavLink>
-      <NavLink
-        to="/"
-        className={styles.NavLink}
-        onClick={handleSignOut}
-      >
+      <NavLink to="/" className={styles.NavLink} onClick={handleSignOut}>
         <i className={`fa-solid fa-door-closed ${styles.hide}`}></i>Sign Out
       </NavLink>
     </>
   );
 
   return (
-    <Navbar expanded={expanded} className={styles.NavBar} expand="md" fixed="top">
+    <Navbar
+      expanded={expanded}
+      className={styles.NavBar}
+      expand="md"
+      fixed="top"
+    >
       <Container>
         <NavLink to="/">
           <Navbar.Brand>
             <img src={logo} alt="logo" height="45" />
           </Navbar.Brand>
         </NavLink>
-        <Navbar.Toggle className={styles.Hamburger} ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle
+          className={styles.Hamburger}
+          ref={ref}
+          onClick={() => setExpanded(!expanded)}
+          aria-controls="basic-navbar-nav"
+        />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <NavLink

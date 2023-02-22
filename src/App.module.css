@@ -1,11 +1,11 @@
 .App {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   background-color: #fffff1;
   min-height: 100vh;
 }
 
 .Main {
-    padding-top: 81px;
+  padding-top: 81px;
 }
 
 * {
@@ -19,11 +19,11 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: #F3D207;
+  color: #f3d207;
 }
 
 a:hover i {
-  color: #F3D207;
+  color: #f3d207;
   transition: color ease-in-out 0.3s;
 }
 

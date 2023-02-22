@@ -8,8 +8,8 @@
   margin-right: 2px;
   /* min-width: 75px; */
   width: 50%;
-  background-color: #F3D207;
-  color: #211A1D!important
+  background-color: #f3d207;
+  color: #211a1d !important;
 }
 
 .Button:hover {
@@ -45,24 +45,24 @@
 .YellowOutline,
 .Yellow:hover {
   background-color: #ffffff;
-  color: #F3D207;
+  color: #f3d207;
 }
 
 .Black,
 .BlackOutline:hover {
-  background-color: #211A1D;
-  color: #211A1D;
+  background-color: #211a1d;
+  color: #211a1d;
 }
 
 .Black:hover,
 .BlackOutline {
   background-color: #ffffff;
-  color: #211A1D;
+  color: #211a1d;
 }
 
 .Bright {
-  background-color: #F3D207;
-  color: #211A1D;
+  background-color: #f3d207;
+  color: #211a1d;
 }
 
 @media (max-width: 540px) {

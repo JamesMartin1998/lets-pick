@@ -1,6 +1,6 @@
-import React from "react";
-import { Spinner } from "react-bootstrap";
-import styles from "../styles/Asset.module.css";
+import React from 'react';
+import { Spinner } from 'react-bootstrap';
+import styles from '../styles/Asset.module.css';
 
 // create loading spinning to be shown whilst fetching data from the API
 // code used from Code Institute's Moments project

@@ -1,24 +1,24 @@
 // Code based from Code Institute's Moments project
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
 
-import Asset from "../../components/Asset";
+import Asset from '../../components/Asset';
 
-import styles from "../../styles/ProfilePage.module.css";
-import appStyles from "../../App.module.css";
+import styles from '../../styles/ProfilePage.module.css';
+import appStyles from '../../App.module.css';
 
-import { useParams } from "react-router-dom";
-import { axiosReq } from "../../api/axiosDefaults";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Image } from "react-bootstrap";
-import InfiniteScroll from "react-infinite-scroll-component";
-import Post from "../posts/Post";
-import NoResults from "../../assets/no-results.png";
-import { fetchMoreData } from "../../utils/utils";
-import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import { useParams } from 'react-router-dom';
+import { axiosReq } from '../../api/axiosDefaults';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import { Image } from 'react-bootstrap';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import Post from '../posts/Post';
+import NoResults from '../../assets/no-results.png';
+import { fetchMoreData } from '../../utils/utils';
+import { ProfileEditDropdown } from '../../components/MoreDropdown';
 
 // Allows users to view posts by a specific user, statistics and edit their profile details
 const ProfilePage = () => {
@@ -49,7 +49,6 @@ const ProfilePage = () => {
     };
     handleMount();
   }, [id, setProfileData]);
-
 
   // Shows details about a profile and renders a dropdown to edit the profile if the current user owns the profile
   const mainProfile = (

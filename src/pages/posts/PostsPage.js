@@ -1,40 +1,43 @@
 // Code based from Code Institute's Moments project
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-import Form from "react-bootstrap/Form";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import Dropdown from "react-bootstrap/Dropdown";
+import Form from 'react-bootstrap/Form';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
 
-import styles from "../../styles/PostsPage.module.css";
-import { useLocation } from "react-router-dom";
-import { axiosReq } from "../../api/axiosDefaults";
-import Post from "./Post";
+import styles from '../../styles/PostsPage.module.css';
+import { useLocation } from 'react-router-dom';
+import { axiosReq } from '../../api/axiosDefaults';
+import Post from './Post';
 
-import NoResults from "../../assets/no-results.png";
-import Asset from "../../components/Asset";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { fetchMoreData } from "../../utils/utils";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Button } from "react-bootstrap";
+import NoResults from '../../assets/no-results.png';
+import Asset from '../../components/Asset';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { fetchMoreData } from '../../utils/utils';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import { Button } from 'react-bootstrap';
 
-function PostsPage({ message, filter = "" }) {
+function PostsPage({ message, filter = '' }) {
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
 
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState('');
 
   const [vote1, setVote1] = useState(0);
   const [vote2, setVote2] = useState(0);
 
   const currentUser = useCurrentUser();
-  const addPostIcon = <Button className={styles.AddPost} href="/posts/create"><i className="far fa-plus-square" />Post</Button>
-
-  
+  const addPostIcon = (
+    <Button className={styles.AddPost} href="/posts/create">
+      <i className="far fa-plus-square" />
+      Post
+    </Button>
+  );
 
   // allows users to only see posts of a selected category
   const handleCategoryChange = (event) => {
@@ -84,7 +87,7 @@ function PostsPage({ message, filter = "" }) {
           </Form>
         </Col>
         <Col className={styles.DropdownCol}>
-        {/* Code for dropdown based on code from https://www.pluralsight.com/guides/how-to-capture-the-value-of-dropdown-lists-with-react-bootstrap */}
+          {/* Code for dropdown based on code from https://www.pluralsight.com/guides/how-to-capture-the-value-of-dropdown-lists-with-react-bootstrap */}
           <DropdownButton
             title="Category"
             className={styles.Dropdown}
@@ -96,7 +99,9 @@ function PostsPage({ message, filter = "" }) {
             <Dropdown.Item eventKey="people">People</Dropdown.Item>
             <Dropdown.Item eventKey="places">Places</Dropdown.Item>
             <Dropdown.Item eventKey="food">Food</Dropdown.Item>
-            <Dropdown.Item eventKey="entertainment">Entertainment</Dropdown.Item>
+            <Dropdown.Item eventKey="entertainment">
+              Entertainment
+            </Dropdown.Item>
             <Dropdown.Item eventKey="fashion">Fashion</Dropdown.Item>
             <Dropdown.Item eventKey="animals">Animals</Dropdown.Item>
             <Dropdown.Item eventKey="other">Other</Dropdown.Item>
@@ -106,13 +111,19 @@ function PostsPage({ message, filter = "" }) {
       </Row>
       <Row>
         <Col>
-        {/* checks to see if the API request has finished. Will load spinner until completed */}
+          {/* checks to see if the API request has finished. Will load spinner until completed */}
           {hasLoaded ? (
             <>
               {posts.results.length ? (
                 <InfiniteScroll
                   children={posts.results.map((post) => (
-                    <Post key={post.id} {...post} setPosts={setPosts} setVote1={setVote1} setVote2={setVote2} />
+                    <Post
+                      key={post.id}
+                      {...post}
+                      setPosts={setPosts}
+                      setVote1={setVote1}
+                      setVote2={setVote2}
+                    />
                   ))}
                   dataLength={posts.results.length}
                   loader={<Asset spinner />}

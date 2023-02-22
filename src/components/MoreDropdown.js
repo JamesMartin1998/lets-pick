@@ -1,8 +1,8 @@
 // Code based from Code Institute's Moments project
-import React from "react";
-import Dropdown from "react-bootstrap/Dropdown";
-import styles from "../styles/MoreDropdown.module.css";
-import { useHistory } from "react-router";
+import React from 'react';
+import Dropdown from 'react-bootstrap/Dropdown';
+import styles from '../styles/MoreDropdown.module.css';
+import { useHistory } from 'react-router';
 
 // sets three dots icon
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
@@ -24,7 +24,7 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
 
       <Dropdown.Menu
         className="text-center"
-        popperConfig={{ strategy: "fixed" }}
+        popperConfig={{ strategy: 'fixed' }}
       >
         <Dropdown.Item
           className={styles.DropdownItem}

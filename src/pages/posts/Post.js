@@ -1,12 +1,12 @@
 // Code based from Code Institute's Moments project
-import React, { useEffect, useState } from "react";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import styles from "../../styles/Post.module.css";
-import Avatar from "../../components/Avatar";
-import { axiosRes, axiosReq } from "../../api/axiosDefaults";
-import { MoreDropdown } from "../../components/MoreDropdown";
+import React, { useEffect, useState } from 'react';
+import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Link, useHistory } from 'react-router-dom';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import styles from '../../styles/Post.module.css';
+import Avatar from '../../components/Avatar';
+import { axiosRes, axiosReq } from '../../api/axiosDefaults';
+import { MoreDropdown } from '../../components/MoreDropdown';
 
 const Post = (props) => {
   const {
@@ -42,7 +42,7 @@ const Post = (props) => {
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
-      history.push("/");
+      history.push('/');
     } catch (err) {
       console.log(err);
     }
@@ -51,9 +51,9 @@ const Post = (props) => {
   // send post request to API to create vote instance as well as update the state for the votes count and specify vote type
   const handleOption1Vote = async () => {
     try {
-      const { data } = await axiosRes.post("/votes/", {
+      const { data } = await axiosRes.post('/votes/', {
         post: id,
-        option: "option1",
+        option: 'option1',
       });
       setPosts((prevPosts) => ({
         ...prevPosts,
@@ -78,9 +78,9 @@ const Post = (props) => {
   // send post request to API to create vote instance as well as update the state for the votes count and specify vote type
   const handleOption2Vote = async () => {
     try {
-      const { data } = await axiosRes.post("/votes/", {
+      const { data } = await axiosRes.post('/votes/', {
         post: id,
-        option: "option2",
+        option: 'option2',
       });
       setPosts((prevPosts) => ({
         ...prevPosts,
@@ -108,7 +108,7 @@ const Post = (props) => {
     // the the option count for the opposite vote option
     try {
       const { data } = await axiosRes.get(`/votes/${vote_id}/`);
-      if (data.option === "option1") {
+      if (data.option === 'option1') {
         await axiosRes.delete(`/votes/${vote_id}/`);
         setPosts((prevPosts) => ({
           ...prevPosts,
@@ -137,7 +137,7 @@ const Post = (props) => {
     // the the option count for the opposite vote option
     try {
       const { data } = await axiosRes.get(`/votes/${vote_id}/`);
-      if (data.option === "option2") {
+      if (data.option === 'option2') {
         await axiosRes.delete(`/votes/${vote_id}/`);
         setPosts((prevPosts) => ({
           ...prevPosts,
@@ -163,7 +163,7 @@ const Post = (props) => {
   // Sends post request to API to create favourite instance as well as update state
   const handleFavourite = async () => {
     try {
-      const { data } = await axiosRes.post("/favourites/", {
+      const { data } = await axiosRes.post('/favourites/', {
         post: id,
       });
       setPosts((prevPosts) => ({

@@ -1,24 +1,24 @@
 // Code based from Code Institute's Moments project
-import React, { useState, useEffect, useRef } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import React, { useState, useEffect, useRef } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Image from "react-bootstrap/Image";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Alert from "react-bootstrap/Alert";
-import styles from "../../styles/ProfileEditForm.module.css"
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Image from 'react-bootstrap/Image';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Alert from 'react-bootstrap/Alert';
+import styles from '../../styles/ProfileEditForm.module.css';
 
-import { axiosReq } from "../../api/axiosDefaults";
+import { axiosReq } from '../../api/axiosDefaults';
 import {
   useCurrentUser,
   useSetCurrentUser,
-} from "../../contexts/CurrentUserContext";
+} from '../../contexts/CurrentUserContext';
 
-import btnStyles from "../../styles/Button.module.css";
-import appStyles from "../../App.module.css";
+import btnStyles from '../../styles/Button.module.css';
+import appStyles from '../../App.module.css';
 
 // Allows user to edit their profile by changing their image and description
 const ProfileEditForm = () => {
@@ -29,9 +29,9 @@ const ProfileEditForm = () => {
   const imageFile = useRef();
 
   const [profileData, setProfileData] = useState({
-    name: "",
-    description: "",
-    image: "",
+    name: '',
+    description: '',
+    image: '',
   });
   const { name, description, image } = profileData;
 
@@ -47,10 +47,10 @@ const ProfileEditForm = () => {
           setProfileData({ name, description, image });
         } catch (err) {
           console.log(err);
-          history.push("/");
+          history.push('/');
         }
       } else {
-        history.push("/");
+        history.push('/');
       }
     };
 
@@ -69,11 +69,11 @@ const ProfileEditForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
-    formData.append("name", name);
-    formData.append("description", description);
+    formData.append('name', name);
+    formData.append('description', description);
 
     if (imageFile?.current?.files[0]) {
-      formData.append("image", imageFile?.current?.files[0]);
+      formData.append('image', imageFile?.current?.files[0]);
     }
 
     try {
@@ -113,7 +113,10 @@ const ProfileEditForm = () => {
       >
         cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Bright} ${styles.Button}`} type="submit">
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Bright} ${styles.Button}`}
+        type="submit"
+      >
         save
       </Button>
     </>

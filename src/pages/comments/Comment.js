@@ -1,13 +1,13 @@
 // Code based from Code Institute's Moments project
-import React, { useState } from "react";
-import CommentEditForm from "./CommentEditForm";
-import { Media } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { axiosRes } from "../../api/axiosDefaults";
-import Avatar from "../../components/Avatar";
-import { MoreDropdown } from "../../components/MoreDropdown";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import styles from "../../styles/Comment.module.css";
+import React, { useState } from 'react';
+import CommentEditForm from './CommentEditForm';
+import { Media } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { axiosRes } from '../../api/axiosDefaults';
+import Avatar from '../../components/Avatar';
+import { MoreDropdown } from '../../components/MoreDropdown';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import styles from '../../styles/Comment.module.css';
 
 const Comment = (props) => {
   const {

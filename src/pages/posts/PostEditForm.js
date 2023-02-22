@@ -1,29 +1,28 @@
 // Code based from Code Institute's Moments project
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Image from "react-bootstrap/Image";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Image from 'react-bootstrap/Image';
 
-
-import styles from "../../styles/PostCreateEditForm.module.css";
-import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
-import { useHistory, useParams } from "react-router-dom";
-import { axiosReq } from "../../api/axiosDefaults";
-import { Alert } from "react-bootstrap";
+import styles from '../../styles/PostCreateEditForm.module.css';
+import appStyles from '../../App.module.css';
+import btnStyles from '../../styles/Button.module.css';
+import { useHistory, useParams } from 'react-router-dom';
+import { axiosReq } from '../../api/axiosDefaults';
+import { Alert } from 'react-bootstrap';
 
 function PostEditForm() {
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
-    title: "",
-    category: "",
-    image: "",
-    content: "",
+    title: '',
+    category: '',
+    image: '',
+    content: '',
   });
 
   const { title, category, image, content } = postData;
@@ -42,7 +41,7 @@ function PostEditForm() {
         const { title, category, image, content, is_author } = data;
         is_author
           ? setPostData({ title, category, image, content })
-          : history.push("/");
+          : history.push('/');
       } catch (err) {
         console.log(err);
       }
@@ -82,12 +81,12 @@ function PostEditForm() {
     event.preventDefault();
     const formData = new FormData();
 
-    formData.append("title", title);
-    formData.append("category", category);
-    formData.append("content", content);
+    formData.append('title', title);
+    formData.append('category', category);
+    formData.append('content', content);
 
     if (imageInput?.current?.files[0]) {
-      formData.append("image", imageInput.current.files[0]);
+      formData.append('image', imageInput.current.files[0]);
     }
 
     try {
@@ -129,7 +128,9 @@ function PostEditForm() {
         <Col className="pt-3">
           <Container>
             <Form.Group controlId="category">
-              <Form.Label className={`${styles.Label} d-none`}>Category</Form.Label>
+              <Form.Label className={`${styles.Label} d-none`}>
+                Category
+              </Form.Label>
               <Form.Control
                 as="select"
                 value={category}
