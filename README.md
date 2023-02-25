@@ -1,8 +1,8 @@
 # Let's Pick - Voting App
 
-Let's Vote is a voting app which allows users to make posts about two things and have people vote on which is best. The website aims to be a fun, social place to for people to light-heartedly share their interests with other people. Users are able to be creative and share their interests with other users in numerous ways. For example, users can interact through posting content for other uses to see, voting on other users' posts and also commenting on posts. The home page displays the most recent posts by all users in a feed, where users can infintely scroll to load more posts. Users are able to tailor the posts that they see to match their interests by using the search bar or category dropdown to filter the post feed. Users can also revisit posts that they have previously voted on via the 'Your Votes' page, as well as revisit posts that they have favourited via the 'Favourites' page. Users can are also able to see their own or other users' profile information, such as the total number of posts, votes made and votes received by the user. This aims to encourage users to actively participate in the community and create a sense of competition and commitment to the app. Full CRUD functionality is available to the user, as both posts and comments are able to created, read, updated and deleted if the user is the author. Users are also able to remove their votes on specific posts and then revote for an alternative option. Finally users are able to control the content of their profiles, namely their username, password, description and profile image, which aims to act as an additional source of creativity on the website.
+Let's Pick is a voting app which allows users to make posts about two things and have people vote on which is best. The website aims to be a fun, social place to for people to light-heartedly share their interests with other people. Users are able to be creative and share their interests with other users in numerous ways. For example, users can interact through posting content for other uses to see, voting on other users' posts and also commenting on posts. The home page displays the most recent posts by all users in a feed, where users can infintely scroll to load more posts. Users are able to tailor the posts that they see to match their interests by using the search bar or category dropdown to filter the post feed. Users can also revisit posts that they have previously voted on via the 'Your Votes' page, as well as revisit posts that they have favourited via the 'Favourites' page. Users are also able to see their own or other users' profile information, such as the total number of posts, votes made and votes received by the user. This aims to encourage users to actively participate in the community and create a sense of competition and commitment to the app. Full CRUD functionality is available to the user, as both posts and comments are able to created, read, updated and deleted if the user is the author. Users are also able to remove their votes on specific posts and then revote for an alternative option. Finally users are able to control the content of their profiles, namely their username, password, description and profile image, which aims to act as an additional source of creativity on the website.
 
-The target audience for the website is vast due to the variety of content that can exist on the website. Coupled with the search and category filtering feature, the webiste is able to offer a personalised experience for users with totally contrasting intersts. This said, the target audience includes social and creative people as they would engage the most with the functionality of this website. Let's Vote aims to make this audience recurrent users by providing them with a community and opportunity to interact, as well as giving them an oppotunity to be creative with their posts content. The website aims for people to post and check for posts that interest them daily.
+The target audience for the website is vast due to the variety of content that can exist on the website. Coupled with the 'search' and 'category' filtering feature, the webiste is able to offer a personalised experience for users with totally contrasting intersts. This said, the target audience includes social and creative people as they would engage the most with the functionality of this website. Let's Pick aims to make this audience into recurrent users by providing them with a community and opportunity to interact, as well as giving them an oppotunity to be creative with their posts' content. The website aims to have people post and check for posts that interest them daily.
 
 ![Image showing the website's responsiveness on different screens](/src/assets/responsive.png)
 
@@ -35,7 +35,7 @@ The home page has a fully responsive layout which is also used throughout the pa
 
 ![Image showing the add post page wireframe](/src/assets/create-post-wireframe.png)
 
-The 'Add Post' page aims to provide a simple form for users to create posts. The image preview was particularly important as it allows users to check their image before submitting the post; nd thus provide a better user experience.
+The 'Add Post' page aims to provide a simple form for users to create posts. The image preview was particularly important as it allows users to check their image before submitting the post; and thus provide a better user experience.
 
 ### Edit Post Page
 
@@ -47,7 +47,7 @@ The 'Edit Post' page layout copies the 'Add Post' page layout to provide familia
 
 ![Image showing the profile page](/src/assets/profile-wireframe.png)
 
-The 'Profile' page information about a specific user. The central profile image, along with the profile title, clearly informs users whose profile they are visiting. The statistics section below, clearly provides information about the profile's activity. The centralised feed remains consistent with the layout of the other pages.
+The 'Profile' page shows information about a specific user. The central profile image, along with the profile title, clearly informs users whose profile they are visiting. The statistics section below, clearly provides information about the profile's activity. The centralised feed remains consistent with the layout of the other pages.
 
 ### Sign Up Page
 
@@ -59,7 +59,7 @@ The 'Sign Up' page aims to provide a simple, attractive form for which users can
 
 ![Image showing the sign in page](/src/assets/sign-in-wireframe.png)
 
-The 'Sign In' page follows the same layout as the 'Sign Up' page and aims similarly aims to provide a simple, attractive form for which users can sign into their account.
+The 'Sign In' page follows the same layout as the 'Sign Up' page and similarly aims to provide a simple, attractive form for which users can sign into their account.
 
 ### Profile Page
 
@@ -67,7 +67,7 @@ The 'Sign In' page follows the same layout as the 'Sign Up' page and aims simila
 
 ### Edit Profile Page
 
-The 'Edit Profile' page allows users to change their profile image and description. Similarly to the 'Post Edit' page, the 'Edit Profile' form loads with the previous profile data filled. This provides a better user experience as users can easily update their data by changing the original. The profile image can also be previewed to allow users to check the image.
+The 'Edit Profile' page allows users to change their profile image and a description. Similarly to the 'Post Edit' page, the 'Edit Profile' form loads with the previous profile data filled. This provides a better user experience as users can easily update their data by changing the original data. The profile image can also be previewed to allow users to check the image.
 
 ### Edit Username Page
 
@@ -83,15 +83,15 @@ The 'Edit Password' page aims to provide a simple, yet attractive form for users
 
 ## User Stories
 
-An agile development strategy was implemented in this project as user stories were created as 'Issues' on GitHub. Each user story prioritised b being assigned a level of necessity to be included in the project - 'Should-Have', 'Could-Have' or 'Must-Have' and seen can be seen as labels attached to the user stories. These user stories were then put onto a kanban board using 'GitHub Projects'. Here, user stories could be moved between 'To do', 'In progress (current sprint)' and 'Done' columns.
+An agile development strategy was implemented in this project as user stories were created as 'Issues' on GitHub. Each user story was prioritised by being assigned a level of necessity to be included in the project - 'Should-Have', 'Could-Have' or 'Must-Have' and seen can be seen as labels attached to the user stories. These user stories were then put onto a kanban board using 'GitHub Projects'. Here, user stories could be moved between 'To do', 'In progress (current sprint)' and 'Done' columns.
 
 - Issues can be found [here](https://github.com/JamesMartin1998/lets-pick/issues).
 - Kanban board can be found [here](https://github.com/users/JamesMartin1998/projects/4)
 
 ### Epic 1: Navigation
 
-1. As a **user** I can **view a navbar on each page** so that **I can use the links to change my current page**.
-2. As a **user** I can **navigate between pages quickly** so that **I am not delayed by unnecessary page refreshes**.
+1. As a **user**, I can **view a navbar on each page** so that **I can use the links to change my current page**.
+2. As a **user**, I can **navigate between pages quickly** so that **I am not delayed by unnecessary page refreshes**.
 3. As a **user**, I can **see the log in and sign up links when logged out, compared to the log out link when logged in**, so that **I can access the appropriate actions accordingly**.
 
 ### Epic 2: Authentication
@@ -99,18 +99,18 @@ An agile development strategy was implemented in this project as user stories we
 1. As a **user**, I can **sign up for an account** so that **I can have access to more functionality on the website**.
 2. As a **user**, I can **sign in to my account** so that **I can access to additional functionality**.
 3. As a **user**, I can **see my logged in status** so that **I know if am currently logged in or not**.
-4. As a **user**, I can **see users’ avatars** so that **I can identify specify profiles easily**.
+4. As a **user**, I can **see users’ avatars** so that **I can identify specific profiles easily**.
 
 ### Epic 3: Posts
 
 1. As a **logged in user**, I can **create posts** so that **I can create content on the website**.
 2. As a **user**, I can **click on a post to view it individually** so that **I can view more details such as its comments**.
-3. : As a **post author**, I can **edit my post** so that **I can correct the post’s details**.
+3. As a **post author**, I can **edit my post** so that **I can correct the post’s details**.
 4. As a **post author** , I can **delete my own post** so that **it is removed from my profile**.
 5. As a **user**, I can **view the most recent posts at the top of a continuous feed** so that **I see new content first**.
 6. As a **user**, I can **search for specific posts by post title and author** so that **I can find posts that I am interested in**.
 7. As a **user**, I can **filter posts by selecting a category** so that **I can see posts that I am interested in**.
-8. As a **user**, I can **view a feed on posts by scrolling down continuously to load more posts** so that **I don’t have to reload new pages with more posts**.
+8. As a **user**, I can **view a feed of posts by scrolling down continuously to load more posts** so that **I don’t have to reload new pages with more posts**.
 9. As a **user**, I can **view a post’s page** so that **I can read comments about the post**.
 
 ### Epic 4: Votes
@@ -153,7 +153,7 @@ An agile development strategy was implemented in this project as user stories we
 - The active page's nav link appears yellow to indicate to the user which page they are currently viewing.
 - Allows the user to navigate between pages on the website.
 - On smaller screens, a hamburger icon appears and opens a dropdown menu when clicked, displaying all of the navbar links. This provides a better user experience as the navbar doesn't have to take up unnecessary space and it maximises the space for other content.
-- On smaller screens, the navbar automatically closes after clicking a nav link or clicking off of the nav bar to provide a better users experience.
+- On smaller screens, the navbar automatically closes after clicking a nav link or clicking off of the nav bar to provide a better user experience.
 - Conditional rendering is used to display different nav links to users that are logged in and logged out. This limits users to being able to only use site functionality relevant to their log in status.
 - Users are able to see their log in state in the navbar.
 - Created using Bootstrap for a simple, responsive design.
@@ -173,12 +173,12 @@ An agile development strategy was implemented in this project as user stories we
 ### Home Page
 
 - Displays the most recent posts to the user in a continuous feed.
-- Controls section at the top of the page includes a search bar, category filter and post button. These are above the posts so that the user is instantly aware that they can manipulate the page content.
+- Controls section at the top of the page includes a search bar, category filter and post button. These are above the posts so that the user is instantly aware that they can manipulate the page's content.
 - Category dropdown and Post button are a dark grey colour and yellow when hovered on and clicked; to provide contrast with the background and stay consistent with the colour theme of the website.
 - Search bar allows users to search for posts on the website by title and author name. A 1 second interval is set after typing to fetch the post results so that the user is overwhelmed by constantly changing results after each keystroke. The search bar improves the user experience on the website by allowing users to find specific posts that interest them.
-- Category dropdown allows users to filter the posts in the feed by their category. This is improves the user experience by allowing users to customise the returned posts to a single category of their interest.
+- Category dropdown allows users to filter the posts in the feed by their category. This improves the user experience by allowing users to customise the returned posts to a single category of their interest.
 - Post button allows users to be redirected to the 'Create Post' page, where they can add their own post to the website. The button only appears if the current user is logged in.
-- Each post is defined on a light blue background with margin between the post above or below. This allows each post to be distinguished easily.
+- Each post is defined on a light blue background with margin between the post above and below. This allows each post to be distinguished easily.
 - Each post clearly shows information such as the author, date created, title and description and image. Clicking on the post image will redirect users to the 'Post' page, where they can find more details. Clicking on the profile image will redirect users to the author's 'Profile' page.
 - Bold text under each side of the image informs users clearly which option is which.
 - Buttons are present at the bottom of the post to allow the user to comment, vote for either option and favourite the post.
@@ -215,7 +215,7 @@ An agile development strategy was implemented in this project as user stories we
 - Comments show the content, date/time updated, author's name and author's profile image.
 - Infinite scrolling is present for posts that have more than 10 comments.
 - If ther current user is the author of the post, a more options dropdown button will appear as three dots. When clicked, the user can select the pencil button to be redirected to the 'Edit Post' page, or the bin to delete the post.
-- If ther current user is the author of the comment, a more options dropdown button will appear as three dots. When clicked, the user can select the pencil button to load the 'Edit Comment' form, or the bin to delete the comment.
+- If the current user is the author of the comment, a more options dropdown button will appear as three dots. When clicked, the user can select the pencil button to load the 'Edit Comment' form, or the bin to delete the comment.
 
 ![Image showing the more dropdown on the post page](/src/assets/post-more-dropdown.png)
 (Post Page - More Dropdown Button Open)
@@ -335,7 +335,7 @@ An agile development strategy was implemented in this project as user stories we
 
 ## React Components
 
-React components are blocks of code that are reusable throughout an application. Rather than categorising each page as a whole, each page can be broken down into parts, known as components. They are advantageous as they reduce the need for writing the same code multiple times for different pages. Large pages can often be quite complex, so working on a particular part (component) of a page independently can reduce complexity and the opportunity for making errors. Additionally, an error caused in a particular component will be isolated to itself so won't impact the whole site's functionality. Finally, components were used to easily provide a consistent and familiar theme and user experience across the website
+React components are blocks of code that are reusable throughout an application. Rather than categorising each page as a whole, each page can be broken down into parts, known as components. They are advantageous as they reduce the need for writing the same code multiple times for different pages. Large pages can often be quite complex, so working on a particular part (component) of a page independently can reduce complexity and the opportunity for making errors. Additionally, an error caused in a particular component will be isolated to itself so won't impact the whole site's functionality. Finally, components were used to easily provide a consistent and familiar theme and user experience across the website.
 
 ### Asset
 
@@ -354,7 +354,7 @@ React components are blocks of code that are reusable throughout an application.
 - MoreDropdown used on posts and comments, to allow the author to edit or delete their content.
 - ProfileDropdown variation allows the profile owner to edit their profile or change their username and password.
 - Improves the user experience as users become familiar with the 3 dot icon and assoicate it with allowing them to access more functionality on the site.
-- Also improves the user experience by allowing supplementary content to be hidden from the main content. Thus, not keeping the laout simple and not overwhelming for the user.
+- Also improves the user experience by allowing supplementary content to be hidden from the main content. Thus, not keeping the layout simple and not overwhelming for the user.
 
 ### NavBar
 
@@ -371,7 +371,7 @@ React components are blocks of code that are reusable throughout an application.
 ## Future Features
 
 - Vote Percentage Bar
-  - Currently users can see which option is more popular on each post by comparing the number for each option. In the future a bar could be added to each post and two colours could be used to show the percentage of each vote option. The bar could move using a transition effect when a user adds a vote on a post. This would provide a more attractive graphic to users.
+  - Currently users can see which option is more popular on each post by comparing the number for each option. In the future, a bar could be added to each post and two colours could be used to show the percentage of each vote option. The bar could move using a transition effect when a user adds a vote on a post. This would provide a more attractive graphic to users.
 - Followers
   - At the beginning of this project I thought that having followers is unnecessary for this website. I still believe that the site funcitons sufficiently without the need of followers. However I can see how following profiles could make the site superior as users could also have a page to see the posts from users that they follow. This would provide an extra level to the custom experience on the site.
 - Multiple Post Images
@@ -423,11 +423,11 @@ React components are blocks of code that are reusable throughout an application.
 | 023       | A loading spinner is shown on the 'Home', 'Your Votes', 'Favourites' pages whilst the post data is being retrieved.                              | A loading spinner appears initially and is then replaced by a feed of posts.                                                                                                    | Pass        |
 | 024       | When no posts exist on the 'Home', 'Your Votes', 'Favourites' pages. A message is displayed to inform the user that there are no results.        | No results image and message seen on each page when no posts exist.                                                                                                             | Pass        |
 | 025       | When more than 10 posts exist, infinite scrolling is used to render more posts as the user scrolls down the page.                                | User can render more than 10 posts by scrolling down the page.                                                                                                                  | Pass        |
-| 026       | The search bar can be used to filter the posts feed by a post's title or author's name.                                                          | The search bar returns a feed of posts the where the input matches either the post's title or author's name.                                                                    | Pass        |
+| 026       | The search bar can be used to filter the posts feed by a post's title or author's name.                                                          | The search bar returns a feed of posts where the input matches either the post's title or author's name.                                                                    | Pass        |
 | 027       | The category dropdown can be used to filter the posts feed to a single category.                                                                 | When a category is selected, the posts feed ony includes posts of that category.                                                                                                | Pass        |
 | 028       | The 'Post' button (allowing users to add a post) only renders for logged in users.                                                               | Only logged in users can see the 'Post' button.                                                                                                                                 | Pass        |
-| 029       | Each post in the feed displays the all the correct information about the post.                                                                   | Each post includes a title, author name, profile image, date, description, image, comment button, vote option1 button, vote option2 button and favourite button.                | Pass        |
-| 030       | 'Post' page (showing detail about a particular post) can be accessed by clicking on a particular post's image.                                   | Cliciking on a post's image loads a page containing only the specific post.                                                                                                     | Pass        |
+| 029       | Each post in the feed displays all the correct information about the post.                                                                   | Each post includes a title, author name, profile image, date, description, image, comment button, vote option1 button, vote option2 button and favourite button.                | Pass        |
+| 030       | 'Post' page (showing detail about a particular post) can be accessed by clicking on a particular post's image.                                   | Clicking on a post's image loads a page containing only the specific post.                                                                                                     | Pass        |
 | 031       | The 'Post' page shows comments for a post if they exist, or a message if they don't.                                                             | Comments can be seen in a feed below the post when they exist. If there are no comments, the user is informed.                                                                  | Pass        |
 | 032       | If a post has more than 10 comments, these can be loaded by scrolling down the page.                                                             | Infinite scrolling is present, as scrolling down the page loads more comments if they exist.                                                                                    | Pass        |
 | 033       | If the user is logged in, the 'Post' page shows the 'Add Comment' form.                                                                          | 'Add Comment' visible under the post, only if the user is logged in.                                                                                                            | Pass        |
@@ -456,7 +456,7 @@ React components are blocks of code that are reusable throughout an application.
 | 051       | Users are unable to vote for both options and are informed by an overlay message.                                                                                           | Users cannot vote for both options. An overlay message is seen when hovering over the vote option and the count doesn't increase when clicked. | Pass        |
 | 052       | When a user successfully votes, the vote instance is created in the API. The post instance has its votes_count and specific option count field updated in the API.          | A vote instance is created and the post instance is updated correctly in the API.                                                              | Pass        |
 | 053       | Users are able to delete their votes by clicking on the vote option button again.                                                                                           | Vote is deleted. The option count next to the button decreases by 1.
-| 054       | When a user successfully deletes a vote, the count for the specific vote option is decreased by 1                                                                                       | Deleting a vote for an option causes the number beside the button (count) to decrease by one.                                                                                             | Pass        |                                                                           | Pass        |
+| 054       | When a user successfully deletes a vote, the count for the specific vote option is decreased by 1.                                                                                       | Deleting a vote for an option causes the number beside the button (count) to decrease by one.                                                                                             | Pass        |                                                                           | Pass        |
 | 055       | When a user successfully deletes a vote, the vote instance is deleted in the API. The post instance has its votes_count and specific option count field updated in the API. | A vote instance is created and the post instance is updated correctly in the API.                                                              | Pass        |
 | 056       | A user can vote for the other option (effectively edit their vote choice) on a post if they have deleted their previous vote on the post.                                   | Users are able to change their vote choice if they have deleted their previous vote on the post.                                               | Pass        |
 
@@ -469,7 +469,7 @@ React components are blocks of code that are reusable throughout an application.
 | 059       | Users cannot add a comment of empty content.                                                                                                         | Submitting an empty comment form doesn't result in a comment being made.                                                                                                                | Pass        |
 | 060       | When a user comments on a post, the count for comments is increased by 1.                                                                            | Commenting on a post causes the number beside the button (count) to increase by one.                                                                                                    | Pass        |
 | 061       | When a user successfully creates a comment, a comment instance is created in the API. The post instance has its comments_count updated in the API.   | A comment instance is created and the post instance is updated correctly in the API.                                                                                                    | Pass        |
-| 062       | Authors of a comment, can edit their comment.                                                                                                        | Comment authors can see a 'MoreDropdown' icon and click the edit button to render a 'Edit Comment' form. Updating the content and saving the form results in the comment being updated. | Pass        |
+| 062       | Authors of a comment can edit their comment.                                                                                                        | Comment authors can see a 'MoreDropdown' icon and click the edit button to render a 'Edit Comment' form. Updating the content and saving the form results in the comment being updated. | Pass        |
 | 063       | Users cannot edit a comment they are not the author of.                                                                                              | No 'MoreDropdown' icon is rendered on the comment so they cannot edit its content.                                                                                                      | Pass        |
 | 064       | When a user successfully edits a comment, the comment instance is updated in the API.                                                                | A comment instance is created in the API.                                                                                                                                               | Pass        |
 | 065       | Authors of a comment, can delete their comment.                                                                                                      | Comment authors can see a 'MoreDropdown' icon and click the delete button to delete the comment.                                                                                        | Pass        |
@@ -498,7 +498,7 @@ React components are blocks of code that are reusable throughout an application.
 | 077       | Logged in users can also access their own profile via the 'Profile' navlink.                                                                                  | Navlink is present and redirects the user correctly.                                                     | Pass        |
 | 078       | Profile page renders an information section (e.g. profile image, title, description), statistics (posts, votes made, votes received) section and posts feed.  | Profile page renders information, statistics and feed sections.                                          | Pass        |
 | 079       | The statistics section shows the correct information.                                                                                                         | Statistics accurately show the number of posts, votes made and votes received by a user.                 | Pass        |
-| 080       | When a user visits another user's profile and votes on one of their posts, the votes received count increases by correctly.                                   | Voting on a post in the feed on the profile page causes the votes received to increase by 1.             | Pass        |
+| 080       | When a user visits another user's profile and votes on one of their posts, the votes received count increases correctly.                                   | Voting on a post in the feed on the profile page causes the votes received to increase by 1.             | Pass        |
 | 081       | When a user visits another user's profile and removes a vote on one of their posts they had previous voted on, the votes received count decreases correctly.  | Removing a vote on a post in the feed on the profile page causes the votes received to decrease by 1.    | Pass        |
 | 082       | If a user votes or removes a vote on a post and then returns to their profile, the votes made count updates correctly.                                        | Voting on post increases the vote count, and removing a vote decreases the vote made count.              | Pass        |
 | 083       | If a user creates a post or deletes a post and then returns to their profile, the post count updates correctly.                                               | Creating a post increases the post count, and deleting a post decreases the post count.                  | Pass        |
